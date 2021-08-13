@@ -1,0 +1,115 @@
+<div class='container profile_show_container'>
+
+    <div class='row profile_show_row'>
+
+        <%= render :partial=>'profiles/top_nav' %>
+
+        <div class='col-md-6 profile_show_column_left'>
+
+            <div class='avatar'>
+
+                <% if @profile.avatar.attached? %>
+                    <%= image_tag(@profile.avatar_) %>
+                <% else %>
+                    <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
+                <% end %>
+
+            </div>
+
+        </div> 
+
+        <div class='col-md-6 profile_show_column_right'>
+
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item"><%= @profile.profile_name %></li>
+                <li class="list-group-item"><%= @profile.country %></li>
+                <li class="list-group-item a_tag"><%= link_to @profile.my_site, @profile.my_site, :rel=>'nofollow' %></li>
+                <li class="list-group-item"><%= @profile.instagram_url %></li>
+                <li class="list-group-item"><%= @profile.facebook_url %></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class='row profile_show_row_bottom'>
+
+        <div class='col-md-12 profile_show_column_bottom'>
+            <%= @profile.description %>
+        </div>
+
+    </div>
+
+    <div class='row profile_show_numbers_row'>
+
+        <div class='col-md-12 profile_show_numbers_column'>
+
+            <div class='total_uploaded_photos'>
+
+                <span class='title'>Photos:</span>
+                <span class='number'><%= @uploaded %></span>
+                
+            </div>
+
+             <div class='total_photos_views'>
+
+                <span class='title'>Views:</span>
+                <span class='number'><%= @views %></span>
+                
+            </div>
+
+            <div class='total_photos_likes'>
+
+                <span class='title'>Likes:</span>
+                <span class='number'><%= @likes %></span>
+                
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class='row most_viewed_photos_row'>
+
+        <div class='col-md-12 most_viewed_photos_column'>
+
+            <span class='title'>6 Most Viewed Photos</span>
+
+            <div class='photos_container'>
+
+                <% @most_viewed.each do |f| %>
+
+                    <div class='photo'><span class='counter'><%= f.views %></span><%= image_tag(f.image_url(:thumb), :alt=>'photo' ) %></div>
+
+                <% end %>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class='row most_liked_photos_row'>
+
+        <div class='col-md-12 most_liked_photos_column'>
+
+            <span class='title'>6 Most Liked Photos</span>
+
+            <div class='photos_container'>
+
+                <% @most_liked.each do |f| %>
+
+                    <div class='photo'><span class='counter'><%= f.likes %></span><%= image_tag(f.image_url(:thumb), :alt=>'photo' ) %></div>
+
+                <% end %>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

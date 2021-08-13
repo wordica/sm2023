@@ -1,0 +1,60 @@
+<% content_for :head do %>    
+
+    <title>ZakochanaPolska.pl - Twój Profil</title>
+    <meta name="description" content='Twój profil na portalu randkowym zakochanapolska.pl. Zachęcamy do częstego logowania się na portalu aby zwiększyć swoje szansę na poznanie nowych osób.' >
+    <meta name='keywords' content="darmowy portal randkowy, portal randkowy, portale randkowe, serwis radnkowy, randki, randkowy, randkowe, portal, portale">
+
+<% end %>
+
+<div class='row add_photo_row'>
+  <div class='col-md-12 add_photo_col'>
+
+    <%= form_with(model: photo) do |form| %>
+
+      <% if photo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+          <ul>
+            <% photo.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+
+      <% end %>
+
+      
+      <div class='row upload_field'>
+
+
+        <h1 class='upload_photo_h1'>Upload New Photo</h1>
+        <h6 class='upload_photo_h6'>You can upload unlimited number of image<br>But remember, photos must be checked<br>Low quality or poor content photography won't be accepted.</h6>
+        
+
+        
+
+        <div class='upload_inputs_column'>
+
+          <div class="input-group mb-3 input_group">
+
+            <%= form.file_field :image, :class=>'input-group-text', :id=>'inputGroupFile02' %>
+            
+            <%= form.submit "Upload Image" ,data: { disable_with: "Uploading, please wait..."}, :class=>'input-group-text load_button', :id=>'load_button' %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    <% end %>
+
+    
+
+  </div>
+  
+</div>
+
+
+

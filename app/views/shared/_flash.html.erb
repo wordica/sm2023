@@ -1,0 +1,5 @@
+<div id="flash_messages">
+  <% flash.each do |key, value| %>
+    <%= render :partial => 'shared/flash_element', :locals => { :key => key.to_s.downcase, :value => value } %>
+  <% end %>
+</div>

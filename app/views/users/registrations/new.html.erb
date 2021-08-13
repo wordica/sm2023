@@ -1,0 +1,90 @@
+<div class='container reg_container'>
+
+  <div class='row reg_form_row'>
+
+    <div class='col-md-12 reg_form_column'>
+
+      <div class='reg_inner_container'>
+
+        <div class='row second_reg_row'>
+
+          <div class='col-md-12 reg_inner_column'>
+
+              <h2 class='reg_lab'>Sign Up Now!</h2>
+              <%= semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>'validate'} do |f| %>
+              
+                <%= render "users/shared/error_messages", resource: resource %>
+                <%#= recaptcha_v3(action: 'signup') %>
+                
+
+                <div class="col-md-6 offset-md-3 user_name_field">
+
+                  <%= f.label :username, 'Profile Name' %>
+                  <%= f.text_field :username, :autocomplete => 'off', :class=>'form-control form-control-lg username_reg_input', placeholder: "Your profile name" %>
+
+                </div>
+
+                <div class="col-md-6 offset-md-3 email_field">
+                  <%= f.label :email, 'Email adress' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>'form-control form-control-lg email_reg_input', placeholder: "You will use it to sign in" %>
+                </div>
+
+                <div class="col-md-6 offset-md-3 password_field">
+
+                  <%= f.label :password, 'Password' %>
+
+                  <% if @minimum_password_length %>
+
+                  <em>(at least <%= @minimum_password_length %> characters)</em>
+
+                  <% end %>
+
+                  <%= f.password_field :password, :class=>'form-control form-control-lg pass_1_reg_input', placeholder: "Password" %>
+
+                </div>
+
+                <div class="col-md-6 offset-md-3 password_2_field">
+
+                  <%= f.label :password_confirmation, "Confirm Password" %>
+
+                  <%= f.password_field :password_confirmation, :class=>'form-control form-control-lg pass_2_reg_input', placeholder: "Confirm Password" %>
+
+                </div>
+
+                <div class='col-md-6 offset-md-3 reg-terms-fields'>
+
+                    
+                    <%= f.input :terms,  :as => :boolean, :required => true, :label => 'Akceptuje regulamin portalu i politykę prywatności', :input_html => { } %>
+
+                    <%= f.input :personal_data,  :as => :boolean, :required => true, :label => 'Wyrażam zgodę na przetwarzanie danych osobowych', :input_html => { } %>
+
+                    <%= f.input :marketing,  :as => :boolean, :required => false, :label => 'Wyrażam zgodę na otrzymywanie informacji marketingowych drogą elektroniczną wysyłanych za pomocą środków komunikacji elektronicznej', :input_html => { } %>
+                    
+                    <%= f.input :marketing_second, :as => :boolean, :required => false, :label => 'Wyrażam zgodę na używanie urządzeń końcowych i automatycznych systemów wywołujących, dla celów marketingu bezpośredniego' , :input_html => { } %>
+                    
+
+                </div>
+
+                <div class='row submit_row'>
+
+                  <div class='col-md-12 submit_column'>
+
+                    <%= f.submit "Open Account",data: { disable_with: "Registering account..."} %>
+
+                  </div>
+                    <%#= recaptcha_tags %>
+                </div>
+
+              <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,473 @@
+
+
+.photos_index_main_container{
+
+	margin: 15px 0px 0px 0px;
+	padding: 15px 0px 15px 0px;
+	
+	background-image: image-url('patterns/top_black_pattern_opacity.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+
+	#notice{
+
+
+	}
+
+
+	.title_row{
+
+		text-align: center;
+
+		.title_column{
+
+			padding: 0px 0px 0px 0px;
+
+			h1{
+				font-family: 'Poppins';
+				font-size: 24px;
+				color:#333333;
+				font-weight: 700;
+				letter-spacing: 0px;
+				text-transform: uppercase;
+
+			}
+
+			h6{
+
+				font-family: 'Poppins';
+				font-size: 14px;
+				color:#666666;
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0px;
+				
+				b{
+					color: #333333;
+				}
+			}
+		}
+	}
+
+
+	.add_new_row{
+
+		padding: 0px 0px 0px 0px;
+
+		.add_new_column{
+
+			padding: 0px 0px 0px 0px;
+
+			.add_new_button{
+
+				text-align: center;
+				margin: 15px 0px 0px 0px;
+
+				a{
+					display: inline-block;
+					padding: 8px 14px 8px 14px;
+					font-family: 'Roboto';
+					font-weight: 500;
+					color: #333333;
+					font-size: 16px;
+					text-transform: uppercase;
+					text-decoration: none !important;
+
+					background-color: #ffffff;
+					box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12);
+					text-align: center;
+
+					-webkit-transition: all ease 0.3s;
+					-moz-transition: all ease 0.3s;
+					-o-transition: all ease 0.3s;
+					transition: all ease 0.3s;
+
+				}:hover{
+
+					background-color: #ff9800;	
+					color: #ffffff;
+					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+				}
+
+			}
+		}
+	}
+
+
+
+
+	.photo_row{
+
+
+		.photo_col{
+
+			padding: 25px 0px 0px 0px;
+			margin-bottom: 25px;
+			text-align: center;
+
+			.photo{
+
+				padding:8px;
+				display: inline-block;
+				background-color: #ffffff;
+				box-shadow:0px 0px 16px rgba(0, 0, 0, 0.06);
+				text-align: center;
+				margin: 5px;
+
+				img{
+
+					width: 150px;
+					height: 150px;
+					overflow: hidden;
+
+				}
+
+				.photo_info{
+					
+					text-align: left;
+					
+
+					.uploads{
+
+						font-family: 'Roboto';
+						font-weight: 500;
+						color: #666666;
+						font-size: 12px;
+						text-transform: uppercase;
+						
+						width:100%;
+						display:inline-block;
+						padding:10px 0px 5px 1px;
+
+						i{
+							display: inline-block;
+							padding-right:5px;
+						}
+					}
+
+					.likes{
+
+						font-family: 'Roboto';
+						font-weight: 500;
+						color: #666666;
+						font-size: 12px;
+						text-transform: uppercase;
+						
+						width:100%;
+						display:inline-block;
+						padding:0px 0px 5px 1px;
+
+						i{
+							display: inline-block;
+							padding-right:5px;
+						}
+					}
+				}
+
+				.photo_button_container{
+
+					width: 100%;
+					text-align: center;
+					margin-top:10px;
+
+					.photo_index_button{
+
+						margin-bottom: 10px;
+
+						box-shadow:0px 0px 10px rgba(0, 0, 0, 0.1);
+
+						
+
+						a{
+							display: inline-block;
+							width: 100%;
+							padding: 4px 6px 4px 6px;
+							font-family: 'Roboto';
+							font-weight: 500;
+							color: #333333;
+							font-size: 12px;
+							text-transform: uppercase;
+							text-decoration: none !important;
+
+							-webkit-transition: all ease 0.3s;
+							-moz-transition: all ease 0.3s;
+							-o-transition: all ease 0.3s;
+							transition: all ease 0.3s;
+
+						}:hover{
+
+							background-color: #ff9800;	
+							color: #ffffff;
+							text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+						}
+
+						i{
+							display: none;
+							padding: 0px 5px 0px 0px;
+						}
+		
+					}
+					
+					.photo_index_button.photo_download_button{
+
+						
+					}
+
+					.photo_index_button.photo_edit_button{
+
+					}
+					.photo_index_button.photo_delete_button{
+
+						margin-bottom: 0px;
+					}
+
+					
+
+				}
+				
+			}
+		}
+	}
+
+}
+
+
+.add_photo_row{
+
+	margin:150px 0px 150px 0px !important;
+
+	.add_photo_col{
+
+		text-align: center;
+
+		form{
+
+			.upload_field{
+				
+				margin-top: 5px;
+
+				.upload_photo_h1{
+					text-align: center;
+					display: inline-block;
+					font-family: 'Poppins';
+					font-size: 24px;
+					color:#333333;
+					font-weight: 700;
+					letter-spacing: 0px;
+					text-transform: uppercase;
+					width: 100%;
+				}
+				.upload_photo_h6{
+					text-align: center;
+					display: inline-block;
+					font-family: 'Poppins';
+					font-size: 16px;
+					color:#666666;
+					font-weight: 500;
+					line-height: 24px;
+					letter-spacing: 0px;
+					width: 100%;
+				}
+				
+
+
+				.upload_inputs_column{
+
+					.input_group{
+
+						margin-top: 25px;
+
+						display: -ms-flexbox;
+					    display: -webkit-flex;
+					    display: flex;
+					    -webkit-flex-direction: column;
+					    -ms-flex-direction: column;
+					    flex-direction: column;
+					    -webkit-flex-wrap: nowrap;
+					    -ms-flex-wrap: nowrap;
+					    flex-wrap: nowrap;
+					    -webkit-justify-content: flex-start;
+					    -ms-flex-pack: start;
+					    justify-content: flex-start;
+					    -webkit-align-content: stretch;
+					    -ms-flex-line-pack: stretch;
+					    align-content: stretch;
+					    -webkit-align-items: center;
+					    -ms-flex-align: center;
+					    align-items: center;
+
+					    .input-group-text{
+
+					    	border-radius: 0 !important;
+					    }
+
+						#load_button{
+
+								margin-top: 35px;
+								text-align: center;
+								display: inline-block;
+								padding: 8px 14px 8px 14px;
+								font-family: 'Roboto';
+								font-weight: 500;
+								color: #333333;
+								font-size: 16px;
+								text-transform: uppercase;
+								text-decoration: none !important;
+								border-radius: 0 !important;
+								border: 0 !important;
+								display: inline-block;
+				
+								box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+
+								-webkit-transition: all ease 0.3s;
+								-moz-transition: all ease 0.3s;
+								-o-transition: all ease 0.3s;
+								transition: all ease 0.3s;
+
+						}
+						#load_button:hover{
+
+							background-color: #ff9800 !important;	
+							color: #ffffff !important;
+							text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
+							border-radius: 0.25rem !important;
+							border: 0 !important;
+							border-radius: 0 !important;
+							
+						}
+
+					}
+					
+
+				}
+			}
+		}
+	}
+}
+
+
+
+.new_photo_row{
+
+
+	.new_photo_col{
+
+		text-align:center;
+		margin-top:55px;
+
+		.new_photo{
+
+            display:inline-block;
+			max-width: 500px;
+			height: auto;
+
+			img{
+				max-width: 500px;
+				height: auto;
+			}
+		}
+
+		.new_photo_buttons{
+
+			margin: 55px 0px 55px 0px;
+
+			.new_photo_button{
+
+				display: inline-block;
+				box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+
+
+				a{
+					display: inline-block;
+					
+					padding: 8px 14px 8px 14px;
+					font-family: 'Roboto';
+					font-weight: 500;
+					color: #333333;
+					font-size: 16px;
+					text-transform: uppercase;
+					text-decoration: none !important;
+
+					-webkit-transition: all ease 0.3s;
+					-moz-transition: all ease 0.3s;
+					-o-transition: all ease 0.3s;
+					transition: all ease 0.3s;
+
+				}:hover{
+
+					background-color: #ff9800;	
+					color: #ffffff;
+					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+				}
+
+			}
+		}
+
+
+		.download_photo_buttons{
+
+			margin: 0px 0px 55px 0px;
+
+			.download_button{
+
+				display: inline-block;
+				box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+
+
+				a{
+					display: inline-block;
+					
+					padding: 8px 14px 8px 14px;
+					font-family: 'Roboto';
+					font-weight: 500;
+					color: #333333;
+					font-size: 16px;
+					text-transform: uppercase;
+					text-decoration: none !important;
+
+					-webkit-transition: all ease 0.3s;
+					-moz-transition: all ease 0.3s;
+					-o-transition: all ease 0.3s;
+					transition: all ease 0.3s;
+
+				}:hover{
+
+					background-color: #ff9800;	
+					color: #ffffff;
+					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+				}
+
+			}
+		}
+
+	}
+}
+
+
+
+
+.photo_tags_form{
+
+	text-align:center;
+}
+.photo_tags_form input#tag_name{
+
+	border-radius:0 !important;
+
+}
+
+.form-control.form-tags{
+
+	display:inline-block;
+	max-width:960px;
+}
+
+.photo_tags_form .btn-send{
+
+	display:none;
+}

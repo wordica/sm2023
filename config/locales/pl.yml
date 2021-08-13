@@ -1,0 +1,444 @@
+pl:
+  
+  date:
+    abbr_day_names:
+    - nie
+    - pon
+    - wto
+    - śro
+    - czw
+    - pią
+    - sob
+    abbr_month_names:
+    - 
+    - sty
+    - lut
+    - mar
+    - kwi
+    - maj
+    - cze
+    - lip
+    - sie
+    - wrz
+    - paź
+    - lis
+    - gru
+    day_names:
+    - niedziela
+    - poniedziałek
+    - wtorek
+    - środa
+    - czwartek
+    - piątek
+    - sobota
+    formats:
+      default: ! '%d-%m-%Y'
+      long: ! '%B %d, %Y'
+      short: ! '%d %b'
+      
+    month_names:
+    - 
+    - styczeń
+    - luty
+    - marzec
+    - kwiecień
+    - maj
+    - czerwiec
+    - lipiec
+    - sierpień
+    - wrzesień
+    - październik
+    - listopad
+    - grudzień
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: około %{count} godziny
+        one: około godziny
+        other: około %{count} godzin
+        many: około %{count} godzin
+      about_x_months:
+        few: około %{count} miesiące
+        one: około miesiąca
+        other: około %{count} miesięcy
+        many: około %{count} miesięcy
+      about_x_years:
+        few: około %{count} lata
+        one: około rok
+        other: około %{count} lat
+        many: około %{count} lat
+      almost_x_years:
+        few: prawie %{count} lata
+        one: prawie rok
+        other: prawie %{count} lat
+        many: prawie %{count} lat
+      half_a_minute: pół minuty
+      less_than_x_minutes:
+        few: mniej niż %{count} minuty
+        one: mniej niż minutę
+        other: mniej niż %{count} minut
+        many: mniej niż %{count} minut
+      less_than_x_seconds:
+        few: mniej niż %{count} sekundy
+        one: mniej niż sekundę
+        other: mniej niż %{count} sekund
+        many: mniej niż %{count} sekund
+      over_x_years:
+        few: ponad %{count} lata
+        one: ponad rok
+        other: ponad %{count} lat
+        many: ponad %{count} lat
+      x_days:
+        few: ! '%{count} dni'
+        one: 1 dzień
+        other: ! '%{count} dni'
+        many: ! '%{count} dni'
+      x_minutes:
+        few: ! '%{count} minuty'
+        one: 1 minuta
+        other: ! '%{count} minut'
+        many: ! '%{count} minut'
+      x_months:
+        few: ! '%{count} miesiące'
+        one: 1 miesiąc
+        other: ! '%{count} miesięcy'
+        many: ! '%{count} miesięcy'
+      x_seconds:
+        few: ! '%{count} sekundy'
+        one: 1 sekunda
+        other: ! '%{count} sekund'
+        many: ! '%{count} sekund'
+    prompts:
+      day: Dzień
+      hour: Godzina
+      minute: Minuta
+      month: Miesiąc
+      second: Sekundy
+      year: Rok
+
+  
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: musi zostać zaakceptowane
+      blank: należy uzupełnić
+      confirmation: nie zgadza się z potwierdzeniem
+      empty: należy uzupełnić
+      equal_to: musi być równe %{count}
+      even: musi być parzyste
+      exclusion: jest zarezerwowane
+      greater_than: musi być większe od %{count}
+      greater_than_or_equal_to: musi być większe lub równe %{count}
+      inclusion: nie znajduje się na liście dopuszczalnych wartości
+      invalid: jest nieprawidłowe (bez polskich znaków)
+      less_than: musi być mniejsze od %{count}
+      less_than_or_equal_to: musi być mniejsze lub równe %{count}
+      not_a_number: nie jest liczbą
+      not_an_integer: musi być liczbą całkowitą
+      odd: musi być nieparzyste
+      record_invalid: ! 'Negatywne sprawdzenie poprawności: %{errors}'
+      taken: zajęty
+      too_long:  (maksymalnie %{count} znaków)
+      too_short: jest za krótkie (przynajmniej %{count} znaków)
+      wrong_length: ma nieprawidłową długość (powinna wynosić %{count} znaków)
+      
+      
+    template:
+      body: ! 'Błędy dotyczą następujących pól:'
+      header:
+        one: ! '%{model} nie został zachowany z powodu jednego błędu'
+        few: ! '%{model} nie został zachowany z powodu %{count} błędów'
+        other: ! '%{model} nie został zachowany z powodu %{count} błędów'
+        many: ! '%{model} nie został zachowany z powodu %{count} błędów'
+  helpers:
+    select:
+      prompt: Proszę wybrać
+    submit:
+      create: Utwórz %{model}
+      submit: Zapisz %{model}
+      update: Aktualizuj %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ' '
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: true
+        unit: PLN
+    format:
+      delimiter: ! ' '
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Miliard
+          million: Milion
+          quadrillion: Biliard
+          thousand: Tysiąc
+          trillion: Bilion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: bajt
+            few: bajty
+            many: bajty
+            other: bajty
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ' oraz '
+      two_words_connector: ! ' i '
+      words_connector: ! ', '
+      
+  errors:
+      messages:  
+            not_found: "not found"  
+            already_confirmed: "was already confirmed"  
+            not_locked: "was not locked"
+            not_saved: "Twoje dane nie zostały zapisane"
+            
+      
+  time:
+    am: przed południem
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+      friend: ! '%d.%m.%Y %H:%M:%S'
+    pm: po południu
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+ 
+  messages:
+      asset_rejected: "Niestety Twoje zdjęcie nie mogło zostać zaakceptowane. Najczęstsze powody to: <br>- reklama innego portalu na zdjęciu<br> - zdjęcie nie przedstawia twojej osoby<br> - dane kontaktowe na zdjęciu<br> - zdjęcie o charakterze erotycznym jako zdjęcie główne ( akceptujemy erotykę ale nie jako zdjęcie główne profilu ) <br><br>Powtarzające się łamanie zasad umieszczania zdjęć może zakończyć się blokadą konta."
+     
+  views:
+      page:
+        message_writes: "%{name} pisze"
+  
+  
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    attributes:
+      user:
+        password: Hasło
+        email: Adres email
+        password_confirmation: Hasło 
+        username: Nazwa użytkownika
+        gender: Płeć
+        terms: Regulamin
+        personal_data: Politykę prywatności
+      profile:
+        age: Wiek
+        gender: Płeć
+        birthdate: Data urodzenia
+        terms: Zgodę na regulamin
+        personal_data: Zgodę na przetwarzanie danych osobowych
+      setting:
+        state: Województwa
+        city: Miasta                
+       
+    errors:
+      models:
+        search:
+          attributes:
+            user: użytkownik
+            required: wymagany
+        profile:
+          attributes:
+            birthdate:
+              before: musisz mieć więcej niż 15 lat
+              after: musisz mieć mniej niż 80 lat
+              not_a_date: jest nieprawidłowe 
+               
+      <<: *errors
+  terms:
+    place:
+      "1": "Kraju"
+      "2": "Województwa"
+      "3": "Miasta"
+    style:
+      "1": "Imprezowicz/ka"
+      "2": "Mol książkowy"
+      "3": "Samotnik"
+      "4": "Wszystkiego trzeba spróbować"
+      "5": "Trochę na lewo trochę na prawo"
+      "6": "Normalny"
+    looking_for:
+      "1": "Niczego nie szukam"
+      "2": "Nowych znajomości"
+      "3": "Przygody"
+      "4": "Związku"
+    live_in:
+      "1": "Mieszkaniu"
+      "2": "Domu"
+      "3": "Akademiku"
+      "4": "Apartamencie"
+      "5": "Willi"
+      "6": "Mieszkanie typu Loft"
+    live_with:
+      "1": "Sam/a"
+      "2": "Współlokatorem/ką"
+      "3": "Znajomymi"
+      "4": "Zwierzakiem"
+    money:
+      "1": "Na samym dnie"
+      "2": "Daje radę"
+      "3": "Fajne kieszonkowe"
+      "4": "Mam oszczędności"
+      "5": "Potrzebuję większego portfela"
+    kids:
+      "1": "Nie posiadam"
+      "2": "Posiadam"
+      "3": "Posiadam ale nie mieszkają ze mną"
+      "4": "Posiadam, mieszkają ze mną"
+      "5": "Chce mieć"
+      "6": "Chce mieć więcej"
+      "7": "Nie chce mieć"
+      "8": "Posiadam i nie chce już mieć"
+    figure:
+      "1": "Szczupła"
+      "2": "Wysportowana"
+      "3": "Kulturystyczna"
+      "4": "Normalna"
+      "5": "Kilka kilo za dużo"
+      "6": "Puszysta"
+    education:
+      "1": "Podstawowe"
+      "2": "Zawodowe"
+      "3": "Średnie"
+      "4": "Podyplomowe"
+      "5": "Licencjat"
+      "6": "Wyższe"
+      "7": "Doktorat"   
+    gender:
+      "1": "Kobieta"
+      "2": "Mężczyzna"
+    status:
+      "1": "Singiel/ka"
+      "2": "W związku"
+      "3": "W otwartym związku"
+      "4": "W separacji"
+      "5": "W trakcie rozwodu"
+    zodiac:
+      "1": "Baran"
+      "2": "Byk"
+      "3": "Bliźnięta"
+      "4": "Rak"
+      "5": "Lew"
+      "6": "Panna"
+      "7": "Waga"
+      "8": "Skorpion"
+      "9": "Strzelec"
+      "10": "Koziorożec"
+      "11": "Wodnik"
+      "12": "Ryby"
+    first_date:
+      "1": "Spacer"
+      "2": "Kawa"
+      "3": "Kino"
+      "4": "Kolacja"
+      "5": "Zaskocz mnie/Zaskoczę cię"
+      "6": "Wypad poza miasto"
+      "7": "Spontanicznie na spotkaniu"
+    car:
+      "1": "Samochodem"
+      "2": "Pieszo / komunikacja miejska"
+      "3": "Rower"
+      "4": "Skuter"
+      "5": "Motor"
+    food:
+      "1": "Wegetarianizm"
+      "2": "Weganizm"
+      "3": "Frutarianizm"
+      "4": "Inny" 
+    my_lang:
+      "1": "Polski"
+      "2": "Angielski"
+      "3": "Niemiecki"
+      "4": "Ukraiński"
+      "5": "Rosyjski"
+      "6": "Czeski"
+      "7": "Arabski"
+      "8": "Białoruski"
+      "9": "Słowacki"
+      "10": "Szwedzki"
+      "11": "Francuski"
+      "12": "Hiszpański"
+      "13": "Holenderski"
+
+  vocabulary:
+    reject_av: "Niestety Twoje zdjęcie nie mogło zostać zaakceptowane jako zdjęcie główne. Zdjęcie główne musi przedstawiać Twoją osobę. Zdjęcie nie zostało usunięte ale nie zostało ustawione jako główne."
+    nopopular: "Popularność nieznana"
+    description: "Ten użytkownik nie napisał jeszcze nic na swój temat na swoim profilu 40 latka. Mamy nadzieję, że w niedługim czasie się to zmieni."
+    motto: "Umieść do 10 cytatów, które powiedzą coś więcej na Twój temat ... lub takie które najzwyczajniej lubisz"
+    account: Konto
+    gender: Płeć
+    relationship: Rodzaj związku
+    religion: Religia
+    religion_status: Poziom wiary
+    education: Wykształcenie
+    children: Dzieci
+    career: Kariera
+    status: Status
+    height: Wzrost
+    weight: Waga
+    body: Sylwetka
+    alcohol: Alkohol
+    eyes: Oczy
+    hair: Włosy
+    smoking: Palący/Paląca
+    age_preference: Preferencje wiekowe
+    appearance: Prezencja
+    first_date: Pierwsza randka
+    humor: Poczucie humoru
+    languages: Języki w których mogę się porozumiewać
+    living_place: Miejsce zamieszkania
+    living_with: Mieszkam z
+    money: Wydaje pieniądze
+    horoscope: Znak zodiaku
+    empty: Nie podano
+  will_paginate:
+    previous_label: "poprzednia"
+    next_label: "następna"
+    page_gap: "..."
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "Potwierdź swoje konto - zakochanapolska.pl"
+      reset_password_instructions:
+        subject: "Instrukcja zresetowania hasła - zakochanapolska.pl"
+      unlock_instructions:
+        subject: "Unlock instructions"
+      email_changed:
+        subject: "Email Changed"
+      password_change:
+        subject: "Password Changed"
+      

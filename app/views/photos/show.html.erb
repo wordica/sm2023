@@ -1,0 +1,68 @@
+<% content_for :head do %>    
+
+    <title>ZakochanaPolska.pl - Twój Profil</title>
+    <meta name="description" content='Twój profil na portalu randkowym zakochanapolska.pl. Zachęcamy do częstego logowania się na portalu aby zwiększyć swoje szansę na poznanie nowych osób.' >
+    <meta name='keywords' content="darmowy portal randkowy, portal randkowy, portale randkowe, serwis radnkowy, randki, randkowy, randkowe, portal, portale">
+
+<% end %>
+
+<p id="notice"><%#= notice %></p>
+
+
+<div class='row new_photo_row'>
+
+  <div class='col-md-12 new_photo_col'>
+
+    <div class='new_photo'>
+  
+      <%= image_tag(@photo.image_url(:large), :alt=>'Zdjęcie na portalu') if @photo.image %>
+
+    </div>
+
+    <!-- TAGS -->
+    <div class='row tag_row'>
+
+      <div class='col-md-12 tags_column'>
+
+        <div class='photo_tags_list'>
+
+          <% @tags.each do |f| %>
+
+            <%= render :partial => 'tags/tag', :locals => {:del => 'true', :tag => f } %>
+
+          <% end %>
+
+        </div>
+           
+        <div class='photo_tags_form'>
+          
+          <%= form_for @tag ,:remote => true do |f| %>
+            
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :photo_id, :value => @photo_id %>
+            <%= f.text_field :name , :placeholder=>'add tags', :class=>'form-control form-tags' %>
+            <%= f.button '<i class="fas fa-tag"></i>add tag'.html_safe, :class=>'btn btn-submit-tags btn-send', :disable_with =>'Adding...' %>
+          
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
+        <!-- TAGS -->
+
+    <div class='new_photo_buttons'>
+
+      <div class='new_photo_button button_back'>
+
+        <%= link_to 'Back to Photos', photos_path %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+

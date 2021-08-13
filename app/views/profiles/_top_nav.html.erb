@@ -1,0 +1,15 @@
+<div class='row options_row'>
+
+	<div class='col-md-12 options_col'>
+		
+		<div class='option_button'>
+			<%= link_to 'Edit profile', edit_profile_path(current_user.profile), :class=>'option_a' %>
+		</div>
+
+		<div class='option_button'>
+			<%= link_to 'Show Profile', profile_path(current_user.profile), :class=>'option_a' %>
+		</div>
+
+	</div>
+	
+</div>

@@ -1,0 +1,3 @@
+$('.photo_tags_list').html("<%=j render :partial=>@tags.order('created_at DESC'), :locals=>{:del => 'true' } %>");
+
+$('.photo_tags_form #tag_name').val('');

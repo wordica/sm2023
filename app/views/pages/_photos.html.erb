@@ -1,0 +1,46 @@
+<% @photos.each do |p| %>
+
+    <div class='iso_image'>
+
+        <div class='photo_data'>
+
+            <div class='author_avatar'>
+
+                <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
+
+                    <%= image_tag(User.where('id =?',p.user_id).first.profile.avatar_) %>
+
+                <% else %>
+
+                    <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
+
+                <% end %>
+
+            </div>
+
+            <div class='author'><%= User.where('id =?',p.user_id).first.profile.profile_name %></div>
+            
+        </div>
+
+        <%= image_tag( p.image_url(:large), :alt=>'p.some tags' ) %>
+
+        <div class='bottom_info'>
+
+            <div class='like'>
+
+                <%= link_to '<i class="far fa-heart"></i>'.html_safe, '#' %>
+
+            </div>
+
+            <div class='download_icon'>
+
+                <%= link_to '<i class="fas fa-download"></i>'.html_safe, p.image_url, download: "photoclicker_#{p.id}_downloaded" %>
+                
+            </div>
+
+        </div>
+        
+    </div>
+                    
+<% end %>
+

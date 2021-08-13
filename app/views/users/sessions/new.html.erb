@@ -1,0 +1,69 @@
+<div class='container login_container'>
+
+  <div class='row login_form_row'>
+
+    <div class='col-md-12 login_form_column'>
+
+      <div class='login_inner_container'>
+
+        <div class='row second_login_row'>
+
+          <div class='col-md-12 login_inner_column'>
+
+              <h2>Sign In To Account</h2>
+
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                
+                <div class="col-md-6 offset-md-3 email_field">
+                  <%= f.label :email, 'Your email' %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>'form-control form-control-lg' %>
+                </div>
+
+                <div class="col-md-6 offset-md-3 password_field">
+                  <%= f.label :password, 'Your Password' %><br />
+                  <%= f.password_field :password, autocomplete: "current-password", :class=>'form-control form-control-lg'  %>
+                </div>
+
+                
+                <% if devise_mapping.rememberable? %>
+
+                <div class='row remeber_me_row'>
+
+                  <div class='col-md-4 offset-md-4 remember_me_column'>
+
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me, 'Remember Me'  %>
+
+                  </div>
+
+                </div>
+
+                <% end %>
+
+                <div class='row submit_row'>
+
+                  <div class='col-md-12 submit_column'>
+
+                    <%= f.submit "Sign In",data: { disable_with: "Please wait..."} %>
+
+                  </div>
+
+                </div>
+
+              <% end %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class='row login_actions_row'>
+
+        <%= render "users/shared/links" %>
+              
+    </div>
+
+  </div>
+
+</div>

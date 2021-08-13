@@ -1,0 +1,251 @@
+.reg_container{
+
+	position: relative;
+	padding: 0px 0px 0px 0px;
+	z-index: 302;
+
+}
+.reg_form_row{
+
+	padding: 0px 0px 0px 0px;
+
+}
+.reg_form_column{
+
+	
+
+}
+.reg_inner_container{
+
+	margin: 50px 0px 50px 0px;
+	box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.12);
+	background-color: #ffffff;
+
+}
+.reg_inner_container:after{
+
+	background-image: radial-gradient(#f2f2f2 15%,transparent 25%);
+
+	background-size: 20px 20px;
+
+	position: absolute;
+
+	content: "";
+
+	width: 166px;
+
+	height: 166px;
+
+	left: 0;
+
+	margin-left: -34px;
+
+	top: 0;
+
+	margin-top: 5px;
+
+	z-index: -1;
+
+}
+
+.second_reg_row{
+
+	text-align: center;
+
+}
+.reg_inner_column{
+
+
+	h2.reg_lab{
+		font-family: 'Poppins';
+		font-size: 24px;
+		font-weight: 600;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 25px 0px 20px 0px;
+
+	}
+
+	.user_name_field{
+
+		.form-control{
+
+			border-radius: 0 !important;
+			box-shadow: none!important;
+							
+		}
+						
+		label[for=user_username]{
+
+			display: inline-block!important;
+			padding: 0px 0px 10px 0px!important;
+
+		}
+	}
+
+	.user_gender_field{
+
+		padding: 15px 0px 15px 0px;
+		.form-select{
+
+			border-radius: 0 !important;
+			box-shadow: none!important;
+							
+		}
+						
+		
+	}
+
+	.email_field{
+
+		.form-control{
+
+			border-radius: 0 !important;
+			box-shadow: none!important;
+							
+		}
+						
+		label[for=user_email]{
+
+			display: inline-block!important;
+			padding: 0px 0px 10px 0px!important;
+
+		}
+	}
+
+	.password_field{
+
+		padding: 25px 0px 0px 0px;
+		.form-control{
+
+			border-radius: 0 !important;
+			box-shadow: none!important;
+							
+		}
+						
+		label[for=user_password]{
+
+			display: inline-block!important;
+			padding: 0px 0px 10px 0px!important;
+
+		}
+	}
+
+	.password_2_field{
+
+		padding: 15px 0px 0px 0px;
+
+		.form-control{
+
+			border-radius: 0 !important;
+			box-shadow: none!important;
+							
+		}
+						
+		label[for=user_password_confirmation]{
+
+			display: inline-block!important;
+			padding: 0px 0px 10px 0px!important;
+
+		}
+	}
+
+}
+
+.submit_row{
+
+	.submit_column{
+
+		margin: 45px 0px 0px 0px;
+
+		input[type=submit]{
+
+			margin-bottom: 35px;
+			display: inline-block;
+			padding: 8px 14px 8px 14px;
+			font-family: 'Roboto';
+			font-weight: 500;
+			color: #333333;
+			font-size: 16px;
+			text-transform: uppercase;
+			text-decoration: none !important;
+			border: 0 !important;
+
+			box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+			text-align: center;
+			
+			-webkit-transition: all ease 0.3s;
+			-moz-transition: all ease 0.3s;
+			-o-transition: all ease 0.3s;
+			transition: all ease 0.3s;
+		}
+
+		input[type=submit]:hover{
+
+			background-color: #ff9800 !important;	
+			color: #ffffff;
+			text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+		}
+
+								
+	}
+}
+
+
+
+
+.reg-terms-fields{
+	font-size:12px;
+	text-align: left;
+	list-style: none !important;
+	margin: 30px 0px 0px 0px;
+	padding: 0px 0px 0px 30px;
+	line-height: 24px;
+}
+.reg-terms-fields .inline-errors{
+	display:none;
+}
+.reg-terms-fields #user_terms_input{
+	width:100%;
+	text-align:left;
+	color:red;
+}
+.reg-terms-fields #user_terms_input input{
+	display:inline-block;
+	margin-right:15px;
+}
+.reg-terms-fields #user_terms_input abbr{
+	display:none;
+}
+
+.reg-terms-fields #user_personal_data_input{
+	width:100%;
+	text-align:left;
+	color:red;
+}
+.reg-terms-fields #user_personal_data_input input{
+	display:inline-block;
+	margin-right:15px;
+}
+.reg-terms-fields #user_personal_data_input abbr{
+	display:none;
+}
+
+.reg-terms-fields #user_marketing_input{
+	width:100%;
+	text-align:left
+}
+.reg-terms-fields #user_marketing_input input{
+	display:inline-block;
+	margin-right:15px;
+}
+
+.reg-terms-fields #user_marketing_second_input{
+	width:100%;
+	text-align:left
+}
+.reg-terms-fields #user_marketing_second_input input{
+	display:inline-block;
+	margin-right:15px;
+}

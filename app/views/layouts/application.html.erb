@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photoclicker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_pack_tag 'application' %>
+
+
+  </head>
+
+  <body>
+
+
+    <div class='container-fluid page'>
+      
+      <%= render partial: "shared/top_navbar" %>
+
+      <% if current_user %>
+
+        <%#= render partial: "shared/options" %>
+        
+      <% end %>
+
+      <%= yield %>
+      
+    </div>
+    <%= render :partial => 'shared/flash', :locals => { :flash => flash } %>
+    
+    <div class='right_top_scroll'><i class="fa fa-angle-up"></i></div>
+    
+
+    <!-- FOOTER -->
+
+    <%= render :partial => 'shared/footer' %>
+    
+    <!-- END FOOTER -->
+
+
+
+
+
+    <script type='text/javascript'>
+    //<![CDATA[
+
+      WebFontConfig = {
+          google: {
+              families: ['Open Sans:300,400,500,600,700,800,900:latin,latin-ext&display=swap','Poppins:300,400,500,600,700,800,900:latin,latin-ext&display=swap','Roboto:300,400,500,700,900:latin,latin-ext&display=swap']
+          }
+      };
+
+      (function(d) {
+          var wf = d.createElement('script'),
+              s = d.scripts[0];
+          wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+          wf.async = true;
+          s.parentNode.insertBefore(wf, s);
+      })(document);
+
+    //]]>
+    </script>
+
+    
+  </body>
+
+
+</html>

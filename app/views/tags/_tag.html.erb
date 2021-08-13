@@ -1,0 +1,10 @@
+
+<div class='tag_box'>
+
+	<span><%= truncate(tag.name,:length=>32) %></span>
+
+	<% if del == 'true' %>
+		<%= link_to '<i class="fa fa-times"></i>'.html_safe, tag_delete_path( :to_delete => tag.id ), :remote => true %>
+	<% end %>
+
+</div>

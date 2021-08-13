@@ -1,0 +1,109 @@
+<% content_for :head do %>    
+
+    <title>ZakochanaPolska.pl - Twój Profil</title>
+    <meta name="description" content='Twój profil na portalu randkowym zakochanapolska.pl. Zachęcamy do częstego logowania się na portalu aby zwiększyć swoje szansę na poznanie nowych osób.' >
+    <meta name='keywords' content="darmowy portal randkowy, portal randkowy, portale randkowe, serwis radnkowy, randki, randkowy, randkowe, portal, portale">
+
+<% end %>
+
+<div class='container-fluid photos_index_main_container'>
+
+  <!-- start notice -->
+  <div class='row'>
+
+    <div class='col-md-12 notice_column'>
+
+      <div id='notice'>
+
+        <%#= notice %>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end notice -->
+
+  <div class='row title_row'>
+
+    <div class='col-md-12 title_column'>
+
+      <h1>Uploaded Photos</h1>
+      <h6>Here are all uploaded photos.<br>You can edit them ( add new, remove tags ) or delete photo<br>There is no limit of photos</h6>
+    </div>
+
+  </div>
+
+  <div class='row add_new_row'>
+
+    <div class='col-md-12 add_new_column'>
+      
+        <div class='add_new_button'>
+
+          <%= link_to 'Upload new', new_photo_path %>
+
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class='row photo_row'>
+
+    
+      <div class='col-md-12 photo_col'>
+
+          <% @photos.each do |photo| %>
+
+            <div class='photo'>
+
+                <%= image_tag(photo.image_url(:thumb), :alt=>'photos') if photo.image %>
+
+
+                <div class='photo_info'>
+
+                  <span class='uploads'><i class="fas fa-download"></i> <%= photo.downloads %></span>
+                  <span class='likes'><i class="far fa-heart"></i> <%= if photo.likes.nil? then '0' else photo.likes end %></span>
+
+                </div>
+
+                <div class='photo_button_container'>
+
+                  <div class='photo_index_button photo_open_button'>
+                    
+                    <%= link_to 'Download'.html_safe, photo.image_url, download: "photoclicker_#{photo.id}_downloaded"  %>
+                      
+                  </div>
+
+                </div>
+
+                <div class='photo_button_container'>
+
+                  <div class='photo_index_button photo_open_button'>
+                    
+                    <%= link_to 'Edit'.html_safe, photo %>
+                      
+                  </div>
+
+                </div>
+
+                <div class='photo_button_container'>
+
+                  <div class='photo_index_button photo_delete_button'>
+
+                    <%= link_to 'Delete'.html_safe, photo, method: :delete, data: { confirm: 'Are You sure?' } %>
+                      
+                  </div>
+
+                </div>
+
+            </div>
+
+          <% end %>
+
+      </div>
+
+    
+  </div>
+
+</div>

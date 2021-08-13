@@ -1,0 +1,99 @@
+
+.main_page_container{
+
+
+}
+
+.main_page_container .pagination{
+
+    display:none;
+
+}
+
+.main_page_isotope_column{
+    
+    text-align:center;
+    margin:150px auto 0px auto !important;
+}
+
+.iso_image{
+
+    position: relative;
+    
+    .photo_data{
+
+        position:absolute;
+        top:0;
+        left:0;
+        margin:10px 0px 0px 10px;
+
+        .author_avatar{
+
+            display:inline-block;
+
+            img{
+                border-radius: 100%;
+                width:40px;
+                height:40px;
+
+            }
+        }
+
+        .author{
+
+            display:inline-block;
+            font-size:12px;
+            color:#ffffff;
+            font-weight: 600;
+            margin-left:5px;
+            
+        }
+
+    }
+
+    display:inline-block;
+    margin-bottom:4px;
+    
+    img{
+        max-width:440px;
+        height: auto;
+    }
+
+    .bottom_info{
+
+        position:absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:0px 0px 50px 0px;
+
+        .like{
+
+            position: absolute;
+            left:0;
+            margin-left:10px;
+
+            a{
+                color:rgba(171, 208, 34,1);
+                text-decoration: none !important;
+                font-size:26px;
+
+            }
+        }
+
+        .download_icon{
+
+            position: absolute;
+            right:0;
+            margin-right:10px;
+
+            a{
+                color:rgba(171, 208, 34,1);
+                text-decoration: none !important;
+                font-size:26px;
+
+            }
+        }
+
+    }
+}

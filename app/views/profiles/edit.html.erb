@@ -1,0 +1,74 @@
+<div class='container profile_container'>
+
+    <div class='row profile_row'>
+
+        <%= render :partial=>'profiles/top_nav' %>
+
+        <div class='col-md-4 profile_column_left'>
+        
+
+            <div class='avatar'>
+
+                <% if @profile.avatar.attached? %>
+                    <%= image_tag(@profile.avatar_) %>
+                <% else %>
+                    <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
+                <% end %>
+
+            </div>
+
+            <div class='avatar_upload_form'>
+
+                <%= form_for @profile do |f| %>
+
+                    <div class='upload_inputs_column'>
+
+                        <div class="input-group input_group ">
+
+                            <%= f.file_field :avatar, :class=>'input-group-text', :id=>'inputGroupFile02' %>
+                            
+                            <%= f.submit "Upload Image" ,data: { disable_with: "Uploading, please wait..."}, :class=>'input-group-text load_button', :id=>'load_button' %>
+
+                        </div>
+
+                    </div>
+
+                <% end %>
+
+            </div>
+
+        </div>
+
+        <div class='col-md-4 profile_column_middle'>
+
+            <div class='data_container'>
+
+                <%= form_for @profile do |f| %>
+
+                    <%= f.text_field :profile_name, :value=>@profile.profile_name, :class=>'form-control', :placeholder => 'Your profile name' %>
+                    <%= f.text_field :country, :value=>@profile.country, :class=>'form-control', :placeholder => 'Your country'  %>
+                    <%= f.text_field :my_site, :value=>@profile.my_site, :class=>'form-control', :placeholder => 'Your www '  %>
+                    <%= f.text_field :instagram_url, :value=>@profile.instagram_url, :class=>'form-control', :placeholder => 'Your instagram'  %>
+                    <%= f.text_field :facebook_url, :value=>@profile.facebook_url, :class=>'form-control', :placeholder => 'Your facebook'  %>
+                    <%= f.submit 'Save data',data: { disable_with: "Saving data..."}, :class=>'submit_button'  %>
+
+                <% end %>
+
+            </div>
+
+        </div>
+
+        <div class='col-md-4 profile_column_right'>
+
+            <%= form_for @profile do |f| %>
+
+                <%= f.text_area :description, :value=>@profile.description, :class=>'form-control', :placeholder => 'Something about You? ;-)' %>
+                <%= f.submit 'Save data',data: { disable_with: "Saving data..."}, :class=>'submit_button'  %>
+
+            <% end %>
+
+        </div>
+
+    </div>
+
+</div>

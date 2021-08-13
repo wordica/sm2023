@@ -1,0 +1,303 @@
+
+/* html */
+html {width:100%;-webkit-font-smoothing: antialiased;position:relative;}
+
+body{
+
+	width:100%;
+
+	font-family:"Roboto";
+	position:relative;
+	
+	overflow-x:hidden;
+
+	color:rgba(0,0,0,0.7);
+}
+
+
+
+*{ margin:0; }
+
+/* clear border for IE browsers */
+img{border:0;}
+
+/*------------------------------------------*/
+/*	 BOOTSTRAP RESET
+/*------------------------------------------*/
+.row{
+	padding:0;
+	margin:0 !important;
+}
+.container-fluid{
+	padding:0;
+	margin:0 ;
+}
+/* clear bootstrap p tag */
+p{margin:0;padding:0;}
+
+/* h1.. clear */
+h1,h2,h3,h4,h5,h6{padding:0;margin:0;}
+
+/* 	clear bootstrap buttons behavior */
+.btn{border-radius:0;}
+.btn:focus{box-shadow:none !important;outline:0;}
+.btn:active:hover{box-shadow:none !important;outline:0;}
+.btn:hover{outline:0;}
+.btn:focus{box-shadow:none !important;outline:0;}
+
+/* clear bootstrap behavior for A tag */
+a:focus{box-shadow:none !important;outline:0;}
+a:active:hover{box-shadow:none !important;outline:0;}
+a:hover{outline:0;}
+a:focus{box-shadow:none !important;outline:0;}
+
+a:hover,
+a:active,
+a:focus,
+input:hover,
+input:active,
+input:focus,
+button:hover,
+button:active,
+button:focus {
+  outline: 0;
+}
+
+/* clear bootstrap textfield and inputs behavior */
+
+textarea{border:0 !important;background:#ffffff !important;resize:none !important;font-weight:400;border-radius:0 !important;}
+textarea:active:hover{box-shadow:none !important;outline:0;border:0 !important;}
+textarea:hover{box-shadow:none !important;outline:0;border:0 !important;}
+textarea:focus{box-shadow:none !important;outline:0;border:0 !important;}
+
+input{box-shadow:none !important; background:#ffffff !important;font-weight:400;}
+input:focus{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !important;}
+input:active:hover{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !important;}
+input:hover{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !important;}
+input:focus{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !important;}
+
+
+.delay1{
+	-webkit-animation-delay: 0.4s; /* Safari and Chrome */
+	animation-delay: 0.4s;
+}
+.delay2{
+	-webkit-animation-delay: 0.6s; /* Safari and Chrome */
+	animation-delay: 0.6s;
+}
+.delay3{
+	-webkit-animation-delay: 0.8s; /* Safari and Chrome */
+	animation-delay: 0.8s;
+}
+.delay4{
+	-webkit-animation-delay: 2.0s; /* Safari and Chrome */
+	animation-delay: 2.0s;
+}
+.delay5{
+	-webkit-animation-delay: 2.5s; /* Safari and Chrome */
+	animation-delay: 2.5s;
+}
+
+.delay_logodelay{
+	-webkit-animation-delay: 1.2s; /* Safari and Chrome */
+	animation-delay: 1.2s;
+}
+
+
+.display_none{
+
+	display:none !important;
+	
+}
+
+
+
+/* ####################################################################################################### */
+/* ############################################## PAGE CSS ############################################### */
+/* ####################################################################################################### */
+
+.page{
+
+	width:100%;
+	background:#ffffff;
+	padding:0px 0px 0px 0px !important;
+	position:relative;
+	z-index:1020;
+	
+	background-image: image-url('patterns/top_black_pattern_opacity.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 100px;
+}
+
+
+
+
+
+
+
+/* ####################################################################################################### */
+/* ########################################## FOOTER INDEX CSS ########################################### */
+/* ####################################################################################################### */
+
+
+.footer_row{
+
+
+	background:#ffffff;
+	border-top:1px solid #e5e5e5;
+	width:100%;
+
+	
+
+	padding-bottom:20px;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+
+}
+.footer_row .footer_container{
+
+	position:relative;
+}
+
+
+.footer_row .footer_container .footer_col{
+
+	text-align:center;
+}
+
+.footer_row .footer_col .footer_socials{
+
+	height:30px;
+	border-bottom:1px solid #e5e5e5;
+
+}
+.footer_row .footer_col .footer_socials a{
+
+	display:inline-block;
+
+}
+
+.footer_row .footer_col .footer_socials i{
+
+	font-size:19px;
+	margin:0px 10px 0px 0px;
+
+}
+
+.footer_row .footer_col .footer_links{
+
+	padding-top:15px;
+
+}
+
+.footer_row .footer_col .footer_links a{
+
+	font-family: 'Poppins';
+	font-size:14px;
+
+	color:rgba(0,0,0,0.8);
+	font-weight:400;
+	display:inline-block;
+	padding:0px 15px 0px 15px;
+	text-decoration: none !important;
+
+
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+
+}
+.footer_row .footer_col .footer_links a:hover{
+
+	color:#ff9800;
+
+}
+
+.footer_row .footer_col .footer_rights{
+
+	font-size:13px;
+	font-weight:400;
+	color:rgba(0,0,0,0.7);
+	padding:15px 0px 0px 0px;
+}
+.footer_row .footer_col .footer_rights a{
+
+	text-decoration: none !important;
+	color:rgba(0,0,0,0.9);
+
+}
+
+
+/* FOOTER */
+
+/*-------------------------------------------------------------*/
+/*	 right bottom button to scroll UP
+/*-------------------------------------------------------------*/
+.right_top_scroll{
+
+	position:fixed;
+	z-index:999999;
+	bottom:0;
+	right:0;
+
+	cursor:pointer;
+	text-align:center;
+	background-color:#000000;
+	color:rgba(255,255,255,1);
+
+	font-size:26px;
+	line-height:40px;
+
+	width:40px;
+	height:40px;
+
+	margin-right:13px;
+	margin-bottom:80px;
+
+	border-radius:0%;
+	
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.18);
+
+	-webkit-transition: all ease 0.3s;
+	-moz-transition: all ease 0.3s;
+	-o-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+
+}
+.right_top_scroll:hover{
+
+	background-color:#ff9800;
+	color:#ffffff;
+
+}
+
+
+
+
+/*-------------------------------------------------------------*/
+/*	 DEVICE ERRORS
+/*-------------------------------------------------------------*/
+
+#error_explanation{
+
+	list-style:none !important;
+	color:red;
+	padding:5px 0px 15px 0px;
+	font-size: 12px;
+	font-weight: 400;
+
+}
+#error_explanation ul, .error_explanation li{
+
+	list-style:none !important;
+
+}
+#error_explanation h2{
+	font-size: 21px;
+	font-weight: 400;
+	color:rgba(45,48,68,1) !important;
+	padding:0px 0px 10px 0px !important;
+
+}

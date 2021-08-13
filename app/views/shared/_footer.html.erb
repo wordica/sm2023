@@ -1,0 +1,25 @@
+<div class='row footer_row'>
+
+    <div class='container footer_container'>
+
+        <div class='col-md-12 footer_col'>
+                    
+            <div class='footer_links'>
+                
+                <%= link_to '<span>Baza Artykułów</span>'.html_safe, '#' %>
+                <%= link_to '<span>Regulamin</span>'.html_safe, '#', :class=>'reg_modal_button_2' %>
+                <%= link_to '<span>Polityka prywatności / RODO</span>'.html_safe, '#', :class=>'reg_modal_button_1' %>
+
+            </div>
+
+             <div class='footer_rights'>
+
+                <span><% @t = Time.now %><%= @t.year %> Portal Randkowy Wszystkie prawa zastrzeżone. Projekt i wdrożenie <a href='https://wordica.net' rel='nofollow' title='agencja interaktywna'>Agencja Wordica.net</a></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
