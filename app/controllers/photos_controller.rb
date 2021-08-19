@@ -17,10 +17,34 @@ class PhotosController < ApplicationController
       @photo_id = params[:id]
 
     end
+
   
     def new
 
       @photo = current_user.photos.new
+
+    end
+
+
+    def add_like
+
+
+      p = params[:id]
+      photo = Photo.find(p)
+     
+      if Like.where(:user_id => current_user.id, :photo_id => p ).present?
+      else
+        photo.update( :likes => photo.likes + 1 )
+        Like.create!(:user_id => current_user.id, :photo_id => p)
+      end
+      
+      flash[:add_like] = ''
+      
+      return respond_to do |format|
+          
+          format.js {render 'photos/add_like'}
+
+      end
 
     end
   
@@ -90,7 +114,7 @@ class PhotosController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def photo_params
-        params.require(:photo).permit(:image_data, :image, :active, :checked, :user_id, :tags)
+        params.require(:photo).permit(:image_data, :image, :active, :checked, :user_id, :tags, :views, :likes, :downloads)
       end
 
   end

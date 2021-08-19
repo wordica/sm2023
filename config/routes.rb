@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   match 'tags/tag_delete' => 'tags#tag_delete', :as => :tag_delete, :via => [:get, :post]
 
   get '/pages/:page' => 'pages#home_logged_in'
+  get '/pages/:page' => 'pages#home'
+
+  match 'photos/add_like' => 'photos#add_like', :as => :add_like, :via => [:get, :post]
+
   resources :pages
   resources :profiles
   resources :searches

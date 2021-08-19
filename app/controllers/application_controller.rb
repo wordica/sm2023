@@ -2,7 +2,6 @@ require "application_responder"
 require 'net/https'
 
 class ApplicationController < ActionController::Base
-    include Pagy::Backend
     
     self.responder = ApplicationResponder
     respond_to :html

@@ -7,25 +7,38 @@
 #t.integer "user_id"
 
 class ProfilesController < ApplicationController
+    before_action :authenticate_user!, except: [:show]
 
 
     def show
 
-        @profile = current_user.profile
-        @uploaded = current_user.photos.all.count
+        if user_signed_in?
+            @profile = current_user.profile
+        else
+            @profile = Profile.friendly.find(params[:id])
+        end
+
+        if user_signed_in?
+            user = current_user
+        else
+            profile = Profile.friendly.find(params[:id])
+            user = User.where('id =?',profile.user_id).first
+        end
+        
+        @uploaded = user.photos.all.count
         
         @likes = 0
-        current_user.photos.each do |f|
+        user.photos.each do |f|
             @likes += f.likes
         end
 
         @views = 0
-        current_user.photos.each do |f|
+        user.photos.each do |f|
             @views += f.views
         end
 
-        @most_viewed = current_user.photos.where('views >=0').order('photos.views DESC').limit(6)
-        @most_liked = current_user.photos.where('likes >=0').order('photos.likes DESC').limit(6)
+        @most_viewed = user.photos.where('views >=0').order('photos.views DESC').limit(6)
+        @most_liked = user.photos.where('likes >=0').order('photos.likes DESC').limit(6)
 
     end
 

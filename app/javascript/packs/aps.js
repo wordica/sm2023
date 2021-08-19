@@ -30,4 +30,9 @@ ActiveStorage.start()
 
 
 require('jquery')
+
+require('packs/noty/jquery.noty')
+require('packs/noty/themes/default')
+require('packs/noty/layouts/topRight')
+
 require('packs/global')

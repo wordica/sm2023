@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     def home
 
         @search = Search.new
-        @photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 8 )
+        @photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 12 )
         @a = Tag.find_by_sql('SELECT name, COUNT(*) c FROM tags GROUP BY name HAVING c > 1 ORDER BY c DESC')
         
         @tags = []
@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     def home_logged_in
 
         @search = Search.new
-        @photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 8 )
+        @photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 12 )
         
         @a = Tag.find_by_sql('SELECT name, COUNT(*) c FROM tags GROUP BY name HAVING c > 1 ORDER BY c DESC')
         

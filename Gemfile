@@ -36,10 +36,6 @@ gem 'sitemap_generator'
 
 gem 'whenever', require: false
 
-gem 'exifr'
-
-gem "pagy"
-
 
 
 # Use Puma as the app server

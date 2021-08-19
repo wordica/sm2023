@@ -1,5 +1,8 @@
 class Profile < ApplicationRecord
 
+    extend FriendlyId
+  	friendly_id :profile_name, use: :slugged
+
     has_one_attached :avatar
     belongs_to :user
 

@@ -1,0 +1,17 @@
+
+
+function generate_like(type,text) {
+
+	var n = noty({
+        text: text,
+        type: type,
+        timeout : 4000,
+        dismissQueue: true,
+        maxVisible: 5,
+        layout: 'topRight',
+        theme: 'defaultTheme'
+
+	});
+}
+
+generate_like('error', 'Photo Liked. You can only like it once.');

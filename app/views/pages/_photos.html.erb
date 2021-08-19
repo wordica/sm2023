@@ -1,46 +1,194 @@
 <% @photos.each do |p| %>
 
+    <% p.update(:views => p.views + 1 ) %>
+
     <div class='iso_image'>
 
-        <div class='photo_data'>
+        <div class='photo_hidden_container'>
 
-            <div class='author_avatar'>
+            <div class='logotype_display'>PhotoClicker.net</div>
+            <div class='photo_data'>
 
-                <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
+                <div class='author_avatar'>
 
-                    <%= image_tag(User.where('id =?',p.user_id).first.profile.avatar_) %>
+                    <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
 
-                <% else %>
+                        <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=>'profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
-                    <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
+                    <% else %>
 
-                <% end %>
+                        <%= link_to image_tag('default/default_avatar.png', :alt=>'user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+
+                    <% end %>
+
+                </div>
+
+                <div class='author'><%= User.where('id =?',p.user_id).first.profile.profile_name %></div>
+                
+            </div>
+
+            <div class='bottom_info'>
+
+                <div class='like'>
+
+                    <% if user_signed_in? %>
+
+                        <% if Like.where('user_id =? and photo_id =?',current_user.id, p.id).present? %>
+                            <i class="fas fa-heart active"></i>
+                        <% else %>
+                            <%= link_to '<i class="far fa-heart"></i>'.html_safe, add_like_path(:id => p.id), :controller => 'photos_controller', :action => 'add_like', :remote => true %>
+                        <% end %>
+
+                    <% else %>
+                        <i class="fa fa-heart"></i>
+                    <% end %>
+
+                </div>
+
+                <div class='download_icon'>
+
+                    <%= link_to '<i class="fas fa-download"></i>'.html_safe, p.image_url, download: "photoclicker_#{p.id}_downloaded"%>
+                    
+                </div>
 
             </div>
 
-            <div class='author'><%= User.where('id =?',p.user_id).first.profile.profile_name %></div>
             
         </div>
 
         <%= image_tag( p.image_url(:large), :alt=>'p.some tags' ) %>
-
-        <div class='bottom_info'>
-
-            <div class='like'>
-
-                <%= link_to '<i class="far fa-heart"></i>'.html_safe, '#' %>
-
-            </div>
-
-            <div class='download_icon'>
-
-                <%= link_to '<i class="fas fa-download"></i>'.html_safe, p.image_url, download: "photoclicker_#{p.id}_downloaded" %>
-                
-            </div>
-
-        </div>
         
+        <div class='modal_container'>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal_<%= p.id %>" tabindex="-1" aria-labelledby="modal_<%= p.id %>" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <div class='modal_avatar'>
+                                <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
+
+                                    <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=>'profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+
+                                <% else %>
+
+                                    <%= link_to image_tag('default/default_avatar.png', :alt=>'user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+
+                                <% end %>
+
+                            </div>
+
+                            <h5 class="modal-title" id="modal_<%= p.id %>"><%= Profile.where('user_id =?',p.user_id).first.profile_name %></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class='modal_author_info'>
+                            <div class='info'>You do not have to but if You can, add link to user profile if You will use this photo on Your site </div>
+                            <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
+                                <%= 'https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
+                                
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <%= image_tag(p.image_url(:large), :alt=>'free stock photo') %>
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <%= link_to '<i class="far fa-heart"></i>LIKE IT'.html_safe, add_like_path(:id => p.id), :controller => 'photos_controller', :action => 'add_like', :remote => true, :class=>'btn_like' %>
+
+                            <button type="button" class="btn_close" data-bs-dismiss="modal">Close</button>
+
+                            <%= link_to p.image_url, download:  Profile.where('user_id =?',p.user_id).first.profile_name + "_photoclicker_#{p.id}_downloaded", :class=>'btn_download' do %>
+                                Download
+                                <% p.update(:downloads => p.downloads + 1 ) %>
+                            <% end %> 
+
+                        </div>
+
+                        <div class='modal_bottom_info'>
+                            
+                            <div class='data_container'>
+
+                                <div class='added_at'>
+
+                                    <span class='title'>Added:</span>
+                                    <span class='data'><%= localize( p.created_at, :format => :friend ) %></span>
+
+                                </div>
+                                <div class='dimensions'>
+
+                                    <span class='title'>Dimensions:</span>
+                                    <span class='data'><%= MiniMagick::Image.open('http://localhost:3000' + p.image_url).dimensions %></span>
+
+                                </div>
+
+                                <div class='downloaded'>
+                                    
+                                    <span class='title'>Downloaded:</span>
+                                    <span class='data'><%= p.downloads %></span>
+
+                                </div>
+
+                                <div class='liked'>
+                                    
+                                    <span class='title'>Likes:</span>
+                                    <span class='data'><%= p.likes %></span>
+
+                                </div>
+
+                                <div class='views'>
+                                    
+                                    <span class='title'>Views:</span>
+                                    <span class='data'><%= p.views %></span>
+
+                                </div>
+
+                                <div class='tags'>
+
+                                    <span class='title'>Tags:</span>
+
+                                    <% Tag.where('photo_id =?',p.id).each do |f| %>
+
+                                       <%= link_to f.name, search_path(f.name), :class=>'data' %>
+
+                                    <% end %>
+
+                                </div>
+
+
+                                <div class='related_photos'>
+
+                                    <span class='title'>Related photos:</span>
+
+                                    
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        
+        </div>
+
     </div>
+
+    
                     
 <% end %>
+
+
+
+
 
