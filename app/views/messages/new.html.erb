@@ -1,0 +1,30 @@
+
+<div class='container new_message_container'>
+
+	<div class='row new_message_row'>
+
+		<div class='col-md-12 new_message_column'>
+
+			<div class='new_message_title'>
+
+				<h4>Write a cooperation proposal. Author will receive a message on his profile. </h4> 
+				
+	  		</div>
+	  	
+			<%= form_for @message_new do |f| %>
+
+				<%= f.hidden_field :user_id ,:value => params[:id] %>
+				<%= f.text_field :subject, :class => 'form-control', :placeholder => 'Subject' %>
+				<%= f.text_field :email, :placeholder => 'Your email', :class => 'form-control' %>
+                <%= f.text_area :content, :class => 'form-control', :placeholder => 'Write message. Remeber, good photographer have many offerts.' %>
+
+				<%= f.button 'Send Message',data: { disable_with: "Sending..." } %>
+				
+				
+			<% end %>
+
+		</div>
+
+	</div>
+
+</div>

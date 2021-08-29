@@ -1,0 +1,54 @@
+<div class='container messages_index_container'>
+
+    <div class='row messages_index_row'>
+
+        <div class='col-md-12 messages_index_column'>
+
+            <% @messages.each do |f| %>
+
+                <div class='message_data_container'>
+
+                    <div class='message_subject'>
+
+                        <%= f.subject %>
+
+                    </div>
+
+                    <div class='message_email'>
+
+                        <%= f.email %>
+
+                    </div>
+
+                    <div class='message_content' %>
+
+                        <%= f.content %>
+
+                    </div>
+
+                    <div class='message_delete_absolute'>
+
+                        <%= link_to '<i class="fas fa-times"></i>'.html_safe, f, :method => 'delete' %>
+
+                    </div>
+
+                </div>
+                
+            <% end %>
+
+
+        </div>
+
+        <div class='pagination_wrapper'>
+
+            <div class="digg_pagination">
+
+                <%= will_paginate @messages, :page_links => false %>
+
+            </div>
+
+		</div>
+
+    </div>
+
+</div>

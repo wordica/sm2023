@@ -12,8 +12,9 @@
  *
 
 
-
-
+ *= require global
+ *= require jquery.fancybox
+ *= require pagination
  *= require top_navbar
  *= require tags
  *= require searches
@@ -23,7 +24,10 @@
  *= require pages
  *= require modal
  *= require login_form
- *= require global
+ *= require rankings
+ *= require users
+ *= require messages
+
  *= require media
  *= require_self
  */

@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
+    before_action :authenticate_user!
 
 
+    def hire_form
 
 
+    end
 
 
 
@@ -22,7 +25,8 @@ class UsersController < ApplicationController
                                        :terms, 
                                        :personal_data, 
                                        :marketing, 
-                                       :marketing_second
+                                       :marketing_second,
+                                       :score
                                       )
         end
     

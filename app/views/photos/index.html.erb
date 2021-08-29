@@ -63,8 +63,8 @@
                 <div class='photo_info'>
 
                   <span class='uploads'><i class="fas fa-download"></i> <%= photo.downloads %></span>
-                  <span class='likes'><i class="far fa-heart"></i> <%= if photo.likes.nil? then '0' else photo.likes end %></span>
-
+                  <span class='likes'><i class="far fa-heart"></i> <%= if !Like.where('photo_id =?',photo.id).present? then '0' else Like.where('photo_id =?',photo.id).all.count end %></span>
+                  <span class='views'><i class="far fa-eye"></i><%= photo.views %></span>
                 </div>
 
                 <div class='photo_button_container'>
@@ -103,6 +103,15 @@
 
       </div>
 
+      <div class='pagination_wrapper'>
+
+          <div class="digg_pagination">
+
+              <%= will_paginate @photos, :page_links => false %>
+
+          </div>
+
+		  </div>
     
   </div>
 

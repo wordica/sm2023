@@ -37,6 +37,8 @@ gem 'sitemap_generator'
 gem 'whenever', require: false
 
 
+gem "down"
+gem 'fileutils'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'

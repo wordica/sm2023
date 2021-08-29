@@ -109,6 +109,7 @@ GEM
       addressable (~> 2.8)
     erubi (1.10.0)
     ffi (1.15.3)
+    fileutils (1.4.1)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.7.0)
@@ -289,6 +290,8 @@ DEPENDENCIES
   delayed_job
   delayed_job_active_record
   devise
+  down
+  fileutils
   formtastic (~> 4.0)
   friendly_id (~> 5.4.0)
   gemoji

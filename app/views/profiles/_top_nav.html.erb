@@ -2,12 +2,24 @@
 
 	<div class='col-md-12 options_col'>
 		
+		<% if user_signed_in? %>
+
+			<div class='option_button'>
+				<%= link_to 'Edit profile', edit_profile_path(@profile), :class=>'option_a' %>
+			</div>
+
+		<% end %>
+
 		<div class='option_button'>
-			<%= link_to 'Edit profile', edit_profile_path(@profile), :class=>'option_a' %>
+
+			<%= link_to 'Show Profile', profile_path(@profile), :class=>'option_a' %>
+
 		</div>
 
 		<div class='option_button'>
-			<%= link_to 'Show Profile', profile_path(@profile), :class=>'option_a' %>
+
+			<%= link_to 'All Photos', new_search_path(:author => @profile.profile_name), :class=>'option_a' %>
+			
 		</div>
 
 	</div>

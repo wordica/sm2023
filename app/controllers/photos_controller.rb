@@ -1,11 +1,14 @@
+require "down"
+require "fileutils"
+
 class PhotosController < ApplicationController
     before_action :set_photo, only: %i[ show edit update destroy ]
-    before_action :authenticate_user!
+    before_action :authenticate_user!, :except => [:download_photo]
   
     
     def index
   
-      @photos = current_user.photos.all.order('created_at DESC')
+      @photos = current_user.photos.all.order('created_at DESC').paginate(page: params[:page], per_page: 30 )
   
     end
   
@@ -51,6 +54,14 @@ class PhotosController < ApplicationController
     
     def edit
 
+    end
+
+    def download_photo
+
+      params_h = params[:p_id_data]
+
+      Photo.where('hashed =?',params_h).first.update(:downloads => Photo.where('hashed =?',params_h).first.downloads + 1 )
+      
     end
   
     
@@ -114,7 +125,7 @@ class PhotosController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def photo_params
-        params.require(:photo).permit(:image_data, :image, :active, :checked, :user_id, :tags, :views, :likes, :downloads)
+        params.require(:photo).permit(:hashed, :image_data,:image, :active, :checked, :user_id, :tags, :views, :likes, :downloads)
       end
 
   end

@@ -6,7 +6,7 @@
 
             <% @tags.each do |t| %>
 
-                <span class='tag'><%= t %></span>
+                <span class='tag'><%= link_to t, searches_results_path(:keyword => t) %></span>
 
             <% end %>
 

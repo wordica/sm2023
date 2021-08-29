@@ -13,18 +13,28 @@
         display:inline-block;
         margin-right:15px;
 
+        a{
+            display:inline-block;
+        }
         img{
 
             width:50px;
             height:50px;
             border-radius:100%;
+            background:#ffffff;
         
         }
+
     }
     .modal-title{
 
         display:inline-block;
 
+    }
+    .modal-title.profile_name{
+
+        text-transform: capitalize !important;
+        
     }
 
     .modal-content{
@@ -40,11 +50,13 @@
     .modal-body{
         
         img{
+
             background-color: #ffffff;
             max-width:800px;
             height:auto;
             padding:8px;
             box-shadow:0px 0px 16px 6px rgba(0,0,0,0.12);
+
         }
 
     }
@@ -78,8 +90,10 @@
         }
 
         .profile_attribute{
+
             display:inline-block;
             cursor:pointer;
+
         }
     }
 
@@ -111,11 +125,11 @@
 
             i{
                 display:inline-block;
-                margin-right:10px;
+                margin-right:7px;
             }
         }:hover{
 
-            background-color: #ff9800 !important;	
+            background-color:rgba(0,0,0,0.8) !important;	
 			color: #ffffff;
 			text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -143,7 +157,7 @@
 			transition: all ease 0.3s;
         }:hover{
 
-            background-color: #ff9800 !important;	
+            background-color:rgba(0,0,0,0.8) !important;	
 			color: #ffffff;
 			text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -194,12 +208,48 @@
 .modal_bottom_info{
 
     width:100%;
-    min-height:500px;
+   
     line-height:24px;
 
     .data_container{
 
         padding:15px 30px 15px 30px;
+
+        .hire{
+
+            width:100%;
+            text-align:left !important;
+
+            font-size:14px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:14px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+
+                a{
+
+                    display:inline-block;
+                    font-size:14px;
+                    color:#ff9800;
+                    text-decoration: none !important;;
+
+                }
+
+            }
+        }
+
 
         .added_at{
 
@@ -364,8 +414,8 @@
                 
             }:hover{
 
-                color:#ffffff;
-                background-color: #abd022;
+                color:#ffffff !important;
+                background-color: #abd022 !important;
 			    background-image: image-url('patterns/line_2.png');
                 background-repeat: repeat;
                 text-shadow:2px 2px 0px rgba(0,0,0,0.12);
@@ -389,7 +439,7 @@
                 font-size:21px;
                 color:#333333;
                 font-weight:400;
-
+                padding:0px 0px 30px 0px;
             }
 
             .data{
@@ -397,6 +447,19 @@
                 display:inline-block;
                 font-size:14px;
                 color:#333333;
+            }
+
+            .related_photo{
+
+                display:inline-block;
+                text-align:left;
+                padding:0px 0px 30px 0px;
+
+                .photo{
+                    display:inline-block;
+                    margin:0px 4px 4px 0px;
+                }
+
             }
 
         }

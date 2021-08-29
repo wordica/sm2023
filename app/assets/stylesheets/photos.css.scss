@@ -85,7 +85,7 @@
 
 				}:hover{
 
-					background-color: #ff9800;	
+					background-color:rgba(0,0,0,0.8);	
 					color: #ffffff;
 					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -164,6 +164,25 @@
 							padding-right:5px;
 						}
 					}
+
+					.views{
+
+						font-family: 'Roboto';
+						font-weight: 500;
+						color: #666666;
+						font-size: 12px;
+						text-transform: uppercase;
+						
+						width:100%;
+						display:inline-block;
+						padding:0px 0px 5px 1px;
+
+						i{
+							display: inline-block;
+							padding-right:5px;
+						}
+					}
+					
 				}
 
 				.photo_button_container{
@@ -198,7 +217,7 @@
 
 						}:hover{
 
-							background-color: #ff9800;	
+							background-color:rgba(0,0,0,0.8);	
 							color: #ffffff;
 							text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -330,7 +349,7 @@
 						}
 						#load_button:hover{
 
-							background-color: #ff9800 !important;	
+							background-color:rgba(0,0,0,0.8) !important;	
 							color: #ffffff !important;
 							text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
 							border-radius: 0.25rem !important;
@@ -398,7 +417,7 @@
 
 				}:hover{
 
-					background-color: #ff9800;	
+					background-color:rgba(0,0,0,0.8);	
 					color: #ffffff;
 					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -436,7 +455,7 @@
 
 				}:hover{
 
-					background-color: #ff9800;	
+					background-color:rgba(0,0,0,0.8);
 					color: #ffffff;
 					text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 

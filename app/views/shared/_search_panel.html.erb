@@ -4,9 +4,10 @@
 
         <div class='col-md-12 search_col'>
 
-            <%= form_for @search do |f| %>
+            <%= form_with(model: @search ,url: searches_results_path, method:'get') do |f| %>
 
                 <%= f.text_field :keyword, :class=>'form-control' %>
+                <%= f.submit 'Search', { disable_with: "Searching, pleas wait..."} %>
 
             <% end %>
 

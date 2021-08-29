@@ -1,0 +1,121 @@
+<div class='container users_ranking_page_container'>
+
+        <div class='row users_ranking_page_row'>
+
+            <div class='col-md-12 users_ranking_page_column'>
+               
+                <% @users.each_with_index do |f,index| %>
+
+                    <div class='row user_row'>
+
+                        <div class='col-md-12 user_column'>
+
+                            <div class='user_column_number'>
+                                <%= if index < 9 then 0 else end %><%= index + 1 %>
+                            </div>
+
+                            <div class='user_container'>
+                                
+                                <div class='user_avatar'>
+                                
+                                    <% if f.profile.avatar.attached? %>
+
+                                        <%= link_to image_tag(f.profile.avatar_, :alt=>'profile photo'), profile_path(f.profile) %>
+
+                                    <% else %>
+
+                                        <%= link_to image_tag('default/default_avatar.png', :alt=>'user avatar'), profile_path(f.profile) %>
+
+                                    <% end %>
+
+                                </div>
+
+                                <div class='user_name'>
+
+                                        <span class='name'><%= f.profile.profile_name %></span>
+
+                                        <span class='hire'>
+                                        
+                                            <% if f.profile.hire %>
+                                                <%= link_to 'Available for hire', new_message_path %><br>
+                                            <% else %>
+                                                No available for hire
+                                            <% end %>
+                                        </span>
+
+                                        <span class='profile_country'>
+
+                                            <% if f.profile.country.present? %>
+                                                <%= f.profile.country %>
+                                            <% else %>
+                                                No country added
+                                            <% end %>                                        
+                                        
+                                        </span>
+
+                                        <span class='my_site'>
+
+                                            <% if f.profile.my_site.present? %>
+                                                <%= link_to f.profile.my_site.truncate(34), f.profile.my_site, :rel => 'nofollow', :target => '_blank'  %>
+                                            <% else %>
+                                                No private site
+                                            <% end %>                                        
+                                        
+                                        </span>
+
+                                        <span class='profile_fb'>
+
+                                            <% if f.profile.facebook_url.present? %>
+                                                 <%= link_to f.profile.facebook_url.truncate(34), f.profile.facebook_url %>
+                                            <% else %>
+                                                No Facebook added                                            
+                                            <% end %>                                        
+                                        
+                                        </span>
+
+                                        <span class='profile_insta'>
+
+                                            <% if f.profile.instagram_url.present? %>
+                                                <%= link_to f.profile.instagram_url.truncate(34), f.profile.instagram_url %>
+                                            <% else %>
+                                                No Instagram added                                            
+                                            <% end %>                                        
+                                        
+                                        </span>
+
+                                </div>
+
+                                <div class='user_stats_data'>
+
+                                    <div class='views'>
+                                        <span class='title'>Photo Views:</span>
+                                        <span class='data'><%= Ranking.where('user_id =?',f.id).first.views %></span>
+                                    </div>
+
+                                    <div class='downloads'>
+                                        <span class='title'>Photo Downloads:</span>
+                                        <span class='data'><%= Ranking.where('user_id =?',f.id).first.downloads %></span>
+                                    </div>
+
+                                    <div class='likes'>
+                                        <span class='title'>Photo Likes:</span>
+                                        <span class='data'><%= Ranking.where('user_id =?',f.id).first.likes %></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <% end %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

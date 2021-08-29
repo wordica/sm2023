@@ -22,11 +22,11 @@
 
             <ul class="list-group list-group-flush">
 
-                <li class="list-group-item"><%= @profile.profile_name %></li>
-                <li class="list-group-item"><%= @profile.country %></li>
-                <li class="list-group-item a_tag"><%= link_to @profile.my_site, @profile.my_site, :rel=>'nofollow' %></li>
-                <li class="list-group-item"><%= @profile.instagram_url %></li>
-                <li class="list-group-item"><%= @profile.facebook_url %></li>
+                <li class="list-group-item"><%= @profile.profile_name.truncate(50) %></li>
+                <li class="list-group-item"><%= @profile.country.truncate(50) if @profile.country.present? %></li>
+                <li class="list-group-item a_tag"><%= link_to @profile.my_site.truncate(50), @profile.my_site, :rel=>'nofollow' if @profile.my_site.present? %></li>
+                <li class="list-group-item"><%= @profile.instagram_url.truncate(50) if @profile.instagram_url.present? %></li>
+                <li class="list-group-item"><%= @profile.facebook_url.truncate(50) if @profile.facebook_url.present? %></li>
 
             </ul>
 
@@ -43,6 +43,16 @@
     </div>
 
     <div class='row profile_show_numbers_row'>
+
+        <div class='hire'>
+
+            <% if @profile.hire %>
+
+                <span class='profile_hire'><%= link_to 'Available for hire', new_message_path(:id => @profile.user_id) %></span>
+
+            <% end %>
+
+        </div>
 
         <div class='col-md-12 profile_show_numbers_column'>
 

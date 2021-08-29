@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords'
     
-  },:path => '', :path_names => { :sign_in => "sigin", :sign_out => "logout", :sign_up => "sign-up"}
+  },:path => '', :path_names => { :sign_in => "sign-in", :sign_out => "logout", :sign_up => "sign-up"}
 
 
 
@@ -27,7 +29,15 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#home'
 
   match 'photos/add_like' => 'photos#add_like', :as => :add_like, :via => [:get, :post]
+  match 'photos/download_photo' => 'photos#download_photo', :as => :download_photo, :via => [:get, :post]
 
+  match 'searches/searches_results' => 'searches#searches_results', :as=> :searches_results, :via => [:get]
+
+  match 'searches/most-popular-free-photos' => 'searches#most_popular_free_photos', :as=> :most_popular, :via => [:get]
+
+
+  resources :messages
+  resources :rankings
   resources :pages
   resources :profiles
   resources :searches

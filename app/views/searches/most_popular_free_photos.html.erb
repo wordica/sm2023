@@ -1,0 +1,23 @@
+<%= render partial: 'shared/most_popular_tags' %>
+<%= render partial: 'shared/search_panel' %>
+
+<div class='container-fluid main_page_container'>
+
+    <div class='row main_page_row'>
+
+        <div class='col-md-12 main_page_isotope_column'>
+
+             <%= render 'photos' %>
+
+        </div>
+
+
+		<div class='pagination'>
+
+			<%= will_paginate @photos %>
+
+		</div>
+
+    </div>
+
+</div>

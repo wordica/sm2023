@@ -57,7 +57,7 @@
 
 			}:hover{
 
-				background-color: #ff9800;	
+				background-color:rgba(0,0,0,0.8);	
 				color: #ffffff;
 				text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -145,7 +145,7 @@
         }
         #load_button:hover{
 
-            background-color: #ff9800 !important;	
+            background-color:rgba(0,0,0,0.8) !important;	
             color: #ffffff !important;
             text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
             border-radius: 0.25rem !important;
@@ -202,7 +202,7 @@
     }
     .submit_button:hover{
 
-        background-color: #ff9800 !important;	
+        background-color:rgba(0,0,0,0.8) !important;	
         color: #ffffff !important;
         text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
         border-radius: 0.25rem !important;
@@ -255,7 +255,7 @@
     }
     .submit_button:hover{
 
-        background-color: #ff9800 !important;	
+        background-color:rgba(0,0,0,0.8) !important;	
         color: #ffffff !important;
         text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
         border-radius: 0.25rem !important;
@@ -330,7 +330,7 @@
 
 			}:hover{
 
-				background-color: #ff9800;	
+				background-color:rgba(0,0,0,0.8);	
 				color: #ffffff;
 				text-shadow:2px 2px 0px rgba(0,0,0,0.12);
 
@@ -354,7 +354,9 @@
 .profile_show_column_left .avatar{
 
     img{
+
         border-radius: 100%;
+        
     };
 }
 
@@ -382,7 +384,7 @@
 .profile_show_column_bottom{
     text-align: center;
     word-break: break-word;
-    min-height:100px;
+    min-height:50px;
     color:#333333;
 }
 
@@ -394,8 +396,32 @@
 
 .profile_show_numbers_row{
 
-    margin:50px 0 50px 0 !important;
+    margin:25px 0 35px 0 !important;
 
+    position: relative;
+    text-align:center;
+
+    .hire{
+
+        margin-top:0px;
+
+        span{
+
+            a{
+                font-family:'Poppins';
+                font-size:62px;
+                color:rgba(171, 208, 34,0.25);
+                font-weight:900;
+                text-decoration: none !important;
+
+            }
+            a:hover{
+
+                color:#f1f1f1;
+
+            }
+        }
+    }
 }
 
 .profile_show_numbers_column{
@@ -572,4 +598,79 @@
 
     }
 
+}
+
+
+
+
+
+.profile_edit_bottom_row{
+
+    margin:0px auto 100px auto !important;
+
+}
+
+.profile_edit_bottom_column{
+
+}
+
+.profile_bottom_form{
+    
+    .formtastic.profile{
+         
+        text-align:center;
+        list-style:none !important;
+
+    }
+    #profile_hire_input{
+
+        padding:15px 0px 15px 0px;
+        
+        label[for=profile_hire]{
+            cursor: pointer;
+        }
+        #profile_hire{
+
+            display:inline-block;
+            margin:0px 5px 0px 0px;
+            vertical-align: -1px;
+            cursor: pointer;
+        }
+        
+
+    }
+
+    input[type=submit]{
+
+        text-align: center;
+        display: inline-block;
+        padding: 8px 14px 8px 14px;
+        font-family: 'Roboto';
+        font-weight: 500;
+        color: #333333;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        border-radius: 0 !important;
+        border: 0 !important;
+        display: inline-block;
+
+        box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+
+        -webkit-transition: all ease 0.3s;
+        -moz-transition: all ease 0.3s;
+        -o-transition: all ease 0.3s;
+        transition: all ease 0.3s;
+
+    }
+    input[type=submit]:hover{
+
+        background-color:rgba(0,0,0,0.8) !important;	
+        color: #ffffff !important;
+        text-shadow:2px 2px 0px rgba(0,0,0,0.12) !important;
+        border-radius: 0.25rem !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        
+    }
 }

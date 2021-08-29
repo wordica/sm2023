@@ -34,5 +34,6 @@ require('jquery')
 require('packs/noty/jquery.noty')
 require('packs/noty/themes/default')
 require('packs/noty/layouts/topRight')
+require('packs/fancybox/jquery.fancybox.min')
 
 require('packs/global')

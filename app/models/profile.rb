@@ -6,10 +6,19 @@ class Profile < ApplicationRecord
     has_one_attached :avatar
     belongs_to :user
 
+    after_create :add_profile_name
+
     def avatar_
        
         avatar.variant(resize_to_fill: [150, 150]).processed 
-        
+
+    end
+
+
+    def add_profile_name
+
+      self.profile_name = self.user.username
+      self.save!
 
     end
 

@@ -9,17 +9,19 @@
 class ProfilesController < ApplicationController
     before_action :authenticate_user!, except: [:show]
 
+    
 
     def show
 
         if user_signed_in?
-            @profile = current_user.profile
+            @profile = Profile.friendly.find(params[:id])
         else
             @profile = Profile.friendly.find(params[:id])
         end
 
         if user_signed_in?
-            user = current_user
+            profile = Profile.friendly.find(params[:id])
+            user = User.where('id =?',@profile.user_id).first
         else
             profile = Profile.friendly.find(params[:id])
             user = User.where('id =?',profile.user_id).first
@@ -27,10 +29,8 @@ class ProfilesController < ApplicationController
         
         @uploaded = user.photos.all.count
         
-        @likes = 0
-        user.photos.each do |f|
-            @likes += f.likes
-        end
+        @likes = Like.where('user_id =?',@profile.user_id).all.count
+        
 
         @views = 0
         user.photos.each do |f|
@@ -45,6 +45,8 @@ class ProfilesController < ApplicationController
     def edit
 
         @profile = current_user.profile
+
+        @user = current_user
 
     end
 
@@ -63,7 +65,7 @@ class ProfilesController < ApplicationController
 
         def profile_params
 
-            params.require(:profile).permit(:description, :country, :instagram_url, :facebook_url, :my_site, :uploaded_photos, :rating, :profile_name, :user_id, :avatar)
+            params.require(:profile).permit(:hire, :description, :country, :instagram_url, :facebook_url, :my_site, :uploaded_photos, :rating, :profile_name, :user_id, :avatar)
 
         end
 end

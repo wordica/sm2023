@@ -11,7 +11,76 @@ $(window).on("load", function() {
     
     init_tooltipster();
 
+    modal_download_ajax();
+
+    fancybox_related_photos();
+
 });
+
+
+function fancybox_related_photos(){
+
+    jQuery('.modal .related_photo .photo').each( function(){
+
+        jQuery(this).find('a.fancybox').fancybox({
+
+            beforeLoad : function(){
+                
+                jQuery('body').removeClass('fancybox-active').removeClass('compensate-for-scrollbar');
+                
+            },
+            beforeClose : function(){
+                
+            }
+
+        });
+
+    });
+
+}
+
+
+
+
+function modal_download_ajax(){
+
+
+    jQuery('.modal-footer .btn_download').on('click',function(){
+        var p_id =  jQuery(this).data('id')
+        console.log(p_id)
+        jQuery.ajax({
+            type: 'POST',
+            data: { p_id_data: p_id },
+            url: '/photos/download_photo',
+            success: function(data){
+               
+            }
+
+
+        });
+
+    });
+
+    jQuery('.icon_to_download').on('click',function(){
+        var p_id =  jQuery(this).data('id')
+        console.log(p_id)
+        jQuery.ajax({
+            type: 'POST',
+            data: { p_id_data: p_id },
+            url: '/photos/download_photo',
+            success: function(data){
+               
+            }
+
+
+        });
+
+    });
+
+
+    
+
+}
 
 function init_tooltipster(){
 
@@ -154,7 +223,7 @@ function infinite_scroll(){
 
     $grid.infiniteScroll({
         path: '.pagination a[rel="next"]',
-        scrollThreshold: 800,
+        scrollThreshold: 1400,
         append: '.iso_image',
         outlayer: iso
     });
@@ -203,7 +272,7 @@ function infinite_scroll(){
                 jQuery(this).find('.modal').modal('show');
                 copy_to_clipboard(this);
                 init_tooltipster();
-
+                fancybox_related_photos();
              });
             
 

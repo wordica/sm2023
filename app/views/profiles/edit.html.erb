@@ -71,4 +71,24 @@
 
     </div>
 
+    <div class='profile_edit_bottom_row'>
+
+        <div class='col-md-12 profile_edit_bottom_column'>
+
+            <div class='profile_bottom_form'>
+
+                <%= semantic_form_for @profile do |u| %>
+
+                    <%= u.input :hire,  :as => :boolean, :required => false, :label => 'Available for hire', :input_html => { } %>
+                    <%= u.submit "Save",data: { disable_with: "Saving info..."} %>
+                    
+                <% end %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>
