@@ -471,7 +471,7 @@
 
 
 .photo_tags_form{
-
+	position:relative;
 	text-align:center;
 }
 .photo_tags_form input#tag_name{
@@ -488,5 +488,48 @@
 
 .photo_tags_form .btn-send{
 
-	display:none;
+	position:absolute;
+	display:inline-block;
+	bottom:0;
+	right:0;
+	text-transform: uppercase;
+	border-radius: 0 !important;
+	border:0 !important;
+
+	background-color: #ffffff;
+	color:#333333;
+	box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12);
+
+	margin:0px 50px -20px 0px;
+}
+.photo_tags_form .btn-send:hover{
+
+	background-color:rgba(0,0,0,0.8);
+	color:#ffffff;
+
+}
+
+
+
+.badge_container{
+
+    display:inline-block;
+    padding:15px 0px 15px 0px;
+	width:100%;
+
+}
+.badge_tags{
+
+    color:#ffffff;
+    background-color:#abd022;
+	border-radius: 0 !important;
+   
+    margin-right:8px;
+
+}
+.warning_info{
+    vertical-align: -1px;
+    display:inline-block;
+    color:#999999;
+    font-size:13px;
 }

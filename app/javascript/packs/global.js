@@ -1,7 +1,9 @@
 
 $(window).on("load", function() {
 
+  
     infinite_scroll();
+   
     scroll_top();
     random_tags_top_font_size();
    
@@ -23,6 +25,26 @@ function fancybox_related_photos(){
     jQuery('.modal .related_photo .photo').each( function(){
 
         jQuery(this).find('a.fancybox').fancybox({
+
+            beforeLoad : function(){
+                
+                jQuery('body').removeClass('fancybox-active').removeClass('compensate-for-scrollbar');
+                
+            },
+            beforeClose : function(){
+                
+            }
+
+        });
+
+    });
+
+
+    /* BIG PHOTO */
+
+    jQuery('.modal').each( function(){
+
+        jQuery(this).find('a.big_image_fancybox').fancybox({
 
             beforeLoad : function(){
                 
@@ -77,9 +99,24 @@ function modal_download_ajax(){
 
     });
 
+    jQuery('.link_to_download a').on('click',function(){
+        var p_id =  jQuery(this).data('id')
+        console.log(p_id)
+        jQuery.ajax({
+            type: 'POST',
+            data: { p_id_data: p_id },
+            url: '/photos/download_photo',
+            success: function(data){
+               
+            }
+
+        });
+
+    });
+
 
     
-
+    
 }
 
 function init_tooltipster(){
@@ -199,7 +236,7 @@ function infinite_scroll(){
 
         itemSelector: 'none', // select none at first
         masonry: {
-            columnWidth: 440,
+            columnWidth: 300,
             isFitWidth: true,
             gutter: 4
         },
@@ -273,6 +310,7 @@ function infinite_scroll(){
                 copy_to_clipboard(this);
                 init_tooltipster();
                 fancybox_related_photos();
+                modal_download_ajax();
              });
             
 

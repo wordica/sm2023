@@ -1,0 +1,43 @@
+<div class='container unsubscribe_container'>
+
+  <div class='row unsubscribe_form_row'>
+
+    <div class='col-md-12 unsubscribe_form_column'>
+
+      <div class='unsubscribe_inner_container'>
+
+        <div class='row second_unsubscribe_row'>
+
+          <div class='col-md-12 unsubscribe_inner_column'>
+
+              <h2>Write adress email to remove</h2>
+
+              <%= form_for @unsubscribe do |f| %>
+                
+                <div class="col-md-6 offset-md-3 email_field">
+                  <%= f.label :email, 'Write Your email adress' %><br />
+                  <%= f.email_field :email, autofocus: true,:required => true, autocomplete: "email", :class=>'form-control form-control-lg' %>
+                </div>
+                <%= f.hidden_field :token, :value => params[:token] %>
+
+                <div class='row submit_row'>
+                  
+                  <div class='col-md-12 submit_column'>
+
+                    <%= f.submit "Remove adress",data: { disable_with: "Removing..."} %>
+                    
+                  </div>
+
+                </div>
+
+              <% end %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </div>
+
+</div>

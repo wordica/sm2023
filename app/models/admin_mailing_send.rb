@@ -1,0 +1,2 @@
+class AdminMailingSend < ApplicationRecord
+end

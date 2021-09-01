@@ -13,6 +13,7 @@
 
 
  *= require global
+ *= require unsubscribe
  *= require jquery.fancybox
  *= require pagination
  *= require top_navbar

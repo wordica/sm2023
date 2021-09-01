@@ -6,7 +6,7 @@
 
         <div class='photo_hidden_container'>
 
-            <div class='logotype_display'>PhotoClicker.net</div>
+            <div class='logotype_display'>photoclicker.net</div>
             <div class='photo_data'>
 
                 <div class='author_avatar'>
@@ -58,7 +58,7 @@
             
         </div>
        
-        <%= image_tag( p.image_url(:large), :alt=>'p.some tags' ) %>
+        <%= image_tag( p.image_url(:iso_optimized), :alt=>'p.some tags') %>
       
         <div class='modal_container'>
 
@@ -91,15 +91,15 @@
 
                         <div class='modal_author_info'>
                             <div class='info'>You do not have to but if You can, add link to user profile if You will use this photo on Your site </div>
-                            <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
-                                <%= 'https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
+                            <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
+                                <%= 'http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
                                 
                             </div>
                         </div>
 
                         <div class="modal-body">
 
-                            <%= image_tag(p.image_url(:large), :alt=>'free stock photo') %>
+                            <%= link_to image_tag(p.image_url(:large), :alt=>'free stock photo'), p.image_url(:fancybox), :class => 'big_image_fancybox' %>
 
                         </div>
 
@@ -188,14 +188,31 @@
 
                                         <% if !p.get_related_photos.nil? %>
                                         
-                                        <%  a = []
-                                            a.push(p.get_related_photos)
-                                            b = a.flatten
+                                            <%  a = []
+                                                a.push(p.get_related_photos)
+                                                b = a.flatten
                                             %>
 
                                             <% b.each do |f| %>
                                                 
-                                                <div class='photo'><%= link_to image_tag( Photo.where('id =?',f).first.image_url(:thumb), :alt => 'related photo' ), Photo.where('id =?',f).first.image_url(:large), :class => 'fancybox' %></div>
+                                                <div class='photo'>
+                                                    <%= image_tag( Photo.where('id =?',f).first.image_url(:thumb), :alt => 'related photo' ) %>
+                                                    <div class='photo_background'>
+
+                                                        <div class='link_to_show'>
+                                                            <%= link_to "Show", Photo.where('id =?',f).first.image_url(:fancybox), :class => 'fancybox' %>
+                                                        </div>
+
+                                                        <div class='link_to_download'>
+                                                        <% 
+                                                            user_id = Photo.where('id =?',f).first.user_id 
+                                                            profile = User.where('id =?',user_id).first.profile.profile_name
+                                                        %>
+                                                            <%= link_to 'Download', Photo.where('id =?',f).first.image_url, :data => { :id => Photo.where('id =?',f).first.hashed }, download: profile + "_photoclicker_#{Photo.where('id =?',f).first.hashed}_downloaded" %>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
                                             
                                              <% end %>
 

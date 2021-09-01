@@ -56,7 +56,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :file_store, "/tmp/my_cache"
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -109,6 +109,17 @@ Rails.application.configure do
   # timestamps for the last write to the primary. The resolver uses the context
   # class timestamps to determine how long to wait before reading from the
   # replica.
+
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.smtp_settings = {
+    :openssl_verify_mode => 'none',
+    :enable_starttls_auto => false
+  }
+
+  config.action_mailer.default_url_options = { :host => 'photoclicker.net' }
+  config.action_mailer.asset_host = "http://localhost:3000"
+
   #
   # By default Rails will store a last write timestamp in the session. The
   # DatabaseSelector middleware is designed as such you can define your own

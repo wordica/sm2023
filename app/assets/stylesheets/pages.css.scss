@@ -41,12 +41,12 @@
         .logotype_display{
 
             position:absolute;
-            top:calc(50% - 12px);
+            top:calc(50% - 21px);
             left:0;
             right:0;
             
             font-family:'Open Sans';
-            font-size:32px; 
+            font-size:21px; 
             font-weight:800;
 
             -moz-user-select: none;
@@ -94,7 +94,7 @@
     margin-bottom:4px;
     
     img{
-        max-width:440px;
+        max-width:300px;
         height: auto;
     }
 

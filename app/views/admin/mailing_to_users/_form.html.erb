@@ -1,0 +1,19 @@
+<%= semantic_form_for [:admin, @mailing_to_user] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :sender_1 %>
+    <%= f.input :subject_1 %>
+  <% end %>
+ <%= f.inputs do %>
+    
+      <li>
+	      <%= label_tag "filters[login]", t("helpers.label.search.login") %>
+	      <%= text_field_tag "filters[login]" %>
+	  </li>
+      <li>
+      	<%= label_tag "filters[logged_minimum]", t("helpers.label.search.logged_minimum") %>
+      	<%= text_field_tag "filters[logged_minimum]" %> <span>do</span>
+      	<%= text_field_tag "filters[logged_maximum]" %>
+      <li>
+  <% end %>
+  <%= f.actions %>
+<% end %>

@@ -33,15 +33,18 @@
           <% end %>
 
         </div>
-           
-        <div class='photo_tags_form'>
+        
+        <div class='badge_container'>
+          <span class="badge badge-warning badge_tags">Warning</span><span class='warning_info'>Please add only one keyword at time ( it can be multiwords keyword )</span>
+        </div>
+        <div class='container photo_tags_form'>
           
           <%= form_for @tag ,:remote => true do |f| %>
             
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :photo_id, :value => @photo_id %>
             <%= f.text_field :name , :placeholder=>'add tags', :class=>'form-control form-tags' %>
-            <%= f.button '<i class="fas fa-tag"></i>add tag'.html_safe, :class=>'btn btn-submit-tags btn-send', :disable_with =>'Adding...' %>
+            <%= f.button 'add tag'.html_safe, :class=>'btn btn-submit-tags btn-send', :disable_with =>'Adding...' %>
           
           <% end %>
 

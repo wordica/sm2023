@@ -36,12 +36,14 @@ gem 'sitemap_generator'
 
 gem 'whenever', require: false
 
+#gem 'webrick'
+#gem "down"
+#gem 'fileutils'
 
-gem "down"
-gem 'fileutils'
+gem 'passenger'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+#gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

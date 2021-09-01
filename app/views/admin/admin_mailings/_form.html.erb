@@ -1,0 +1,8 @@
+<%= semantic_form_for [:admin, @admin_mailing] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :sender_1 %>
+    <%= f.input :subject_1 %>
+  <% end %>
+ 
+  <%= f.actions %>
+<% end %>

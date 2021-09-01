@@ -18,9 +18,12 @@ module Photoclicker
     config.assets.enabled = true
     config.encoding = "utf-8"
 
+    config.active_job.queue_adapter = :delayed_job
+
     config.i18n.default_locale = :pl
     config.i18n.locale = :pl
     config.autoload_paths += %W(#{config.root}/lib/devise)
     config.autoload_paths += %W(#{config.root}/lib/will_paginate)
+    config.autoload_paths += %W(#{config.root}/lib/delayed_job)
   end
 end

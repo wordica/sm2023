@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   match 'searches/most-popular-free-photos' => 'searches#most_popular_free_photos', :as=> :most_popular, :via => [:get]
 
-
+  resources :unsubscribes
   resources :messages
   resources :rankings
   resources :pages

@@ -1,0 +1,2 @@
+class AdminMailing < ApplicationRecord
+end

@@ -23,7 +23,7 @@ ActiveAdmin.register Photo, :as => 'photo' do
       column :id 
       column :image_data do |i|
   
-        link_to image_tag(i.image_url(:thumb)), i.image_url(:large)
+        link_to image_tag(i.image_url(:thumb)), i.image_url(:fancybox)
   
       end
       column :dimensions do |f|
