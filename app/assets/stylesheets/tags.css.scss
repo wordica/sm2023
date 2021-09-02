@@ -9,6 +9,8 @@
 .most_popular_tags_column{
     text-align: center;
     min-height:75px;
+    position:relative;
+    z-index:101;
     
     .tag{
 

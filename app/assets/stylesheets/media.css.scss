@@ -28,3 +28,822 @@
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 769px) and (max-width: 991.98px) {
+
+	/* PROFILE SHOW */
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:250px !important;
+	}
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1039.98px) {
+
+	.container{
+		max-width:960px !important;
+	}
+
+	/* PROFILE SHOW */
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:250px !important;
+	}
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+
+	.container{
+		max-width:960px !important;
+	}
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+	.container{
+		max-width:1050px !important;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 579px) and (max-width: 768px) {
+
+	/* NAVBAR */
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link{
+		width:100%;
+		padding:15px 15px 15px 15px !important;
+	}
+
+
+	/* MODAL FOR IMAGES */
+
+	.big_image_fancybox{
+
+		text-align:center !important;
+		img{
+
+			
+			background-color: #ffffff;
+			max-width:375px !important;
+			height:auto;
+			padding:8px;
+			box-shadow:0px 0px 16px 6px rgba(0,0,0,0.12);
+
+		}
+	}
+
+	.data_container{
+
+		padding:15px 15px 15px 15px !important;
+
+		
+	}
+	.modal_bottom_info .data_container .related_photos .related_photo .photo{
+
+		margin:0px 0px 15px 0px !important;
+	}
+
+
+	/* PROFILE SHOW */
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:5px;
+
+	}
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:150px !important;
+	}
+
+	/* 100 USERS RANKING */
+
+	.user_stats_data div span{
+
+		font-size:18px !important;
+
+	}
+
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 578px) { 
+
+	/* TOP, NAVBAR ETC */
+	h1.portal_randkowy{
+		font-size:32px !important;
+	}
+
+	/* NAVBAR */
+	.navbar_container{
+
+		padding-top:5px !important;
+		padding-bottom:5px !important;
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link i{
+
+		display:none !important;
+
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link{
+		width:100%;
+		padding:15px 15px 15px 15px !important;
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link:last-child{
+
+		padding-bottom:15px !important;
+	}
+
+	/* search box */
+	.search_col{
+		
+		input[type=submit]{
+
+			margin:0px -10px -5px 0px !important;
+
+		}
+	}
+
+	.licence_txt{
+		text-align:center !important;
+	}
+
+
+
+	/* GRID WITH IMAGES */
+	.iso_image{
+		
+	}
+
+
+	/* MODAL FOR IMAGES */
+
+	.big_image_fancybox{
+
+		text-align:center !important;
+		img{
+
+			
+			background-color: #ffffff;
+			max-width:275px !important;
+			height:auto;
+			padding:8px;
+			box-shadow:0px 0px 16px 6px rgba(0,0,0,0.12);
+
+		}
+	}
+
+	.data_container{
+
+		padding:15px 15px 15px 15px !important;
+
+		
+	}
+	.modal_bottom_info .data_container .related_photos .related_photo .photo{
+
+		margin:0px 0px 15px 0px !important;
+	}
+
+
+
+	/* PROFILE SHOW PAGE */
+
+	.profile_show_numbers_row .hire span a{
+
+		font-size:45px !important;
+	}
+
+	.profile_show_numbers_column div{
+
+		width:100%;
+
+	}
+
+	.most_viewed_photos_column{
+
+		text-align: center;
+
+	}
+	.most_viewed_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+
+	.most_liked_photos_column{
+
+		text-align: center;
+
+	}
+	.most_liked_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:150px !important;
+	}
+
+
+	/* PHOTO UPLOADED */
+
+	.new_photo_col{
+
+		text-align:center;
+		margin-top:55px;
+		z-index:101;
+
+		.new_photo{
+
+			display:inline-block;
+			max-width: 275px !important;
+			height: auto;
+
+			img{
+				max-width: 275px!important;
+				height: auto;
+			}
+		}
+
+	}
+	.photo_tags_form .btn-send{
+
+		margin:0px 35px -20px 0px !important;
+		
+	}
+
+	/* 100 RANKING PAGE */
+
+	.users_ranking_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_ranking_page_column .user_container .user_stats_data div span{
+		
+		font-size:21px !important;
+
+	}
+
+}
+
+
+@media only screen and (max-width: 450px) {
+
+	/* TOP, NAVBAR ETC */
+	h1.portal_randkowy{
+		font-size:32px !important;
+	}
+
+	/* NAVBAR */
+	.navbar_container{
+
+		padding-top:5px !important;
+		padding-bottom:5px !important;
+	}
+
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link i{
+
+		display:none !important;
+
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link{
+		width:100%;
+		padding:15px 15px 15px 15px !important;
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link:last-child{
+
+		padding-bottom:15px !important;
+	}
+
+	/* search box */
+	.search_col{
+		
+		input[type=submit]{
+
+			margin:0px -10px -5px 0px !important;
+
+		}
+	}
+
+	.licence_txt{
+		text-align:center !important;
+	}
+
+
+
+	/* GRID WITH IMAGES */
+	.iso_image{
+		
+	}
+
+	
+	/* MODAL FOR IMAGES */
+
+	.big_image_fancybox{
+
+		text-align:center !important;
+		img{
+
+			
+			background-color: #ffffff;
+			max-width:275px !important;
+			height:auto;
+			padding:8px;
+			box-shadow:0px 0px 16px 6px rgba(0,0,0,0.12);
+
+		}
+	}
+	
+	.data_container{
+
+		padding:15px 15px 15px 15px !important;
+
+		
+	}
+	.modal_bottom_info .data_container .related_photos .related_photo .photo{
+
+		margin:0px 0px 15px 0px !important;
+	}
+
+
+
+	/* PROFILE SHOW PAGE */
+
+	.profile_show_numbers_row .hire span a{
+
+		font-size:45px !important;
+	}
+
+	.profile_show_numbers_column div{
+
+		width:100%;
+
+	}
+
+	.most_viewed_photos_column{
+
+		text-align: center;
+
+	}
+	.most_viewed_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+
+	.most_liked_photos_column{
+
+		text-align: center;
+
+	}
+	.most_liked_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:150px !important;
+	}
+
+
+	/* PHOTO UPLOADED */
+
+	.new_photo_col{
+
+		text-align:center;
+		margin-top:55px;
+		z-index:101;
+
+		.new_photo{
+
+            display:inline-block;
+			max-width: 275px !important;
+			height: auto;
+
+			img{
+				max-width: 275px!important;
+				height: auto;
+			}
+		}
+
+	}
+	.photo_tags_form .btn-send{
+
+		margin:0px 35px -20px 0px !important;
+		
+	}
+
+	/* 100 RANKING PAGE */
+
+	.users_ranking_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_ranking_page_column .user_container .user_stats_data div span{
+		
+		font-size:16px !important;
+
+	}
+
+}
+
+@media only screen and (max-width: 325px) {
+
+	/*  REGISTER LOGIN FORM */
+	.reg_inner_column .email_field .form-control{
+
+		font-size: 13px !important;
+		
+	}
+
+	/* TOP, NAVBAR ETC */
+	h1.portal_randkowy{
+		font-size:32px !important;
+	}
+
+	/* NAVBAR */
+	.navbar_container{
+
+		padding-top:5px !important;
+		padding-bottom:5px !important;
+	}
+
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link i{
+
+		display:none !important;
+
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link{
+		width:100%;
+		padding:15px 15px 15px 15px !important;
+	}
+	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link:last-child{
+
+		padding-bottom:15px !important;
+	}
+
+	/* search box */
+	.search_col{
+		
+		input[type=submit]{
+
+			margin:0px -10px -5px 0px !important;
+
+		}
+	}
+
+	.licence_txt{
+		text-align:center !important;
+	}
+
+
+
+	/* GRID WITH IMAGES */
+	.iso_image{
+		left:0px !important;
+	}
+
+	
+	/* MODAL FOR IMAGES */
+
+	.big_image_fancybox{
+
+		text-align:center !important;
+		img{
+
+			
+			background-color: #ffffff;
+			max-width:275px !important;
+			height:auto;
+			padding:8px;
+			box-shadow:0px 0px 16px 6px rgba(0,0,0,0.12);
+
+		}
+	}
+	
+	.data_container{
+
+		padding:15px 15px 15px 15px !important;
+
+		
+	}
+	.modal_bottom_info .data_container .related_photos .related_photo .photo{
+
+		margin:0px 0px 15px 0px !important;
+	}
+
+
+
+	/* PROFILE SHOW PAGE */
+
+	.profile_show_numbers_row .hire span a{
+
+		font-size:45px !important;
+	}
+
+	.profile_show_numbers_column div{
+
+		width:100%;
+
+	}
+
+	.most_viewed_photos_column{
+
+		text-align: center;
+
+	}
+	.most_viewed_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_viewed_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+
+	.most_liked_photos_column{
+
+		text-align: center;
+
+	}
+	.most_liked_photos_column .photos_container{
+
+		text-align:center !important;
+
+	}
+	.most_liked_photos_column .photos_container .photo{
+
+		margin-bottom:15px;
+
+	}
+
+
+
+	/* PROFILE EDIT */
+	.avatar_upload_form #inputGroupFile02{
+
+		max-width:150px !important;
+	}
+
+
+	/* PHOTO UPLOADED */
+
+	.new_photo_col{
+
+		text-align:center;
+		margin-top:55px;
+		z-index:101;
+
+		.new_photo{
+
+            display:inline-block;
+			max-width: 275px !important;
+			height: auto;
+
+			img{
+				max-width: 275px!important;
+				height: auto;
+			}
+		}
+
+	}
+	.photo_tags_form .btn-send{
+
+		margin:0px 35px -20px 0px !important;
+
+	}
+
+
+
+	/* 100 RANKING PAGE */
+
+	.users_ranking_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_ranking_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_ranking_page_column .user_container .user_stats_data div span{
+		
+		font-size:16px !important;
+
+	}
+
+}

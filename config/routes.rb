@@ -28,6 +28,11 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#home_logged_in'
   get '/pages/:page' => 'pages#home'
 
+  match 'photos/licence' => 'photos#licence', :as => :licence, :via => [:get, :post]
+  match 'photos/privacy-policy' => 'photos#privacy_policy', :as => :privacy_policy, :via => [:get, :post]
+  match 'photos/regulations' => 'photos#regulations', :as => :regulations, :via => [:get, :post]
+
+
   match 'photos/add_like' => 'photos#add_like', :as => :add_like, :via => [:get, :post]
   match 'photos/download_photo' => 'photos#download_photo', :as => :download_photo, :via => [:get, :post]
 

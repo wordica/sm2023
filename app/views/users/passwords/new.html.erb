@@ -1,16 +1,53 @@
-<h2>Forgot your password?</h2>
+<div class='container new_password_container'>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <div class='row new_password_form_row'>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class='col-md-12 new_password_form_column'>
+
+      <div class='new_password_inner_container'>
+
+        <div class='row second_new_password_row'>
+
+          <div class='col-md-12 new_password_inner_column'>
+
+              <h2>New Password?</h2>
+
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              
+                <%= render "users/shared/error_messages", resource: resource %>
+
+                <div class="col-md-6 offset-md-3 email_field">
+                  <%= f.label :email, 'Your email adress' %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>'form-control form-control-lg' %>
+                </div>
+
+                <div class='row submit_row'>
+
+                  <div class='col-md-12 submit_column'>
+
+                    <%= f.submit "Send link to reset", data: { disable_with: "Sending message..."} %>
+
+                  </div>
+
+                </div>
+
+              <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='row password_actions_row'>
+
+        <%= render "users/shared/links" %>
+              
+    </div>
+
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+</div>
 
-<%= render "users/shared/links" %>

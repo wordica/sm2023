@@ -22,7 +22,7 @@
     </div>
 
 
-    <nav class="navbar navbar-light top_navbar navbar-expand">
+    <nav class="navbar navbar-light top_navbar navbar-expand-lg">
 
       <div class='container-fluid navbar_container'>
 
@@ -57,12 +57,12 @@
 
               <li class="nav-item">
 
-                  <%= link_to '<i class="fas fa-search"></i><span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
-                  <%= link_to '<i class="fas fa-search"></i><span>Most Popular</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
-                  <%= link_to '<i class="fas fa-house-user"></i><span>Profile</span>'.html_safe, profile_path(current_user.id), :class=>'nav-link' %>
-                  <%= link_to '<i class="fas fa-search"></i><span>Uploaded</span>'.html_safe, photos_path, :class=>'nav-link' %>  
-                  <%= link_to '<i class="fas fa-search"></i><span>Upload</span>'.html_safe, new_photo_path, :class=>'nav-link' %>
-                  <%= link_to '<i class="fas fa-search"></i><span>Messages</span>'.html_safe, messages_path, :class=>'nav-link' %>
+                  <%= link_to '<span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
+                  <%= link_to '<span>Most Popular</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
+                  <%= link_to '<span>Profile</span>'.html_safe, profile_path(current_user.id), :class=>'nav-link' %>
+                  <%= link_to '<span>Uploaded</span>'.html_safe, photos_path, :class=>'nav-link' %>  
+                  <%= link_to '<span>Upload</span>'.html_safe, new_photo_path, :class=>'nav-link' %>
+                  <%= link_to '<span>Messages</span>'.html_safe, messages_path, :class=>'nav-link' %>
 
               </li>
               
@@ -72,7 +72,7 @@
 
                 <li class="nav-item">
 
-                    <%= link_to '<i class="fas fa-search"></i><span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
+                    <%= link_to '<span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
                     <%= link_to '<span>Most Popular</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
                     
                 </li>

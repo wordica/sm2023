@@ -19,9 +19,11 @@
 	.title_row{
 
 		text-align: center;
+		
 
 		.title_column{
 
+			z-index:102;
 			padding: 0px 0px 0px 0px;
 
 			h1{
@@ -376,6 +378,7 @@
 
 		text-align:center;
 		margin-top:55px;
+		z-index:101;
 
 		.new_photo{
 
@@ -409,6 +412,8 @@
 					font-size: 16px;
 					text-transform: uppercase;
 					text-decoration: none !important;
+
+					background-color:#ffffff;
 
 					-webkit-transition: all ease 0.3s;
 					-moz-transition: all ease 0.3s;

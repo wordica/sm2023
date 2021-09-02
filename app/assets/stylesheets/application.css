@@ -12,6 +12,7 @@
  *
  
  *= require global
+ *= require licence
  *= require jquery.fancybox
  *= require pagination
  *= require top_navbar

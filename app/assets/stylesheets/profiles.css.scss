@@ -18,13 +18,11 @@
 .profile_row .options_row{
 	
 	padding: 50px 0px 60px 0px;
-	z-index: 100;
-	
+	z-index: 102;
 
 	.options_col{
-	
+
 		text-align: center;
-		z-index: 200;
 
 		.option_button{
 
@@ -39,7 +37,8 @@
 				text-transform: uppercase;
 				text-decoration: none !important;
 
-				z-index: 100;
+                position:relative;
+				z-index: 210;
 				background-color: #ffffff;
 				
 
@@ -291,7 +290,7 @@
 .profile_show_row .options_row{
 	
 	padding: 50px 0px 60px 0px;
-	z-index: 100;
+	z-index: 101;
 	
 
 	.options_col{
