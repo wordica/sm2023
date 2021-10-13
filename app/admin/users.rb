@@ -1,6 +1,6 @@
 ActiveAdmin.register User, :as => 'Users' do
     
-    menu :priority => 3
+    menu :priority => 5
 
 
     filter :email

@@ -1,29 +1,35 @@
-require "down"
-require "fileutils"
-
 class PhotosController < ApplicationController
+  
     before_action :set_photo, only: %i[ show edit update destroy ]
-    before_action :authenticate_user!, :except => [:download_photo, :licence, :regulations, :privacy_policy]
+    before_action :authenticate_user!, :except => [:download_photo, :licence, :regulations, :privacy_policy, :about_us, :faq, :direct_link]
   
     def licence
-
-
-
     end
 
     def privacy_policy
-
-
     end
 
     def regulations
+    end
+
+    def about_us
+    end
+
+    def faq
+    end
+
+
+    def direct_link
+
+      @photo = Photo.where('hashed =?', params[:hashed]).first
+      @description = Description.where('photo_id =?',@photo.id).first
 
     end
 
 
     def index
   
-      @photos = current_user.photos.all.order('created_at DESC').paginate(page: params[:page], per_page: 30 )
+      @photos = current_user.photos.all.order('created_at DESC').paginate(page: params[:page], per_page: 22 )
   
     end
   
@@ -31,6 +37,17 @@ class PhotosController < ApplicationController
 
       @tags = Tag.where('photo_id =?',params[:id])
       @tag = Tag.new
+
+      if !Description.where('photo_id =?',params[:id]).present?
+
+        Description.create!(:photo_id => params[:id], :name => 'You can add description to this photo')
+
+      end
+      
+      @description = Description.where('photo_id =?',params[:id])
+
+
+      @desc = Description.new
 
       @photo_id = params[:id]
 
@@ -140,7 +157,7 @@ class PhotosController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def photo_params
-        params.require(:photo).permit(:hashed, :image_data,:image, :active, :checked, :user_id, :tags, :views, :likes, :downloads)
+        params.require(:photo).permit(:hashed, :image_data,:image, :active, :checked, :user_id, :tags, :views, :likes, :downloads, :desc)
       end
 
   end

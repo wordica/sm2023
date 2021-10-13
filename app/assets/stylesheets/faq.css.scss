@@ -1,0 +1,62 @@
+
+
+.faq_container{
+
+
+    margin:80px 0px 80px 0px;
+
+}
+
+.faq_row{
+
+
+}
+
+
+.faq_column{
+
+
+}
+
+/* REPEATED */
+
+.faq_question{
+
+    text-align:left;
+
+    i{
+        display: inline-block;
+        padding:0px 8px 0px 0px;
+        color:rgba(171,208,34,0.99);
+        vertical-align: 0px;
+    }
+
+    h5{
+
+        font-family:'Poppins';
+        color:#333333;
+        font-size:16px;
+        line-height:28px;
+        display:inline-block;
+        padding:0px 0px 4px 0px;
+        margin:0px 0px 0px 0px !important;
+
+    }
+}
+
+.faq_answer{
+
+    text-align:left;
+
+    h6{
+
+        font-family:'Poppins';
+        color:#666666;
+        font-size:14px;
+        line-height:24px;
+        display:inline-block;
+        padding:0px 0px 30px 0px;
+        margin:0px 0px 0px 0px !important;
+
+    }
+}

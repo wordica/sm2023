@@ -1,0 +1,169 @@
+.new_confirmation_container{
+
+	position: relative;
+	padding: 0px 0px 0px 0px;
+	z-index: 301;
+
+}
+.new_confirmation_form_row{
+
+	padding: 0px 0px 0px 0px;
+
+}
+.new_confirmation_form_column{
+
+	
+
+}
+.new_confirmation_inner_container{
+
+	margin: 50px 0px 25px 0px;
+	box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.12);
+	background-color: #ffffff;
+
+}
+.new_confirmation_inner_container:after{
+
+	background-image: radial-gradient(#f2f2f2 15%,transparent 25%);
+
+	background-size: 20px 20px;
+
+	position: absolute;
+
+	content: "";
+
+	width: 166px;
+
+	height: 166px;
+
+	left: 0;
+
+	margin-left: -34px;
+
+	top: 0;
+
+	margin-top: 5px;
+
+	z-index: -1;
+
+}
+
+.second_new_confirmation_row{
+
+	text-align: center;
+
+}
+.new_confirmation_inner_column{
+
+
+	h2{
+		font-family: 'Poppins';
+		font-size: 24px;
+		font-weight: 600;
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 25px 0px 20px 0px;
+
+	}
+
+}
+
+
+.submit_row{
+
+	.submit_column{
+
+		margin: 45px 0px 0px 0px;
+
+		input[type=submit]{
+
+			margin-bottom: 35px;
+			display: inline-block;
+			padding: 8px 14px 8px 14px;
+			font-family: 'Roboto';
+			font-weight: 500;
+			color: #333333;
+			font-size: 16px;
+			text-transform: uppercase;
+			text-decoration: none !important;
+			border: 0 !important;
+
+			box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12) !important;
+			text-align: center;
+			
+
+			-webkit-transition: all ease 0.3s;
+			-moz-transition: all ease 0.3s;
+			-o-transition: all ease 0.3s;
+			transition: all ease 0.3s;
+		}
+
+		input[type=submit]:hover{
+
+			background-color: #ff9800 !important;	
+			color: #ffffff;
+			text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+		}
+
+								
+	}
+}
+
+.confirmation_actions_row{
+
+
+	.col-md-6{
+
+		padding: 0px 0px 25px 0px;
+		
+		text-align: center;
+
+		a{
+			font-family: 'Poppins';
+			color: #666666;
+			font-size: 16px;
+
+		}
+	}
+}
+
+.new_confirmation_inner_column{
+
+
+}
+.new_confirmation_inner_column .email_field{
+
+	label[for=user_email]{
+
+		margin-bottom: 10px;
+	}
+	input#user_email{
+		border-radius: 0px !important;
+	}
+}
+
+
+
+.new_confirmation_inner_column .reconfirmation_field{
+
+	label[for=user_confirmation]{
+
+		margin-bottom: 10px;
+	}
+	input#user_confirmation{
+		border-radius: 0px !important;
+	}
+}
+
+.new_confirmation_inner_column .reconfirmation_field{
+
+	label[for=user_confirmation_confirmation]{
+
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	input#user_confirmation_confirmation{
+		border-radius: 0px !important;
+	}
+}

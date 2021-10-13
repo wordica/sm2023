@@ -10,8 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- 
+
+
  *= require global
+ *= require contacts
+ *= require faq
  *= require licence
  *= require jquery.fancybox
  *= require pagination

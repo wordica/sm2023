@@ -35,7 +35,7 @@ Rails.application.configure do
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
@@ -56,7 +56,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :file_store, "/tmp/my_cache"
+  config.cache_store = :file_store, "tmp/my_cache"
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -117,9 +117,9 @@ Rails.application.configure do
     :enable_starttls_auto => false
   }
 
-  config.action_mailer.default_url_options = { :host => 'photoclicker.net' }
-  config.action_mailer.asset_host = "http://localhost:3000"
-
+  config.action_mailer.default_url_options = {:protocol => 'https', :host => 'photoclicker.net'}
+  config.action_mailer.asset_host = "https://photoclicker.net"
+  
   #
   # By default Rails will store a last write timestamp in the session. The
   # DatabaseSelector middleware is designed as such you can define your own

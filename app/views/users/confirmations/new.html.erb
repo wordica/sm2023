@@ -1,16 +1,54 @@
-<h2>Resend confirmation instructions</h2>
+<div class='container new_confirmation_container'>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <div class='row new_confirmation_form_row'>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <div class='col-md-12 new_confirmation_form_column'>
+
+      <div class='new_confirmation_inner_container'>
+
+        <div class='row second_new_confirmation_row'>
+
+          <div class='col-md-12 new_confirmation_inner_column'>
+
+              <h2>Resend confirmation instructions</h2>
+
+              <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+              
+                <%= render "users/shared/error_messages", resource: resource %>
+
+                <div class="col-md-6 offset-md-3 email_field">
+
+                  <%= f.label :email, 'Your email adress' %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>'form-control form-control-lg', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+              
+                </div>
+
+                <div class='row submit_row'>
+
+                  <div class='col-md-12 submit_column'>
+
+                    <%= f.submit "Send link", data: { disable_with: "Sending message..."} %>
+
+                  </div>
+
+                </div>
+
+              <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='row confirmation_actions_row'>
+
+        <%= render "users/shared/links" %>
+              
+    </div>
+
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

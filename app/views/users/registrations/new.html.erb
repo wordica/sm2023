@@ -54,13 +54,13 @@
                 <div class='col-md-6 offset-md-3 reg-terms-fields'>
 
                     
-                    <%= f.input :terms,  :as => :boolean, :required => true, :label => 'Akceptuje regulamin portalu i politykę prywatności', :input_html => { } %>
+                    <%= f.input :terms,  :as => :boolean, :required => true, :label => 'I accept the terms of the portal and the privacy policy', :input_html => { } %>
 
-                    <%= f.input :personal_data,  :as => :boolean, :required => true, :label => 'Wyrażam zgodę na przetwarzanie danych osobowych', :input_html => { } %>
+                    <%= f.input :personal_data,  :as => :boolean, :required => true, :label => 'I agree to the processing of personal data', :input_html => { } %>
 
-                    <%= f.input :marketing,  :as => :boolean, :required => false, :label => 'Wyrażam zgodę na otrzymywanie informacji marketingowych drogą elektroniczną wysyłanych za pomocą środków komunikacji elektronicznej', :input_html => { } %>
+                    <%= f.input :marketing,  :as => :boolean, :required => false, :label => 'I agree to receive marketing information by electronic means sent via electronic communication', :input_html => { } %>
                     
-                    <%= f.input :marketing_second, :as => :boolean, :required => false, :label => 'Wyrażam zgodę na używanie urządzeń końcowych i automatycznych systemów wywołujących, dla celów marketingu bezpośredniego' , :input_html => { } %>
+                    <%= f.input :marketing_second, :as => :boolean, :required => false, :label => 'I consent to the use of terminal equipment and automatic calling systems for the purposes of direct marketing' , :input_html => { } %>
                     
 
                 </div>

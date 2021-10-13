@@ -1,4 +1,3 @@
-
 $(window).on("load", function() {
 
   
@@ -17,8 +16,27 @@ $(window).on("load", function() {
 
     fancybox_related_photos();
 
+    fancybox_direct_link();
+
 });
 
+
+function fancybox_direct_link(){
+
+    jQuery('.photo_img a').fancybox({
+
+        beforeLoad : function(){
+            
+            jQuery('body').removeClass('fancybox-active').removeClass('compensate-for-scrollbar');
+            
+        },
+        beforeClose : function(){
+            
+        }
+
+    });
+
+}
 
 function fancybox_related_photos(){
 
@@ -69,7 +87,7 @@ function modal_download_ajax(){
 
     jQuery('.modal-footer .btn_download').on('click',function(){
         var p_id =  jQuery(this).data('id')
-        console.log(p_id)
+        //console.log(p_id)
         jQuery.ajax({
             type: 'POST',
             data: { p_id_data: p_id },
@@ -85,7 +103,7 @@ function modal_download_ajax(){
 
     jQuery('.icon_to_download').on('click',function(){
         var p_id =  jQuery(this).data('id')
-        console.log(p_id)
+        //console.log(p_id)
         jQuery.ajax({
             type: 'POST',
             data: { p_id_data: p_id },
@@ -101,7 +119,7 @@ function modal_download_ajax(){
 
     jQuery('.link_to_download a').on('click',function(){
         var p_id =  jQuery(this).data('id')
-        console.log(p_id)
+        //console.log(p_id)
         jQuery.ajax({
             type: 'POST',
             data: { p_id_data: p_id },
@@ -115,7 +133,20 @@ function modal_download_ajax(){
     });
 
 
-    
+    jQuery('.button_download_a').on('click',function(){
+        var p_id =  jQuery(this).data('id')
+        //console.log(p_id)
+        jQuery.ajax({
+            type: 'POST',
+            data: { p_id_data: p_id },
+            url: '/photos/download_photo',
+            success: function(data){
+               
+            }
+
+        });
+
+    });
     
 }
 
@@ -128,11 +159,11 @@ function init_tooltipster(){
 
 function modal_open(){
 
-    jQuery('.main_page_isotope_column .iso_image').each( function(){
+    jQuery('.main_page_isotope_column .iso_image .image_div').each( function(){
 
         jQuery(this).on('click', function(){
 
-             jQuery(this).find('.modal').modal('show');
+             jQuery(this).parent().find('.modal').modal('show');
              copy_to_clipboard();
              
          });
@@ -140,6 +171,19 @@ function modal_open(){
 
     });
 
+    
+    jQuery('.main_page_isotope_column .iso_image .button_more').each( function(){
+
+        jQuery(this).on('click', function(){
+             
+             jQuery(this).parent().parent().parent().find('.modal').modal('show');
+             copy_to_clipboard();
+             
+         });
+        
+
+    });
+    
 
 }
 
@@ -170,7 +214,7 @@ function generate_noty(){
 
 function photo_hover(){
 
-    jQuery('.main_page_isotope_column .iso_image').each( function(){
+    jQuery('.main_page_isotope_column .iso_image .image_div').each( function(){
 
         jQuery(this).on('mouseover', function(){
             jQuery(this).find('.photo_hidden_container').css('display','block').css('opacity','1').css('cursor','zoom-in');
@@ -227,6 +271,7 @@ function copy_to_clipboard(element){
         
     });
 
+   
 }
 
 
@@ -238,7 +283,7 @@ function infinite_scroll(){
         masonry: {
             columnWidth: 300,
             isFitWidth: true,
-            gutter: 4
+            gutter: 15
         },
         stagger: 50,
         
@@ -260,9 +305,12 @@ function infinite_scroll(){
 
     $grid.infiniteScroll({
         path: '.pagination a[rel="next"]',
-        scrollThreshold: 1400,
+        scrollThreshold: 1600,
+        //scrollThreshold:false,
+        //button: '.view-more-button',
         append: '.iso_image',
-        outlayer: iso
+        outlayer: iso,
+        status: '.page-load-status'
     });
 
     $grid.on( 'load.infiniteScroll', function() {
@@ -273,16 +321,34 @@ function infinite_scroll(){
 
     $grid.on( 'append.infiniteScroll', function(event, body, path, items, response) {
         
-        jQuery('.main_page_isotope_column .iso_image').each( function(){
+        jQuery('.main_page_isotope_column .iso_image .image_div').each( function(){
 
             jQuery(this).off('click');
             jQuery(this).find('.profile_attribute').off('click');
 
         });
-
+        
+        jQuery('.main_page_isotope_column .iso_image .button_more').each( function(){
+            
+            
+            jQuery(this).on('click', function(){
+                 
+                 
+                 jQuery(this).parent().parent().parent().find('.modal').modal('show');
+                 
+                 copy_to_clipboard(jQuery(this).parent().parent().parent().find('.modal'));
+                
+                 init_tooltipster();
+                 fancybox_related_photos();
+                 modal_download_ajax();
+                
+             });
+            
+    
+        });
         
 
-        jQuery('.main_page_isotope_column .iso_image').each( function(){
+        jQuery('.main_page_isotope_column .iso_image .image_div').each( function(){
 
             jQuery(this).on('mouseover', function(){
                 jQuery(this).find('.photo_hidden_container').css('display','block').css('opacity','1').css('cursor','zoom-in');
@@ -296,9 +362,9 @@ function infinite_scroll(){
 
             jQuery(this).on('click', function(){
 
-                jQuery(this).find('.modal').on("hidden.bs.modal", function () { 
+                jQuery(this).parent().find('.modal').on("hidden.bs.modal", function () { 
 
-                    jQuery('.main_page_isotope_column .iso_image').each( function(){
+                    jQuery('.main_page_isotope_column .iso_image .image_div').each( function(){
 
                         jQuery(this).find('.profile_attribute').off('click');
 
@@ -306,11 +372,14 @@ function infinite_scroll(){
 
                 });
 
-                jQuery(this).find('.modal').modal('show');
-                copy_to_clipboard(this);
+                jQuery(this).parent().find('.modal').modal('show');
+                
+                copy_to_clipboard(jQuery(this).parent() );
+                
                 init_tooltipster();
                 fancybox_related_photos();
                 modal_download_ajax();
+                
              });
             
 

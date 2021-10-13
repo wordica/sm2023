@@ -25,12 +25,21 @@
 	.container{
 		max-width:1050px !important;
 	}
-
 	
 }
+@media only screen and (min-width: 1600px) {
 
+	.container{
+		max-width:1050px !important;
+	}
+	.main_page_row{
 
+		max-width:1580px !important;
+		margin-left:auto !important;
+		margin-right:auto !important;
 
+	}
+}
 
 
 
@@ -120,6 +129,41 @@
 
 @media only screen and (min-width: 579px) and (max-width: 768px) {
 
+	/* DIRECT PHOTO LINK */
+
+	.photo_img img{
+
+		max-width:500px !important;
+		height:auto !important;
+	}
+
+	/* ABOUT US */
+	.section_4{
+
+		padding: 0px 0px 15px 0px !important;
+	}
+
+	.s4_col{
+		padding: 0px 0px 0px 0px !important;
+	}
+
+	.s4_col .title_big{
+		padding: 45px 0px 30px 0px !important;
+	}
+	.s4_col .title_big h5{
+		font-size: 24px !important;
+		margin: 0 !important;
+	}
+
+	.s4_col .abs_number{
+		margin-top: 0px !important;
+		width: 100% !important;
+	}
+
+
+
+
+
 	/* NAVBAR */
 	.top_navbar .collapse.navbar-collapse .navbar-nav .nav-item .nav-link{
 		width:100%;
@@ -192,6 +236,47 @@
 
 
 @media only screen and (max-width: 578px) { 
+
+	/* ABOUT US */
+
+	
+
+	.section_4{
+
+		padding: 0px 0px 15px 0px !important;
+	}
+
+	.s4_col{
+		padding: 0px 0px 0px 0px !important;
+	}
+
+	.s4_col .title_big{
+		padding: 45px 0px 30px 0px !important;
+	}
+	.s4_col .title_big h5{
+		font-size: 24px !important;
+		margin: 0 !important;
+	}
+
+	.s4_col .abs_number{
+		margin-top: 0px !important;
+	}
+
+	.s4_col .ul_1.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_2.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_3.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_4.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+
+
+
 
 	/* TOP, NAVBAR ETC */
 	h1.portal_randkowy{
@@ -404,10 +489,105 @@
 
 	}
 
+
+	/* USERS INDEX PAGE */
+
+	.users_index_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_index_page_column .user_container .user_stats_data div span{
+		
+		font-size:21px !important;
+
+	}
+
 }
 
 
 @media only screen and (max-width: 450px) {
+
+	.photo_img img{
+
+		max-width:300px !important;
+		height:auto !important;
+	}
+
+	/* ABOUT US */
+
+	.section_4{
+
+		padding: 0px 0px 15px 0px !important;
+	}
+
+	.s4_col{
+		padding: 0px 0px 0px 0px !important;
+	}
+
+	.s4_col .title_big{
+		padding: 45px 0px 30px 0px !important;
+	}
+	.s4_col .title_big h5{
+		font-size: 24px !important;
+		margin: 0 !important;
+	}
+
+	.s4_col .abs_number{
+		margin-top: 0px !important;
+	}
+
+	.s4_col .ul_1.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_2.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_3.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_4.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+
+
 
 	/* TOP, NAVBAR ETC */
 	h1.portal_randkowy{
@@ -621,9 +801,103 @@
 
 	}
 
+	/* USERS INDEX PAGE */
+
+	.users_index_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_index_page_column .user_container .user_stats_data div span{
+		
+		font-size:21px !important;
+
+	}
+
 }
 
 @media only screen and (max-width: 325px) {
+
+	.photo_img img{
+
+		max-width:240px !important;
+		height:auto !important;
+	}
+
+	/* ABOUT US */
+
+	.section_4{
+
+		padding: 0px 0px 15px 0px !important;
+	}
+
+	.s4_col{
+		padding: 0px 0px 0px 0px !important;
+	}
+
+	.s4_col .title_big{
+		padding: 45px 0px 30px 0px !important;
+	}
+	.s4_col .title_big h5{
+		font-size: 24px !important;
+		margin: 0 !important;
+	}
+
+	.s4_col .abs_number{
+		margin-top: 0px !important;
+	}
+
+	.s4_col .ul_1.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_2.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_3.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+	.s4_col .ul_4.ul_container span.txt{
+		padding: 30px 0px 30px 0px !important;
+	}
+
+	
 
 	/*  REGISTER LOGIN FORM */
 	.reg_inner_column .email_field .form-control{
@@ -843,6 +1117,57 @@
 	.users_ranking_page_column .user_container .user_stats_data div span{
 		
 		font-size:16px !important;
+
+	}
+
+
+	/* USERS INDEX PAGE */
+
+	.users_index_page_column .user_container{
+
+		text-align:center;
+
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+		-webkit-flex-wrap: nowrap !important;
+		-ms-flex-wrap: nowrap !important;
+		flex-wrap: nowrap !important;
+		-webkit-justify-content: center !important;
+		-ms-flex-pack: center !important;
+		justify-content: center !important;
+		-webkit-align-content: stretch !important;
+		-ms-flex-line-pack: stretch !important;
+		align-content: stretch !important;
+		-webkit-align-items: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_name .name{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+
+	.users_index_page_column .user_container .user_stats_data{
+
+		padding:15px 0px 15px 0px !important;
+
+	}
+	.users_index_page_column .user_container .user_stats_data div span{
+		
+		font-size:21px !important;
 
 	}
 

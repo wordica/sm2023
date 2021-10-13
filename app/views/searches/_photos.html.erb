@@ -4,61 +4,148 @@
 
     <div class='iso_image'>
 
-        <div class='photo_hidden_container'>
+        <div class='image_div'>
 
-            <div class='logotype_display'>photoclicker.net</div>
-            <div class='photo_data'>
+            <div class='photo_hidden_container'>
 
-                <div class='author_avatar'>
+                <div class='logotype_display'>
 
-                    <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
-
-                        <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=>'profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
-
-                    <% else %>
-
-                        <%= link_to image_tag('default/default_avatar.png', :alt=>'user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
-
-                    <% end %>
-
+                    <span class='page_name'>PhotoClicker.net</span>
+                    <span class='page_name_second'>just download it!</span>
+                    
                 </div>
-
-                <div class='author'><%= User.where('id =?',p.user_id).first.profile.profile_name %></div>
                 
-            </div>
+                <div class='photo_data'>
 
-            <div class='bottom_info'>
+                    <% cache('user-searches-avatar-hover' + p.hashed.to_s, expires_in: 1.hour) do %>
 
-                <div class='like'>
+                        <div class='author_avatar'>
 
-                    <% if user_signed_in? %>
+                            <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
 
-                        <% if Like.where('user_id =? and photo_id =?',current_user.id, p.id).present? %>
-                            <i class="fas fa-heart active"></i>
-                        <% else %>
-                            <%= link_to '<i class="far fa-heart"></i>'.html_safe, add_like_path(:id => p.id), :controller => 'photos_controller', :action => 'add_like', :remote => true %>
-                        <% end %>
+                                <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
-                    <% else %>
+                            <% else %>
 
-                        <i class="fa fa-heart"></i>
+                                <%= link_to image_tag('default/default_avatar.png', :alt=>User.where('id =?',p.user_id).first.username + ' user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+
+                            <% end %>
+
+                        </div>
 
                     <% end %>
 
-                </div>
-        
-                <div class='download_icon'>
+                    <% cache('user-searches-name-' + p.hashed.to_s, expires_in: 1.hour) do %>
 
-                    <%= link_to '<i class="fas fa-download"></i>'.html_safe, p.image_url,:data => { :id => p.hashed }, download: Profile.where('user_id =?',p.user_id).first.profile_name +  "_photoclicker_#{p.hashed}_downloaded", :class=>'icon_to_download'%>
+                        <div class='author'>Author: <%= User.where('id =?',p.user_id).first.profile.profile_name %></div>
+
+                    <% end %>
                     
                 </div>
 
+                <div class='bottom_info'>
+
+                    <div class='like'>
+
+                        <% if user_signed_in? %>
+
+                            <% if Like.where('user_id =? and photo_id =?',current_user.id, p.id).present? %>
+                                <i class="fas fa-heart active"></i>
+                            <% else %>
+                                <%= link_to '<i class="far fa-heart"></i>'.html_safe, add_like_path(:id => p.id), :controller => 'photos_controller', :action => 'add_like', :remote => true %>
+                            <% end %>
+
+                        <% else %>
+
+                            <i class="fa fa-heart"></i>
+
+                        <% end %>
+
+                    </div>
+            
+                    <div class='download_icon'>
+
+                        <%= link_to '<i class="fas fa-download"></i>'.html_safe, p.image_url,:data => { :id => p.hashed }, download: Profile.where('user_id =?',p.user_id).first.profile_name +  "_photoclicker_#{p.hashed}_downloaded.jpg", :class=>'icon_to_download'%>
+                        
+                    </div>
+
+                </div>
+
             </div>
 
-            
+            <% if p.image_url(:iso_optimized).nil? %>
+          
+                <%= image_tag( p.image_url(:large), :alt=> User.where('id =?',p.user_id).first.username + ' photoclicker.net photo', :class=> 'iso_image_img' ) %>
+
+            <% else %>
+
+                <%= image_tag( p.image_url(:iso_optimized), :alt=> User.where('id =?',p.user_id).first.username + ' photoclicker.net photo', :class=> 'iso_image_img' ) %>
+
+            <% end %>     
+
         </div>
        
-        <%= image_tag( p.image_url(:iso_optimized), :alt=>'p.some tags' ) %>
+        
+
+        <% cache('photo-searches-description-' + p.hashed.to_s, expires_in: 1.hour) do %>
+
+            <div class='photo_desc_bottom'>
+
+                <h5>Photo Description</h5>
+
+                <span class='divider'>
+
+                    <span class='divi'></span>
+                    <span class='divi middle'></span>
+                    <span class='divi'></span>
+
+                </span>
+
+                <h6><%= Description.where('photo_id =?',p.id).last.name %></h6>
+
+                <% if !p.get_related_photos.nil? %>
+                                                
+                    <%  
+
+                        a1 = []
+                        a1.push(p.get_related_photos)
+                        b1 = a1.flatten
+                                                        
+                    %>
+
+                <% end %>
+
+                <div class='tags_first_page'>
+
+                    <% Tag.where('photo_id =?',p.id).each_with_index do |f,index| %>
+
+                        <% if index < 5 %>
+
+                            <%= link_to f.name, searches_results_path(:keyword => f.name ), :class=>'data first_page' %>
+                            
+                        <% end %>
+
+                    <% end %>
+
+                </div>
+                
+                <div class='number_of_related_photos'>
+
+                    <span class='txt'>Related Photos on Page<span class='number'><%= b1.length %></span></span>
+
+                </div>
+
+                <div class='buttons_container'>
+
+                     <!-- <div class='button_more'><span>More Info</span></div> -->
+                    <%= link_to 'Download', p.image_url, :data => { :id => p.hashed }, :class=>'button_download_a', :title=>'Download Photo', download:  Profile.where('user_id =?',p.user_id).first.profile_name + "_photoclicker_#{p.hashed}_downloaded.jpg" %>
+        
+                </div>
+                    
+
+            </div>
+
+        <% end %>
       
         <div class='modal_container'>
 
@@ -71,47 +158,73 @@
 
                         <div class="modal-header">
 
-                            <div class='modal_avatar'>
+                            <% cache('user-modal-avatar-' + p.hashed.to_s, expires_in: 1.hour) do %>
 
-                                <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
+                                <div class='modal_avatar'>
 
-                                    <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=>'profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+                                    <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
 
-                                <% else %>
+                                        <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
-                                    <%= link_to image_tag('default/default_avatar.png', :alt=>'user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+                                    <% else %>
 
-                                <% end %>
+                                        <%= link_to image_tag('default/default_avatar.png', :alt=> User.where('id =?',p.user_id).first.username + ' user avatar'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
-                            </div>
+                                    <% end %>
 
-                            <h5 class="modal-title profile_name" id="modal_<%= p.hashed %>"><%= Profile.where('user_id =?',p.user_id).first.profile_name %></h5>
+                                </div>
+
+                            <% end %>
+
+                            <% cache('user-modal-name-' + p.hashed.to_s, expires_in: 1.hour) do %>
+
+                                <h5 class="modal-title profile_name" id="modal_<%= p.hashed %>"><%= Profile.where('user_id =?',p.user_id).first.profile_name %></h5>
+
+                            <% end %>
+
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                         </div>
 
-                        <div class='modal_author_info'>
-                            <div class='info'>You do not have to but if You can, add link to user profile if You will use this photo on Your site </div>
-                            <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
-                                <%= 'http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
+                         <% cache('user-name-searches-clipboard' + p.hashed.to_s, expires_in: 1.hour) do %>
+
+                            <div class='modal_author_info'>
+
+                                <div class='info'>You do not have to but if You can, add link to user <b><%= User.where('id =?',p.user_id).first.username %></b> profile if You will use this photo on Your site </div>
                                 
+                                <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
+                                    <%= 'http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
+                                    
+                                </div>
+
+                                <div class='info_2'>or go to direct photo page URL </div>
+                                <div class='direct_photo_link'>
+                                    
+                                    <%= link_to 'http://localhost:3000/photos/' + p.hashed.to_s, direct_photo_path(p.hashed), :class=>'direct_link_a', :title=>'Photo direct link', :rel=>'noreferrer noopener', :target=>'_blank'  %>
+
+                                </div>
+
                             </div>
-                        </div>
+
+                        <% end %>
 
                         <div class="modal-body">
 
-                            <%= link_to image_tag(p.image_url(:large), :alt=>'free stock photo'), p.image_url(:fancybox), :class => 'big_image_fancybox' %>
+                            <%= link_to image_tag(p.image_url(:large), :alt=> User.where('id =?',p.user_id).first.username + ' free stock photo'), p.image_url(:fancybox), :class => 'big_image_fancybox' %>
 
                         </div>
 
                         <div class="modal-footer">
 
                             <% if user_signed_in? %>
+
                                 <%= link_to '<i class="far fa-heart"></i>LIKE IT'.html_safe, add_like_path(:id => p.id), :controller => 'photos_controller', :action => 'add_like', :remote => true, :class=>'btn_like' %>
+
                             <% end %>
 
                             <button type="button" class="btn_close" data-bs-dismiss="modal">Close</button>
 
-                            <%= link_to 'Download', p.image_url, :data => { :id => p.hashed }, download:  Profile.where('user_id =?',p.user_id).first.profile_name + "_photoclicker_#{p.hashed}_downloaded", :class=>'btn_download' %>
+                            <%= link_to 'Download', p.image_url, :data => { :id => p.hashed }, download:  Profile.where('user_id =?',p.user_id).first.profile_name + "_photoclicker_#{p.hashed}_downloaded.jpg", :class=>'btn_download' %>
                         
 
                         </div>
@@ -121,61 +234,127 @@
                             <div class='data_container'>
 
                                 <div class='hire'>
+                                    
+                                    <% cache('user-searche-hir-' + p.hashed.to_s, expires_in: 1.hour) do %>
 
-                                    <span class='title'>Available for hire:</span>
+                                        <span class='title'>Available for hire:</span>
 
-                                    <% if User.where('id =?',p.user_id).first.profile.hire %>
-                                        <span class='data'><%= link_to 'Yes ( click here )', new_message_path(:id => p.user_id) %></span>
-                                    <% else %>
-                                        <span class='data'>No</span>
+                                        <% if User.where('id =?',p.user_id).first.profile.hire %>
+                                            <span class='data'><%= link_to 'Yes ( click here )', new_message_path(:id => p.user_id) %></span>
+                                        <% else %>
+                                            <span class='data'>No</span>
+                                        <% end %>
+
                                     <% end %>
 
                                 </div>
                                 
 
-                                <div class='added_at'>
+                                <% cache('photo-searches-added-' + p.hashed.to_s, expires_in: 30.days) do %>
 
-                                    <span class='title'>Added:</span>
-                                    <span class='data'><%= localize( p.created_at, :format => :friend ) %></span>
+                                    <div class='added_at'>
 
-                                </div>
-                                <div class='dimensions'>
+                                        <span class='title'>Added:</span>
+                                        <span class='data'><%= localize( p.created_at, :format => :friend ) %></span>
 
-                                    <span class='title'>Dimensions:</span>
-                                    <span class='data'><%= MiniMagick::Image.open('http://localhost:3000' + p.image_url).dimensions %></span>
+                                    </div>
 
-                                </div>
+                                <% end %>
 
-                                <div class='downloaded'>
+                                <% cache('photo-searches-dimension-' + p.hashed.to_s, expires_in: 30.days) do %>
+
+                                    <div class='dimensions'>
+
+                                        <span class='title'>Dimensions:</span>
+                                        <span class='data'><%= MiniMagick::Image.open('http://localhost:3000' + p.image_url).dimensions %></span>
+
+                                    </div>
+
+                                <% end %>
+
+                                <% cache('photo-searches-downloaded-' + p.hashed.to_s, expires_in: 1.day) do %>
+
+                                    <div class='downloaded'>
+                                        
+                                        <span class='title'>Downloaded:</span>
+                                        <span class='data'><%= p.downloads %></span>
+
+                                    </div>
+
+                                <% end %>
+
+                                <% cache('photo-searches-likes-' + p.hashed.to_s, expires_in: 1.day) do %>
+
+                                    <div class='liked'>
+                                        
+                                        <span class='title'>Likes:</span>
+                                        <span class='data'><%= Like.where('photo_id =?',p.id).all.count %></span>
+
+                                    </div>
+
+                                <% end %>
+
+                                <% cache('photo-searches-views-' + p.hashed.to_s, expires_in: 1.day) do %>
+
+                                    <div class='views'>
+                                        
+                                        <span class='title'>Views:</span>
+                                        <span class='data'><%= p.views %></span>
+
+                                    </div>
+
+                                <% end %>
+
+                                <% if user_signed_in? && current_user.username == 'Majkel' %>
+
+                                    <div class='photo_tags_list'>
+
+                                        <span class='title'>Tags:</span>
+
+                                        <% Tag.where('photo_id =?',p.id).each do |f| %>
+
+                                            <%= render :partial => 'tags/tag', :locals => {:del => 'true', :tag => f } %>
+
+                                        <% end %>
+
+                                    </div>
+
+                                    <div class='container photo_tags_form' style='margin-top:30px;'>
+
+                                        <%= form_for Tag.new ,:remote => true do |f| %>
+                                            
+                                            <%= f.hidden_field :user_id, :value => p.user_id %>
+                                            <%= f.hidden_field :photo_id, :value => p.id %>
+                                            <%= f.text_field :name , :placeholder=>'add tags', :class=>'form-control form-tags' %>
+                                            <%= f.button 'add tag'.html_safe, :class=>'btn btn-submit-tags btn-send', :disable_with =>'Adding...' %>
+                                        
+                                        <% end %>
+
+                                    </div>
                                     
-                                    <span class='title'>Downloaded:</span>
-                                    <span class='data'><%= p.downloads %></span>
+                                <% else %>
 
-                                </div>
+                                    <% cache('photo-searches-tags-' + p.hashed.to_s, expires_in: 1.hour) do %>
 
-                                <div class='liked'>
-                                    
-                                    <span class='title'>Likes:</span>
-                                    <span class='data'><%= Like.where('photo_id =?',p.id).all.count %></span>
+                                        <div class='tags'>
 
-                                </div>
+                                            <span class='title'>Tags:</span>
 
-                                <div class='views'>
-                                    
-                                    <span class='title'>Views:</span>
-                                    <span class='data'><%= p.views %></span>
+                                            <% Tag.where('photo_id =?',p.id).each do |f| %>
 
-                                </div>
+                                                <%= link_to f.name, searches_results_path(:keyword => f.name ), :class=>'data' %>
 
-                                <div class='tags'>
+                                            <% end %>
 
-                                    <span class='title'>Tags:</span>
-
-                                    <% Tag.where('photo_id =?',p.id).each do |f| %>
-
-                                       <%= link_to f.name, searches_results_path(:keyword => f.name ), :class=>'data' %>
+                                        </div>
 
                                     <% end %>
+
+                                <% end %>
+
+                                <div class='photo_description'>
+
+                                    <h6><%= Description.where('photo_id =?',p.id).last.name %></h6>
 
                                 </div>
 
@@ -183,39 +362,53 @@
 
                                     <span class='title'>Related photos:</span>
 
-                                    <div class='related_photo'>
-                                        <% if !p.get_related_photos.nil? %>
-                                        
-                                        <%  a = []
-                                            a.push(p.get_related_photos)
-                                            b = a.flatten
+                                    <% cache('related-photos-home-logged-' + p.hashed.to_s, expires_in: 6.days) do %>
+
+                                        <div class='related_photo'>
+
+                                            <% if !p.get_related_photos.nil? %>
+                                            
+                                            <%  a = []
+                                                a.push(p.get_related_photos)
+                                                b = a.flatten
                                             %>
 
-                                            <% b.each do |f| %>
-                                                
-                                                <div class='photo'>
-                                                    <%= image_tag( Photo.where('id =?',f).first.image_url(:thumb), :alt => 'related photo' ) %>
-                                                    <div class='photo_background'>
+                                                <% b.each_with_index do |f,index| %>
+                                                    
+                                                    <% if index < 6 %>
 
-                                                        <div class='link_to_show'>
-                                                            <%= link_to "Show", Photo.where('id =?',f).first.image_url(:fancybox), :class => 'fancybox' %>
-                                                        </div>
-
-                                                        <div class='link_to_download'>
-                                                        <% 
-                                                            user_id = Photo.where('id =?',f).first.user_id 
-                                                            profile = User.where('id =?',user_id).first.profile.profile_name
-                                                        %>
-                                                            <%= link_to 'Download', Photo.where('id =?',f).first.image_url, :data => { :id => Photo.where('id =?',f).first.hashed }, download: profile + "_photoclicker_#{Photo.where('id =?',f).first.hashed}_downloaded" %>
-                                                        </div>
+                                                        <div class='photo'>
                                                         
-                                                    </div>
-                                                </div>
-                                            
-                                             <% end %>
+                                                            <%= image_tag( Photo.where('id =?',f).first.image_url(:thumb), :alt => 'related photo' , :class=>'tooltips', :title => Description.where('photo_id =?',f).first.name ) %>
 
-                                        <% end %>
-                                    </div>
+                                                            <div class='photo_background'>
+
+                                                                <div class='link_to_show'>
+
+                                                                    <%= link_to "Show", Photo.where('id =?',f).first.image_url(:fancybox), :class => 'fancybox related_photo_title', :title => Description.where('photo_id =?',f).first.name %>
+                                                                    
+                                                                </div>
+
+                                                                <div class='link_to_download'>
+                                                                <% 
+                                                                    user_id = Photo.where('id =?',f).first.user_id 
+                                                                    profile = User.where('id =?',user_id).first.profile.profile_name
+                                                                %>
+                                                                    <%= link_to 'Download', Photo.where('id =?',f).first.image_url, :data => { :id => Photo.where('id =?',f).first.hashed }, download: profile + "_photoclicker_#{Photo.where('id =?',f).first.hashed}_downloaded.jpg" %>
+                                                                </div>
+                                                                
+                                                            </div>
+
+                                                        </div>
+                                                    <% end %>
+                                                
+                                                <% end %>
+
+                                            <% end %>
+
+                                        </div>
+
+                                    <% end %>
                                     
 
                                 </div>

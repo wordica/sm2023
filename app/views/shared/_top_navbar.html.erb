@@ -17,6 +17,12 @@
 
           </div>
 
+          <div class='c_right'>
+
+            <%= link_to '<i class="far fa-envelope"></i>'.html_safe, new_contact_path %>
+
+          </div>
+
         </div>
 
     </div>
@@ -30,14 +36,14 @@
 
           <div class='logotype_left'>
 
-            <%= link_to image_tag('logotype.png', :alt=>'free stock photos'), root_path ,:class=>'button_left' %>
+            <%= link_to image_tag('logotype.png', :alt=>'free stock photos'), root_path ,:class=>'button_left', :title => 'Free Photos' %>
           
           </div>
 
            <div class='logotype_left_txt'>
             
-              <%= link_to 'PhotoClicker', root_path, :class=>'txt_big' %>
-              <%= link_to 'Just download it!', root_path, :class=>'txt_small' %>
+              <%= link_to 'PhotoClicker', root_path, :class=>'txt_big', :title => 'Free Stock Photos' %>
+              <%= link_to 'Just download it!', root_path, :class=>'txt_small', :title => 'Commercial Free Photos'  %>
 
            </div>
 
@@ -57,9 +63,10 @@
 
               <li class="nav-item">
 
-                  <%= link_to '<span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
-                  <%= link_to '<span>Most Popular</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
-                  <%= link_to '<span>Profile</span>'.html_safe, profile_path(current_user.id), :class=>'nav-link' %>
+                  <%= link_to '<span>Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
+                  <%= link_to '<span>Users</span>'.html_safe, profiles_path, :class=>'nav-link' %>
+                  <%= link_to '<span>Most Popular Photos</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
+                  <%= link_to '<span>My Profile</span>'.html_safe, profile_path(current_user.id), :class=>'nav-link' %>
                   <%= link_to '<span>Uploaded</span>'.html_safe, photos_path, :class=>'nav-link' %>  
                   <%= link_to '<span>Upload</span>'.html_safe, new_photo_path, :class=>'nav-link' %>
                   <%= link_to '<span>Messages</span>'.html_safe, messages_path, :class=>'nav-link' %>
@@ -71,9 +78,12 @@
               <% if !user_signed_in? %>
 
                 <li class="nav-item">
-
-                    <%= link_to '<span>100 Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link' %>
-                    <%= link_to '<span>Most Popular</span>'.html_safe, most_popular_path, :class=>'nav-link' %>
+                    
+                    <%= link_to '<span>About Us</span>'.html_safe, about_us_path, :class=>'nav-link' %>
+                    <%= link_to '<span>Users Ranking</span>'.html_safe, rankings_path, :class=>'nav-link', :title => 'Most Popular Photographers' %>
+                    <%= link_to '<span>Users</span>'.html_safe, profiles_path, :class=>'nav-link', :title => 'All Users' %>
+                    <%= link_to '<span>Most Popular Photos</span>'.html_safe, most_popular_path, :class=>'nav-link', :title => 'Most Popular Free Photos' %>
+                    <%= link_to '<span>F.A.Q</span>'.html_safe, faq_path, :class=>'nav-link' %>
                     
                 </li>
 

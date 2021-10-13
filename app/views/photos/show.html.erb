@@ -1,11 +1,3 @@
-<% content_for :head do %>    
-
-    <title>ZakochanaPolska.pl - Twój Profil</title>
-    <meta name="description" content='Twój profil na portalu randkowym zakochanapolska.pl. Zachęcamy do częstego logowania się na portalu aby zwiększyć swoje szansę na poznanie nowych osób.' >
-    <meta name='keywords' content="darmowy portal randkowy, portal randkowy, portale randkowe, serwis radnkowy, randki, randkowy, randkowe, portal, portale">
-
-<% end %>
-
 <p id="notice"><%#= notice %></p>
 
 
@@ -35,8 +27,11 @@
         </div>
         
         <div class='badge_container'>
+
           <span class="badge badge-warning badge_tags">Warning</span><span class='warning_info'>Please add only one keyword at time ( it can be multiwords keyword )</span>
+        
         </div>
+
         <div class='container photo_tags_form'>
           
           <%= form_for @tag ,:remote => true do |f| %>
@@ -52,7 +47,34 @@
       </div>
 
     </div>
-        <!-- TAGS -->
+    <!-- TAGS -->
+
+    <div class='container desc_container'>
+
+      <div class='row desc_row'>
+
+        <div class='col-md-12 desc_column'>
+
+          <%= render :partial => 'descriptions/description', :locals => {:description => @description.last } %>
+
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div class='container photo_desc_form'>
+
+      <%= form_for @desc ,:remote => true do |f| %>
+         
+         <%= f.hidden_field :photo_id, :value => @photo_id %>
+         <%= f.text_field :name , :placeholder=>'add photo description if you like', :class=>'form-control form-desc' %>
+         <%= f.button 'add description'.html_safe, :class=>'btn btn-submit-tags btn-send', :disable_with =>'Adding...' %>
+          
+      <% end %>
+
+    </div>
+
 
     <div class='new_photo_buttons'>
 

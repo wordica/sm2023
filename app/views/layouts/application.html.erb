@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
 
-    <% if request.original_url == 'http://localhost:3000' || 'https://hotoclicker.net/' || 'https://www.hotoclicker.net' || 'https://www.hotoclicker.net/' %> 
+    <% if !request.original_url.include? '/profiles/' %> 
 
       <% content_for :head do %>
 
-          <title>photoclicker.net - Free High Quality Stock Photos </title>
+          <title>PhotoClicker.net - Free High Quality Stock Photos </title>
           <meta name="description" content="High-quality free photos for a blog, website presentation, wallpapers. Free stock photos from photographers all over the world.">
           <meta name='keywords' content="free,stock,photos,stock photos,free photos,free stock photos,wallpapers,blog photos">
 
@@ -38,12 +38,36 @@
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <% if !request.original_url.include? '/photos/direct-link/' || '/photos/direct-link/' || '/photos/direct-link/' %>
+    
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="PhotoClicker.net - Free High Quality Stock Photos" />
+      <meta property="og:description" content="High-quality free photos for a blog, website presentation, wallpapers. Free stock photos from photographers all over the world." />
+      <meta property="og:image" content="https://photoclicker.net/photoclicker-fb-og-image.png" />
+      <meta property="og:url" content="https://photoclicker.net" />
+      <meta property="og:site_name" content="PhotoClicker.net - Free Stock Photos" />
+
+    <% end %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= stylesheet_pack_tag 'application', media: 'all'%>
     <%= javascript_pack_tag 'application' %>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4097832296771894"
+     crossorigin="anonymous"></script>
+     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKL6CWL8G5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XKL6CWL8G5');
+    </script>
 
 
   </head>

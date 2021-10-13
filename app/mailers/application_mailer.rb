@@ -21,4 +21,13 @@ class ApplicationMailer < ActionMailer::Base
   end
 
 
+  def new_contact(message)
+
+    @message = message
+    mail(:from => 'info@photoclicker.net',:to => 'info@photoclicker.net', :subject => "#{@message.subject}", :email => @message.email)
+
+  end
+
+  
+
 end

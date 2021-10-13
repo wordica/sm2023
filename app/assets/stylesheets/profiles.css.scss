@@ -1,5 +1,337 @@
 /* ##################################################################################################*/
 /* ##################################################################################################*/
+/* ########################################## PROFILE INDEX #########################################*/
+/* ##################################################################################################*/
+/* ##################################################################################################*/
+
+.users_index_page_container{
+
+}
+
+.users_index_page_row{
+
+    margin:50px auto 150px auto !important;
+
+
+    .title_row{
+
+		text-align: center;
+        margin-bottom:50px !important;
+		
+		.title_column{
+
+			z-index:102;
+			padding: 0px 0px 0px 0px;
+
+			h1{
+				font-family: 'Poppins';
+				font-size: 24px;
+				color:#333333;
+				font-weight: 700;
+				letter-spacing: 0px;
+				text-transform: uppercase;
+
+			}
+
+			h6{
+
+				font-family: 'Poppins';
+				font-size: 14px;
+				color:#666666;
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0px;
+				
+				b{
+					color: #333333;
+				}
+			}
+		}
+	}
+
+}
+
+.users_index_page_column{
+
+}
+
+
+.user_index_row{
+
+    position:relative;
+
+    .user_column{
+
+        margin:10px auto 10px auto;
+        padding:15px 15px 15px 15px;
+
+        box-shadow:0px 0px 16px rgba(0, 0, 0, 0.18);
+        background-color:#ffffff;
+
+        -webkit-transition: all ease 0.3s;
+        -moz-transition: all ease 0.3s;
+        -o-transition: all ease 0.3s;
+        transition: all ease 0.3s;
+
+        .user_container{
+
+
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+
+            .user_avatar{  
+
+                display:inline-block;
+                vertical-align: top;
+
+                a{
+                    display:inline-block;
+                    
+                }
+
+                img{
+                    
+                    width:150px;
+                    height:150px;
+                    border-radius:100%;
+                    	
+
+                }
+            }
+
+            .user_name{
+
+                display:inline-block;
+                vertical-align: top;
+                padding:0px 0px 0px 15px;
+                line-height: 1px;
+                min-width:280px;
+                max-width:280px;
+
+                span.name{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:24px;
+                    color:#333333;
+                    font-weight:500;
+                    line-height: 24px;
+                    text-transform: capitalize;
+                    
+
+                }
+
+                span.hire{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:14px;
+                    color:#111111;
+                    font-weight:400;
+                    line-height:24px;
+
+                    a{
+                        font-weight:600;
+                        display:inline-block;
+                        color:#000000;
+                        text-decoration: none !important;
+
+                    }:hover{
+
+                        color: #abd022;  
+
+                    }
+                }
+
+                span.my_site{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:14px;
+                    color:#666666;
+                    font-weight:400;
+                    line-height:24px;
+
+                    a{
+                        display:inline-block;
+                        color:#666666;
+                        text-decoration: none !important;
+
+                    }:hover{
+
+                        color: #abd022;  
+
+                    }
+
+                }
+               
+                span.profile_country{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:14px;
+                    color:#666666;
+                    font-weight:400;
+                    line-height:24px;
+
+                }
+                span.profile_insta{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:14px;
+                    color:#666666;
+                    font-weight:400;
+                    line-height:24px;
+
+                    a{
+
+                        display:inline-block;
+                        color:#666666;
+                        text-decoration: none !important;
+
+                    }:hover{
+
+                        color: #abd022;  
+                        
+                    }
+
+                }
+                span.profile_fb{
+
+                    display:inline-block;
+                    width:100%;
+                    font-size:14px;
+                    color:#666666;
+                    font-weight:400;
+                    line-height:24px;
+
+                    a{
+
+                        display:inline-block;
+                        color:#666666;
+                        text-decoration: none !important;
+
+                    }:hover{
+
+                        color: #abd022;  
+
+                    }
+                    
+                }
+
+            }
+
+        }
+
+    }
+    .user_column_number{
+
+        font-family:'Poppins';
+        color:rgba(0,0,0,0.12);
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+
+        font-size: 46px;
+        font-weight:900;
+        
+        margin:-24px 0px 0px -45px !important;
+
+
+
+    }
+    .user_stats_data{
+
+        margin:0px 0px 10px 0px !important;
+        display: inline-block;
+
+        .views{
+
+
+            .title{
+
+                display:inline-block;
+                font-size:24px;
+                color:#999999;
+                font-weight:800;
+
+            }
+            .data{
+
+                display:inline-block;
+                font-size:24px;
+                color:#bdbdbd;
+                font-weight:600;
+            }
+        }
+
+        .downloads{
+
+
+            .title{
+
+                display:inline-block;
+                font-size:24px;
+                color:#999999;
+                font-weight:800;
+
+            }
+            .data{
+
+                display:inline-block;
+                font-size:24px;
+                color:#bdbdbd;
+                font-weight:600;
+            }
+        }
+
+        .likes{
+
+
+            .title{
+
+                display:inline-block;
+                font-size:24px;
+                color:#999999;
+                font-weight:800;
+
+            }
+            .data{
+
+                display:inline-block;
+                font-size:24px;
+                color:#bdbdbd;
+                font-weight:600;
+            }
+        }
+
+    }
+
+}
+
+
+
+
+/* ##################################################################################################*/
+/* ##################################################################################################*/
 /* ########################################### PROFILE EDIT #########################################*/
 /* ##################################################################################################*/
 /* ##################################################################################################*/
@@ -354,7 +686,11 @@
 
     img{
 
+        width:150px;
+        height:150px;
         border-radius: 100%;
+        background-color:#ffffff;
+		box-shadow:0px 0px 16px rgba(0, 0, 0, 0.21);
         
     };
 }

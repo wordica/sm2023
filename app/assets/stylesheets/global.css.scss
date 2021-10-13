@@ -131,6 +131,63 @@ input:focus{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !impor
 }
 
 
+.page-load-status {
+	display: none; /* hidden by default */
+	padding-top: 20px;
+	text-align: center;
+	color: #777;
+  }
+
+  .loader-ellips {
+	font-size: 20px; /* change size here */
+	position: relative;
+	width: 4em;
+	height: 1em;
+	margin: 10px auto;
+  }
+  
+  .loader-ellips__dot {
+	display: block;
+	width: 1em;
+	height: 1em;
+	border-radius: 0.5em;
+	background: #555; /* change color here */
+	position: absolute;
+	animation-duration: 0.5s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+  }
+  
+  .loader-ellips__dot:nth-child(1),
+  .loader-ellips__dot:nth-child(2) {
+	left: 0;
+  }
+  .loader-ellips__dot:nth-child(3) { left: 1.5em; }
+  .loader-ellips__dot:nth-child(4) { left: 3em; }
+  
+  @keyframes reveal {
+	from { transform: scale(0.001); }
+	to { transform: scale(1); }
+  }
+  
+  @keyframes slide {
+	to { transform: translateX(1.5em) }
+  }
+  
+  .loader-ellips__dot:nth-child(1) {
+	animation-name: reveal;
+  }
+  
+  .loader-ellips__dot:nth-child(2),
+  .loader-ellips__dot:nth-child(3) {
+	animation-name: slide;
+  }
+  
+  .loader-ellips__dot:nth-child(4) {
+	animation-name: reveal;
+	animation-direction: reverse;
+  }
+  
 
 
 
@@ -274,6 +331,29 @@ input:focus{box-shadow:none !important;outline:0;border:1px solid #e5e5e5 !impor
 }
 
 
+
+/*-------------------------------------------------------------*/
+/*	 REGULATIONS
+/*-------------------------------------------------------------*/
+
+.r1{}
+.r1-pattern{background-color: #ffffff;padding:0px 0px 80px 0px;}
+
+
+.regulations-title{font-size:32px; color:rgba(45,48,68,1);font-weight:400;padding:40px 0px 40px 0px;}
+.regulations-content{text-align: left;font-weight:15px;font-weight:500;color:rgba(37, 37, 37, 0.6);line-height:26px;}
+
+.regulations-content ul li{list-style:upper-roman;}
+
+
+.regulations-content ul li.subreg{list-style:circle;}
+.regulations-content a{
+	color:rgba(45,48,68,0.6);
+	text-decoration: none !important;
+}
+.regulations-content a:hover{
+	color:rgba(45,48,68,0.6);
+}
 
 
 /*-------------------------------------------------------------*/

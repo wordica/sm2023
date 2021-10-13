@@ -1,3 +1,12 @@
+<% content_for :head do %>    
+
+    <title>PhotoClicker.net - Photographer <%= @profile.profile_name %> Profile - Free Stock Photos</title>
+    <meta name="description" content='Welcome to PhotoClicker.net. You are currently browsing the profile of one of the photographers uploading free photos.' >
+    <meta name='keywords' content="free,photos,stock,free photos, stock photos, photographer, free stock photos, site with photos">
+
+<% end %>
+
+
 <div class='container profile_show_container'>
 
     <div class='row profile_show_row'>
@@ -24,9 +33,27 @@
 
                 <li class="list-group-item"><%= @profile.profile_name.truncate(50) %></li>
                 <li class="list-group-item"><%= @profile.country.truncate(50) if @profile.country.present? %></li>
-                <li class="list-group-item a_tag"><%= link_to @profile.my_site.truncate(50), @profile.my_site, :rel=>'nofollow' if @profile.my_site.present? %></li>
-                <li class="list-group-item"><%= @profile.instagram_url.truncate(50) if @profile.instagram_url.present? %></li>
-                <li class="list-group-item"><%= @profile.facebook_url.truncate(50) if @profile.facebook_url.present? %></li>
+                <li class="list-group-item a_tag">
+                
+                    <% if @profile.my_site.present? %>
+                        <%= link_to @profile.my_site.truncate(50), @profile.my_site, :rel=>'nofollow' %></li>
+                    <% else %>
+                        <%= link_to 'PhotoClicker.net', 'https://photoclicker.net', :rel=>'nofollow' %></li>
+                    <% end %>
+
+                <li class="list-group-item">
+                    <% if @profile.instagram_url.present? %>
+                        <%= @profile.instagram_url.truncate(50) %></li>
+                    <% else %>
+                        No Instagram Added</li>
+                    <% end %>
+
+                <li class="list-group-item">
+                <% if @profile.facebook_url.present? %>
+                    <%= @profile.facebook_url.truncate(50) %></li>
+                <% else %>
+                    No FaceBook Added</li>
+                <% end %>
 
             </ul>
 

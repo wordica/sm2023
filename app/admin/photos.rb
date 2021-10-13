@@ -26,6 +26,17 @@ ActiveAdmin.register Photo, :as => 'photo' do
         link_to image_tag(i.image_url(:thumb)), i.image_url(:fancybox)
   
       end
+
+      column :tags do |f| 
+        
+        all_tags = []
+        all_tags = Tag.where('photo_id =?',f.id).all
+
+        all_tags
+        
+        
+      end 
+
       column :dimensions do |f|
 
         MiniMagick::Image.open('http://localhost:3000' + f.image_url).dimensions
@@ -38,7 +49,6 @@ ActiveAdmin.register Photo, :as => 'photo' do
 
       end
 
-      
       column :checked
       
       actions

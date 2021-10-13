@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= t "views.mailer.contact_header", :email => @message.email %></h1>
+    <p><%= @message.body %></p>
+    <p>email from form: <%= @message.email %></p>
+    <p>----</p>
+    <p><%= @message.user_agent %></p>
+  </body>
+</html>

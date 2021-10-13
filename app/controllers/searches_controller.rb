@@ -10,7 +10,7 @@
       if params[:author].present?
         profile = Profile.where('profile_name =?',params[:author]).first
         user_id = profile.user_id
-        @photos = Photo.where('checked =? and user_id =?',true, user_id).order('created_at DESC').paginate(page: params[:page], per_page: 12 )
+        @photos = Photo.where('checked =? and user_id =?',true, user_id).order('created_at DESC').paginate(page: params[:page], per_page: 10 )
       end
       
 
@@ -77,11 +77,11 @@
 
       if keywords[0] == 'all'
 
-        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 15)
+        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 10)
       
       else
 
-        @photos = Photo.where('checked =? and id IN (?)',true, photos_ids_from_tags).order('created_at DESC').paginate(page: params[:page], per_page: 15)
+        @photos = Photo.where('checked =? and id IN (?)',true, photos_ids_from_tags).order('created_at DESC').paginate(page: params[:page], per_page: 10)
 
       end
       
@@ -98,7 +98,7 @@
       @tags = []
       @a.take(27).each do |f| @tags.push(f.name) end
 
-      @photos = Photo.where('checked =? and likes >=?',true, 1).all.order('downloads DESC').paginate(page: params[:page], per_page: 15)
+      @photos = Photo.where('checked =? and likes >=?',true, 0).all.order('downloads DESC').paginate(page: params[:page], per_page: 22)
 
     end
 

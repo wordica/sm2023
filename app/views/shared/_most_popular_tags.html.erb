@@ -4,9 +4,13 @@
 
         <div class='col-md-12 most_popular_tags_column'>
 
-            <% @tags.each do |t| %>
+            <% cache('most-pop-tags', expires_in: 1.day) do %>
+            
+                <% @tags.each do |t| %>
 
-                <span class='tag'><%= link_to t, searches_results_path(:keyword => t) %></span>
+                    <span class='tag'><%= link_to t, searches_results_path(:keyword => t) %></span>
+
+                <% end %>
 
             <% end %>
 

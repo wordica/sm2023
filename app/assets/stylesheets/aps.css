@@ -11,8 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
 
- 
+
  *= require global
+ *= require about_us
+ *= require contacts
+ *= require faq
+ *= require confirmation
+ *= require simple-cookies
  *= require new_password
  *= require unsubscribe
  *= require licence

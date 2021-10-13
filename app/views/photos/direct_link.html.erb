@@ -1,0 +1,84 @@
+<% content_for :head do %>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PhotoClicker.net - Free High Quality Stock Photos" />
+    <meta property="og:description" content="High-quality free photos for a blog, website presentation, wallpapers. Free stock photos from photographers all over the world." />
+    <meta property="og:image" content="https://photoclicker.net<%= @photo.image_url(:fancybox) %>" />
+    <meta property="og:url" content="https://photoclicker.net/photos/direct-link/<%= @photo.hashed%>" />
+    <meta property="og:site_name" content="PhotoClicker.net - Free Stock Photos" />
+
+<% end %>
+
+<div class='container-fluid direct_photo_link_container'>
+
+    <div class='row direct_photo_row'>
+
+        <div class='col-md-12 direct_photo_column'>
+
+            <div class='author_container'>
+
+                <div class='photo'>
+
+                    <% if User.where('id =?',@photo.user_id).first.profile.avatar.attached? %>
+
+                        <%= link_to image_tag(User.where('id =?',@photo.user_id).first.profile.avatar_, :alt=> User.where('id =?',@photo.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',@photo.user_id).first.profile) %>
+
+                    <% else %>
+
+                        <%= link_to image_tag('default/default_avatar.png', :alt=> User.where('id =?',@photo.user_id).first.username + ' user avatar'), profile_path(User.where('id =?',@photo.user_id).first.profile) %>
+
+                    <% end %>
+
+                </div>
+
+                <div class='name'>
+
+                    <%= User.where('id =?',@photo.user_id).first.username %>
+
+                </div>
+
+                <%= link_to 'Go to profile', profile_path(@photo.user.profile.id), :class=>'go_to_profile', :title=>'Go to ' + User.where('id =?',@photo.user_id).first.username + ' profile' %>
+
+            </div>
+
+            <div class='desc'>
+                <h3>Photo Description</h3>
+
+                <span class='divider'>
+
+                    <span class='divi'></span>
+                    <span class='divi middle'></span>
+                    <span class='divi'></span>
+
+                </span>
+
+                <h4><%= @description.name %></h4>
+
+            </div>
+
+            <div class='tags_container'>
+
+                <% Tag.where('photo_id =?',@photo.id).each do |f| %>
+
+                    <%= link_to f.name, searches_results_path(:keyword => f.name ), :class=>'tag' %>
+
+                <% end %>
+
+            </div>
+
+            <div class='photo_img'>
+
+                <%= link_to image_tag(@photo.image_url(:large), :alt=>'photo'), @photo.image_url(:fancybox) %>
+
+            </div>
+            <div class='download_button_container'>
+
+                <%= link_to 'Download', @photo.image_url, :title=>'Photo Download', :class=>'download_button',download:  Profile.where('user_id =?',@photo.user_id).first.profile_name + "_photoclicker_#{@photo.hashed}_downloaded.jpg"  %>
+                
+            </div>
+
+        </div>
+    
+    </div>
+
+</div>

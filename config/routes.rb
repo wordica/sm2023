@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    passwords: 'users/passwords'
+    passwords: 'users/passwords',
+    confirmations: "users/confirmations"
     
   },:path => '', :path_names => { :sign_in => "sign-in", :sign_out => "logout", :sign_up => "sign-up"}
 
@@ -35,11 +36,21 @@ Rails.application.routes.draw do
 
   match 'photos/add_like' => 'photos#add_like', :as => :add_like, :via => [:get, :post]
   match 'photos/download_photo' => 'photos#download_photo', :as => :download_photo, :via => [:get, :post]
+  match 'photos/about-us' => 'photos#about_us', :as => :about_us, :via => [:get, :post]
+  match 'photos/faq' => 'photos#faq', :as => :faq, :via => [:get, :post]
+
+  match 'photos/direct-link/:hashed' => 'photos#direct_link', :as => :direct_photo, :via => [:get, :post]
+
+  
 
   match 'searches/searches_results' => 'searches#searches_results', :as=> :searches_results, :via => [:get]
 
-  match 'searches/most-popular-free-photos' => 'searches#most_popular_free_photos', :as=> :most_popular, :via => [:get]
+  match 'searches/most-popular-free-photos' => 'searches#most_popular_free_photos', :as=> :most_popular, :via => [:get, :post]
 
+  #get 'searches/most-popular-free-photos/:page' => 'searches#most_popular_free_photos', :as => :most_popular
+
+  resources :contacts
+  resources :descriptions
   resources :unsubscribes
   resources :messages
   resources :rankings

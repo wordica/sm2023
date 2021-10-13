@@ -124,27 +124,27 @@ pl:
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
-      accepted: musi zostać zaakceptowane
-      blank: należy uzupełnić
-      confirmation: nie zgadza się z potwierdzeniem
-      empty: należy uzupełnić
-      equal_to: musi być równe %{count}
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match
+      empty: can't be blank
+      equal_to: must be equal %{count}
       even: musi być parzyste
-      exclusion: jest zarezerwowane
+      exclusion: isn't available
       greater_than: musi być większe od %{count}
       greater_than_or_equal_to: musi być większe lub równe %{count}
       inclusion: nie znajduje się na liście dopuszczalnych wartości
-      invalid: jest nieprawidłowe (bez polskich znaków)
+      invalid: invalid
       less_than: musi być mniejsze od %{count}
       less_than_or_equal_to: musi być mniejsze lub równe %{count}
-      not_a_number: nie jest liczbą
+      not_a_number: not a number
       not_an_integer: musi być liczbą całkowitą
       odd: musi być nieparzyste
       record_invalid: ! 'Negatywne sprawdzenie poprawności: %{errors}'
       taken: zajęty
-      too_long:  (maksymalnie %{count} znaków)
-      too_short: jest za krótkie (przynajmniej %{count} znaków)
-      wrong_length: ma nieprawidłową długość (powinna wynosić %{count} znaków)
+      too_long:  (maximum %{count} letters)
+      too_short: too short (at least %{count} chars)
+      wrong_length: wrong length (should be %{count} chars)
       
       
     template:
@@ -156,11 +156,11 @@ pl:
         many: ! '%{model} nie został zachowany z powodu %{count} błędów'
   helpers:
     select:
-      prompt: Proszę wybrać
+      prompt: Please choose
     submit:
-      create: Utwórz %{model}
-      submit: Zapisz %{model}
-      update: Aktualizuj %{model}
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
   number:
     currency:
       format:
@@ -221,7 +221,7 @@ pl:
             not_found: "not found"  
             already_confirmed: "was already confirmed"  
             not_locked: "was not locked"
-            not_saved: "Twoje dane nie zostały zapisane"
+            not_saved: "Data not saved"
             
       
   time:
@@ -248,35 +248,35 @@ pl:
   activerecord:
     attributes:
       user:
-        password: Hasło
-        email: Adres email
-        password_confirmation: Hasło 
-        username: Nazwa użytkownika
-        gender: Płeć
-        terms: Regulamin
-        personal_data: Politykę prywatności
+        password: Password
+        email: Adress email
+        password_confirmation: Password confirmation 
+        username: Username
+        gender: Gender
+        terms: Terma
+        personal_data: Private Policy
       profile:
-        age: Wiek
-        gender: Płeć
-        birthdate: Data urodzenia
-        terms: Zgodę na regulamin
-        personal_data: Zgodę na przetwarzanie danych osobowych
+        age: Age
+        gender: Gender
+        birthdate: Birthdate
+        terms: Terms
+        personal_data: Private Policy
       setting:
-        state: Województwa
-        city: Miasta                
+        state: State
+        city: City                
        
     errors:
       models:
         search:
           attributes:
-            user: użytkownik
-            required: wymagany
+            user: user
+            required: required
         profile:
           attributes:
             birthdate:
               before: musisz mieć więcej niż 15 lat
               after: musisz mieć mniej niż 80 lat
-              not_a_date: jest nieprawidłowe 
+              not_a_date: not a date
                
       <<: *errors
   terms:
@@ -399,8 +399,8 @@ pl:
     nopopular: "Popularność nieznana"
     description: "Ten użytkownik nie napisał jeszcze nic na swój temat na swoim profilu 40 latka. Mamy nadzieję, że w niedługim czasie się to zmieni."
     motto: "Umieść do 10 cytatów, które powiedzą coś więcej na Twój temat ... lub takie które najzwyczajniej lubisz"
-    account: Konto
-    gender: Płeć
+    account: Account
+    gender: Gender
     relationship: Rodzaj związku
     religion: Religia
     religion_status: Poziom wiary
@@ -426,15 +426,15 @@ pl:
     horoscope: Znak zodiaku
     empty: Nie podano
   will_paginate:
-    previous_label: "poprzednia"
-    next_label: "następna"
+    previous_label: "previous"
+    next_label: "next"
     page_gap: "..."
   devise:
     mailer:
       confirmation_instructions:
-        subject: "Potwierdź swoje konto - zakochanapolska.pl"
+        subject: "Welcome on PhotoClicker.net - Free Stock Photo"
       reset_password_instructions:
-        subject: "Instrukcja zresetowania hasła - zakochanapolska.pl"
+        subject: "Reset Password Instructions on PhotoClicker.net"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:

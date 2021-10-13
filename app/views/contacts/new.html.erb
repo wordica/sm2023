@@ -1,0 +1,30 @@
+
+<% if user_signed_in? %>
+<div class='container container_contact'>
+<% else %>
+<div class='container container_contact nologged'>
+<% end %>
+
+   	<fieldset class='col-md-12 edit_field'>
+
+		<h2>Contact with Us</h2>
+
+		<h4>Have any question about our site? Just write </h4>
+
+		<div class='row edit_description_list_row'>
+
+  			<%= form_for @contact, :html => { :class => "contact_form" } do |f| %>
+   
+	
+			    <div class='contact_subject'><%= f.text_field :subject, :required => false, :placeholder => 'Subject' %></div>
+			    <div class='contact_email'><%= f.email_field :email, :required => true, :placeholder => 'Email adress' %></div>
+			    <div class='contact_content'><%= f.text_area :body, :required => false, :placeholder => 'Your message' %></div>
+			    <div class='contact_button_send'><%= f.button 'Send Message', data: { disable_with: "Sending..." } %></div>
+
+		    <% end %>
+
+   		</div>
+    	
+	</fieldset>
+
+</div>

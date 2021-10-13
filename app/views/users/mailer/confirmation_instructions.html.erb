@@ -1,5 +1,22 @@
-<p>Welcome <%= @email %>!</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
 
-<p>You can confirm your account email through the link below:</p>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Confirmation Email</title>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+    </head>
+
+<body>
+    <p>Welcome <%= @email %>!</p>
+
+    <p>You can confirm your account email through the link below:</p>
+
+    <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+    <p>If You do not register on PhotoClicker.net, please do not confirm account</p>
+
+</body>
+</html>

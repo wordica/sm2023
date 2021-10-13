@@ -7,9 +7,13 @@
 #t.integer "user_id"
 
 class ProfilesController < ApplicationController
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:show, :index]
 
-    
+    def index
+
+        @users = User.all.order('created_at DESC').paginate(page: params[:page], per_page: 30 )
+
+    end
 
     def show
 

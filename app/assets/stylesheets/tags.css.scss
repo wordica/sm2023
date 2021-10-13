@@ -1,14 +1,17 @@
 .most_popular_tags_container{
 
-    padding:30px 0px 0px 0px;
+    padding:45px 0px 0px 0px;
     
 }
 .most_popular_tags_row{
     
+    height:120px;
 }
 .most_popular_tags_column{
+
     text-align: center;
     min-height:75px;
+    max-height:120px;
     position:relative;
     z-index:101;
     

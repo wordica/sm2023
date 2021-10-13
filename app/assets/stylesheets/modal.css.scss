@@ -90,6 +90,24 @@
             padding:0px 15px 0px 15px;
         }
 
+        .info_2{
+
+            font-size:14px;
+            color:#666666;
+            font-weight:400;
+            display:inline-block;
+            width:100%;
+            padding:5px 15px 5px 15px;
+
+        }
+
+        .direct_photo_link{
+
+            a{
+                font-size:15px;
+            }
+        }
+
         a{
 
             display:inline-block;
@@ -223,7 +241,7 @@
 
     .data_container{
 
-        padding:15px 30px 15px 30px;
+        padding:15px 30px 30px 30px;
 
         .hire{
 
@@ -406,10 +424,6 @@
                 display:inline-block;
                 margin-right:5px;
                 border-bottom:1px solid #e5e5e5;
-            }:hover{
-                background-color: transparent !important;
-                color:#666666 !important;
-                text-shadow: none !important;
             }
 
             .data{
@@ -422,13 +436,33 @@
                 box-shadow:0px 0px 16px rgba(0, 0, 0, 0.12);
                 text-decoration: none !important;
                 
-            }:hover{
+            }
+            .data:hover{
 
                 color:#ffffff !important;
                 background-color: #abd022 !important;
 			    background-image: image-url('patterns/line_2.png');
                 background-repeat: repeat;
                 text-shadow:2px 2px 0px rgba(0,0,0,0.12);
+
+            }
+
+        }
+
+        .photo_description{
+
+            text-align:center;
+            display:block;
+            margin:50px 0px 0px 0px !important;
+            padding:0px 25px 0px 25px !important;
+            
+            h6{
+
+                font-size:16px;
+                font-family: 'Roboto';
+                color:#444444;
+                font-weight: 400;
+                line-height:26px;
 
             }
 
@@ -471,8 +505,15 @@
                 .photo{
 
                     display:inline-block;
-                    margin:0px 4px 4px 0px;
+                    margin:0px 4px 8px 0px;
                     width:150px;
+
+                    img{
+
+                        width:150px;
+                        cursor: help;
+                        
+                    }
 
                     .photo_background{
 
