@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     def home
 
         @search = Search.new
-        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 10 )
+        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 10)
         @a = Tag.find_by_sql('SELECT name, COUNT(*) c FROM tags GROUP BY name HAVING c > 1 ORDER BY c DESC')
         
         @tags = []
@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
         end
 
+        @count_images = 0
 
         #@related_photos = Photo.where('id IN (?)',@photo_tags).order('created_at DESC').limit(8)
 
@@ -23,7 +24,7 @@ class PagesController < ApplicationController
     def home_logged_in
 
         @search = Search.new
-        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 10 )
+        @photos = Photo.where('checked =?',true).order('created_at DESC').paginate(page: params[:page], per_page: 8 )
         
         @a = Tag.find_by_sql('SELECT name, COUNT(*) c FROM tags GROUP BY name HAVING c > 1 ORDER BY c DESC')
         
@@ -34,7 +35,7 @@ class PagesController < ApplicationController
 
         end
 
-
+        @count_images = 0
         
 
     end

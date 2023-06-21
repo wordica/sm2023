@@ -93,6 +93,16 @@
 
                 </div>
 
+                <div class='photo_button_container'>
+
+                  <div class='photo_index_button link_button'>
+
+                    <%= link_to 'Link'.html_safe, direct_photo_path(photo.hashed) %>
+                      
+                  </div>
+
+                </div>
+
             </div>
 
           <% end %>

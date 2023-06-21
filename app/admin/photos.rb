@@ -55,12 +55,12 @@ ActiveAdmin.register Photo, :as => 'photo' do
   
     end
     
-    batch_action :approve do |selection|
+    batch_action :approve, :confirm => "czy na pewno dodac?" do |selection|
       Photo.find(selection).each { |a| a.approve! }
       redirect_to collection_path, :notice => "Images approved"
     end
     
-    batch_action :destroy, data: { confirm: 'na pewno?'}, :plural_model => "photos" do |selection|
+    batch_action :destroy, :confirm => "czy na pewno usunac?", :plural_model => "photos" do |selection|
       Photo.find(selection).each { |a| a.reject! }
       redirect_to collection_path, :notice => "Images destroyed"
     end

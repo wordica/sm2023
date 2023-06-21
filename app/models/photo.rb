@@ -92,6 +92,14 @@ class Photo < ActiveRecord::Base
          #Informations.create!(:user_id => self.user.id, :sender_id => 1, :content => I18n.t("vocabulary.accepted_av"), :subject_h => '' )
   
     end
+
+
+    def reject!
+    
+      self.destroy
+         #Informations.create!(:user_id => self.user.id, :sender_id => 1, :content => I18n.t("vocabulary.accepted_av"), :subject_h => '' )
+  
+    end
     
 
 

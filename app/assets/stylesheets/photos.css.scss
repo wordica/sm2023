@@ -151,6 +151,145 @@
 	margin:50px 0px 50px 0px !important;
 	text-align:center;
 
+
+	.photo_spec_info{
+
+		padding:15px 30px 45px 30px;
+
+		text-align:center;
+
+        .added_at{
+
+            width:100%;
+            
+
+            font-size:16px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:16px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+            }
+        }
+
+        .dimensions{
+
+            width:100%;
+            
+
+            font-size:16px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:16px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+        }
+
+        
+
+        .downloaded{
+            
+            width:100%;
+            
+
+            font-size:16px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:16px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+        }
+
+        .liked{
+            
+            width:100%;
+           
+
+            font-size:16px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:16px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+        }
+
+        .views{
+            
+            width:100%;
+           
+
+            font-size:16px;
+            color:#666666;
+            font-weight:400;
+
+            .title{
+
+                display:inline-block;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+            .data{
+                
+                display:inline-block;
+                font-size:16px;
+                color:#333333;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+        }
+
+
+	}
+
 	.photo_img{
 
 		padding:10px 10px 10px 10px;
@@ -476,9 +615,13 @@
 					}
 					.photo_index_button.photo_delete_button{
 
-						margin-bottom: 0px;
+						
 					}
+					.photo_index_button.link_button{
 
+						margin-bottom: 0px;
+
+					}
 					
 
 				}
@@ -762,6 +905,15 @@
 
 			}
 		}
+}
+
+.info_red{
+
+	padding:25px 0px 15px 0px;
+	color:red;
+	font-family:'Poppins';
+	font-size:13px;
+	text-align:center;
 }
 
 .desc_row{

@@ -22,11 +22,11 @@ set :environment, "production"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 env :PATH, ENV['PATH']
 
-#every 1.day, :at => '5:00 am' do
-  #rake "-s sitemap:refresh"
-#end
+every 1.day, :at => '5:00 am' do
+  rake "-s sitemap:refresh"
+end
 
-every 2.minutes do
+every 10.minutes do
   rake "photoclicker:mailing:send"
 end
 

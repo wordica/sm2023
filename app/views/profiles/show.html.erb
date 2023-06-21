@@ -18,7 +18,7 @@
             <div class='avatar'>
 
                 <% if @profile.avatar.attached? %>
-                    <%= image_tag(@profile.avatar_) %>
+                    <%= image_tag(@profile.avatar_show, :alt=>'profile photo') %>
                 <% else %>
                     <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
                 <% end %>
@@ -32,7 +32,13 @@
             <ul class="list-group list-group-flush">
 
                 <li class="list-group-item"><%= @profile.profile_name.truncate(50) %></li>
-                <li class="list-group-item"><%= @profile.country.truncate(50) if @profile.country.present? %></li>
+                <li class="list-group-item">
+                    <% if @profile.country.present? %>
+                        <%= @profile.country.truncate(50) %></li>
+                    <% else %>
+                        No Country Added</li>
+                    <% end %>
+
                 <li class="list-group-item a_tag">
                 
                     <% if @profile.my_site.present? %>
@@ -42,17 +48,24 @@
                     <% end %>
 
                 <li class="list-group-item">
-                    <% if @profile.instagram_url.present? %>
-                        <%= @profile.instagram_url.truncate(50) %></li>
+                    <% if @profile.instagram_url.present? && !(@profile.instagram_url.include? "won't say") %>
+                        <%= link_to @profile.instagram_url.truncate(50), @profile.instagram_url, :target=> '_blank', :rel => 'nofollow' %></li>
                     <% else %>
                         No Instagram Added</li>
                     <% end %>
 
                 <li class="list-group-item">
-                <% if @profile.facebook_url.present? %>
-                    <%= @profile.facebook_url.truncate(50) %></li>
+                <% if @profile.facebook_url.present? && !(@profile.facebook_url.include? "won't say") %>
+                    <%= link_to @profile.facebook_url.truncate(50), @profile.facebook_url, :target=> '_blank', :rel => 'nofollow' %></li>
                 <% else %>
                     No FaceBook Added</li>
+                <% end %>
+
+                <li class="list-group-item">
+                <% if @profile.deviantart_url.present? && !(@profile.deviantart_url.include? "won't say")  %>
+                    <%= link_to @profile.deviantart_url.truncate(50), @profile.deviantart_url, :target=> '_blank', :rel => 'nofollow' %></li>
+                <% else %>
+                    No DeviantArt Added</li>
                 <% end %>
 
             </ul>

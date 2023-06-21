@@ -13,7 +13,7 @@ production:
   database: photoclicker
   pool: 5
   username: root
-  password: r432s!!#4Xt52vVfd97626z$1x@EXXAE90(1#cPW626zPWBss!!#4XtBQto
+  password: KKhSbjKKhSbjPmiF7RIq7IleKhGX6ulP!ROWCV$)2xVOy5ec5bdAlgKVQJkPmiF7RIq7IleKhGX6ulbdAlgKVQJk
   socket: /var/run/mysqld/mysqld.sock
   host: localhost
 

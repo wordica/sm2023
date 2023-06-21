@@ -1,7 +1,8 @@
+
 <% @photos.each do |p| %>
 
     <% p.update(:views => p.views + 1 ) %>
-
+    
     <div class='iso_image'>
         
         <div class='image_div'>
@@ -22,7 +23,7 @@
 
                             <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
 
-                                <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+                                <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_show, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
                             <% else %>
 
@@ -83,7 +84,7 @@
             <% end %>    
 
         </div>
-
+        
         <% cache('photo-firstpage-description-' + p.hashed.to_s, expires_in: 1.hour) do %>
             <div class='photo_desc_bottom'>
 
@@ -101,7 +102,7 @@
                 
                 <% if !p.get_related_photos.nil? %>
                                                 
-                    <%  
+                    <%
 
                         a1 = []
                         a1.push(p.get_related_photos)
@@ -121,7 +122,7 @@
 
                         <% end %>
 
-                    <% end %>
+                    <%end %>
 
                 </div>
                 
@@ -133,16 +134,18 @@
 
                 <div class='buttons_container'>
 
-                    <!-- <div class='button_more'><span>More Info</span></div> -->
+                    <button data-bs-toggle="modal" data-bs-target="modal_<%= p.id %>" class='button_more'><span>More Info</span></button>
+
                     <%= link_to 'Download', p.image_url, :data => { :id => p.hashed }, :class=>'button_download_a', :title=>'Download Photo', download:  Profile.where('user_id =?',p.user_id).first.profile_name + "_photoclicker_#{p.hashed}_downloaded.jpg" %>
+
+                    <%= link_to 'Direct Link Photo Page', direct_photo_path(p.hashed), :class=>'button_more', :title=>'Photo Page', :target=>'_blank', :rel=>'noreferrer noopener' %>
         
                 </div>
 
             </div>
             
         <% end %>
-
-        
+    
 
         <div class='modal_container'>
 
@@ -157,11 +160,11 @@
 
                             <div class='modal_avatar'>
 
-                                <% cache('user-avatar-' + p.hashed.to_s, expires_in: 1.hour) do %>
+                                
 
                                     <% if User.where('id =?',p.user_id).first.profile.avatar.attached? %>
 
-                                        <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
+                                        <%= link_to image_tag(User.where('id =?',p.user_id).first.profile.avatar_show, :alt=> User.where('id =?',p.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',p.user_id).first.profile) %>
 
                                     <% else %>
 
@@ -169,7 +172,7 @@
 
                                     <% end %>
 
-                                <% end %>
+                                
 
                             </div>
 
@@ -188,14 +191,14 @@
 
                                 <div class='info'>You do not have to but if You can, add link to user <b><%= User.where('id =?',p.user_id).first.username %></b> profile if You will use this photo on Your site </div>
                                 
-                                <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
-                                    <%= 'http://localhost:3000/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
+                                <div class='profile_attribute tooltips' title="Click to save in clipboard"  data-clipboardtext=<%= ('https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name).to_s %>>
+                                    <%= 'https://photoclicker.net/profiles/' + User.where('id =?',p.user_id).first.profile.profile_name %>
                                     
                                 </div>
                                 <div class='info_2'>or go to direct photo page URL </div>
                                 <div class='direct_photo_link'>
                                     
-                                    <%= link_to 'http://localhost:3000/photos/' + p.hashed.to_s, direct_photo_path(p.hashed), :class=>'direct_link_a', :title=>'Photo direct link', :rel=>'noreferrer noopener', :target=>'_blank'  %>
+                                    <%= link_to 'https://photoclicker.net/photos/' + p.hashed.to_s, direct_photo_path(p.hashed), :class=>'direct_link_a', :title=>'Photo direct link', :rel=>'noreferrer noopener', :target=>'_blank'  %>
 
                                 </div>
 
@@ -208,6 +211,40 @@
                             <%= link_to image_tag(p.image_url(:large), :alt=> User.where('id =?',p.user_id).first.username + ' free stock photo'), p.image_url(:fancybox), :class => 'big_image_fancybox' %>
 
                         </div>
+                        <!--
+                        <div class='modal_photo_bottom_adv'>
+
+                            <%# r = rand(1..4) %>
+
+                            <%# if r == 1 %>
+
+                                
+                                <a target="_blank" rel="nofollow" href="https://alitems.site/g/6bek0vdhige7c03b269e16525dc3e8/?i=4"><img width="468" height="60" border="0" src="https://ad.admitad.com/b/6bek0vdhige7c03b269e16525dc3e8/" alt="AliExpress WW"/></a>
+                               
+
+                            <%# elsif r == 2 %>
+
+                                
+                                <a target="_blank" rel="nofollow" href="https://ad.admitad.com/g/95dwa1an8te7c03b269ea186dc55d3/?i=4"><img width="468" height="60" border="0" src="https://ad.admitad.com/b/95dwa1an8te7c03b269ea186dc55d3/" alt="Envato WW"/></a>
+                                
+
+                            <%# elsif r == 3 %>
+
+                                
+                                <a target="_blank" rel="nofollow" href="https://alitems.site/g/6bek0vdhige7c03b269e16525dc3e8/?i=4"><img width="468" height="60" border="0" src="https://ad.admitad.com/b/6bek0vdhige7c03b269e16525dc3e8/" alt="AliExpress WW"/></a>
+                                
+
+                            <%# elsif r == 4 %>
+
+                                
+                                <a target="_blank" rel="nofollow" href="https://alitems.site/g/6bek0vdhige7c03b269e16525dc3e8/?i=4"><img width="468" height="60" border="0" src="https://ad.admitad.com/b/6bek0vdhige7c03b269e16525dc3e8/" alt="AliExpress WW"/></a>
+                                
+
+                            <%# end %>
+
+
+                        </div>
+                        -->
 
                         <div class="modal-footer">
 
@@ -262,7 +299,7 @@
                                     <div class='dimensions'>
 
                                         <span class='title'>Dimensions:</span>
-                                        <span class='data'><%= MiniMagick::Image.open('http://localhost:3000' + p.image_url).dimensions %></span>
+                                        <span class='data'><%= MiniMagick::Image.open('https://photoclicker.net' + p.image_url).dimensions %></span>
 
                                     </div>
 
@@ -408,10 +445,8 @@
                                         </div>
 
                                     <% end %>
-                                    
-
-                                </div>
                                 
+                                </div>                        
 
                             </div>
 
@@ -427,10 +462,7 @@
 
     </div>
 
-    
-                    
 <% end %>
-
 
 
 

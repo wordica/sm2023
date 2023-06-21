@@ -69,7 +69,7 @@ class ProfilesController < ApplicationController
 
         def profile_params
 
-            params.require(:profile).permit(:hire, :description, :country, :instagram_url, :facebook_url, :my_site, :uploaded_photos, :rating, :profile_name, :user_id, :avatar)
+            params.require(:profile).permit(:hire, :description, :country, :deviantart_url, :instagram_url, :facebook_url, :my_site, :uploaded_photos, :rating, :profile_name, :user_id, :avatar)
 
         end
 end

@@ -237,10 +237,21 @@
 
 @media only screen and (max-width: 578px) { 
 
-	/* ABOUT US */
-
 	
+	.most_popular_tags_row{
+    
+		min-height:120px!important;
+		max-height:120px!important;
+	}
 
+	.most_popular_tags_column{
+
+		
+		min-height:120px !important;
+		max-height:120px !important;
+
+	}
+	/* ABOUT US */
 	.section_4{
 
 		padding: 0px 0px 15px 0px !important;
@@ -545,6 +556,25 @@
 
 @media only screen and (max-width: 450px) {
 
+	.modal_photo_bottom_adv{
+
+		display:none !important;
+
+	}
+
+	.most_popular_tags_row{
+    
+		min-height:250px!important;
+		max-height:250px!important;
+	}
+
+	.most_popular_tags_column{
+
+		
+		min-height:250px !important;
+		max-height:250px !important;
+
+	}
 	.photo_img img{
 
 		max-width:300px !important;
@@ -854,6 +884,27 @@
 }
 
 @media only screen and (max-width: 325px) {
+
+
+	.modal_photo_bottom_adv{
+
+		display:none !important;
+		
+	}
+
+	.most_popular_tags_row{
+    
+		min-height:300px!important;
+		max-height:300px!important;
+	}
+
+	.most_popular_tags_column{
+
+		
+		min-height:300px !important;
+		max-height:300px !important;
+
+	}
 
 	.photo_img img{
 

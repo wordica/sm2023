@@ -15,13 +15,30 @@
 
         <div class='col-md-12 direct_photo_column'>
 
+            <div class='top_adv'>
+
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4097832296771894"
+                crossorigin="anonymous"></script>
+                <!-- PH_photo_page_top -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4097832296771894"
+                    data-ad-slot="6892519946"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+            </div>
+
             <div class='author_container'>
 
                 <div class='photo'>
 
                     <% if User.where('id =?',@photo.user_id).first.profile.avatar.attached? %>
 
-                        <%= link_to image_tag(User.where('id =?',@photo.user_id).first.profile.avatar_, :alt=> User.where('id =?',@photo.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',@photo.user_id).first.profile) %>
+                        <%= link_to image_tag(User.where('id =?',@photo.user_id).first.profile.avatar_show, :alt=> User.where('id =?',@photo.user_id).first.username + ' profile photo'), profile_path(User.where('id =?',@photo.user_id).first.profile) %>
 
                     <% else %>
 
@@ -66,16 +83,78 @@
 
             </div>
 
+            <div class='photo_spec_info'>
+
+                <% cache('photo-page-added-' + @photo.hashed.to_s, expires_in: 30.days) do %>
+
+                        <div class='added_at'>
+
+                            <span class='title'>Added:</span>
+                            <span class='data'><%= localize( @photo.created_at, :format => :friend ) %></span>
+
+                        </div>
+
+                <% end %>
+
+                <% cache('photo-page-dimension-' + @photo.hashed.to_s, expires_in: 30.days) do %>
+
+                    <div class='dimensions'>
+
+                        <span class='title'>Dimensions:</span>
+                        <span class='data'><%= MiniMagick::Image.open('https://photoclicker.net' + @photo.image_url).dimensions %></span>
+
+                    </div>
+
+                <% end %>
+
+                <% cache('photo-page-downloaded-' + @photo.hashed.to_s, expires_in: 1.day) do %>
+
+                    <div class='downloaded'>
+                                        
+                        <span class='title'>Downloaded:</span>
+                        <span class='data'><%= @photo.downloads %></span>
+
+                    </div>
+
+                <% end %>
+
+                <% cache('photo-page-likes-' + @photo.hashed.to_s, expires_in: 1.day) do %>
+
+                    <div class='liked'>
+                                        
+                        <span class='title'>Likes:</span>
+                        <span class='data'><%= Like.where('photo_id =?',@photo.id).all.count %></span>
+
+                    </div>
+
+                <% end %>
+
+                <% cache('photo-page-views-' + @photo.hashed.to_s, expires_in: 1.day) do %>
+
+                    <div class='views'>
+                                        
+                        <span class='title'>Views:</span>
+                        <span class='data'><%= @photo.views %></span>
+
+                        </div>
+                                    
+                <% end %>
+
+            </div>
+
             <div class='photo_img'>
 
                 <%= link_to image_tag(@photo.image_url(:large), :alt=>'photo'), @photo.image_url(:fancybox) %>
 
             </div>
+
             <div class='download_button_container'>
 
                 <%= link_to 'Download', @photo.image_url, :title=>'Photo Download', :class=>'download_button',download:  Profile.where('user_id =?',@photo.user_id).first.profile_name + "_photoclicker_#{@photo.hashed}_downloaded.jpg"  %>
                 
             </div>
+
+            
 
         </div>
     

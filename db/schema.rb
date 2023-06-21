@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_094316) do
+ActiveRecord::Schema.define(version: 2021_12_05_171837) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "namespace"
@@ -193,6 +193,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_094316) do
     t.text "description"
     t.string "slug"
     t.boolean "hire", default: false
+    t.string "deviantart_url", default: "won't say"
   end
 
   create_table "rankings", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|

@@ -8,9 +8,9 @@ class Profile < ApplicationRecord
 
     after_create :add_profile_name
 
-    def avatar_
+    def avatar_show
        
-        avatar.variant(resize_to_fill: [150, 150]).processed 
+        self.avatar.variant(resize_to_fill: [150, 150]).processed 
 
     end
 

@@ -10,7 +10,7 @@
             <div class='avatar'>
 
                 <% if @profile.avatar.attached? %>
-                    <%= image_tag(@profile.avatar_) %>
+                    <%= image_tag(@profile.avatar_show) %>
                 <% else %>
                     <%= image_tag('default/default_avatar.png', :alt=>'user avatar') %>
                 <% end %>
@@ -50,6 +50,8 @@
                     <%= f.text_field :my_site, :value=>@profile.my_site, :class=>'form-control', :placeholder => 'Your www '  %>
                     <%= f.text_field :instagram_url, :value=>@profile.instagram_url, :class=>'form-control', :placeholder => 'Your instagram'  %>
                     <%= f.text_field :facebook_url, :value=>@profile.facebook_url, :class=>'form-control', :placeholder => 'Your facebook'  %>
+
+                    <%= f.text_field :deviantart_url, :value=>@profile.deviantart_url, :class=>'form-control', :placeholder => 'Your DeviantArt Profile'  %>
                     <%= f.submit 'Save data',data: { disable_with: "Saving data..."}, :class=>'submit_button'  %>
 
                 <% end %>

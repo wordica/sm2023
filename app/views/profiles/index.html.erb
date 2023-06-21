@@ -30,7 +30,7 @@
                                 
                                     <% if f.profile.avatar.attached? %>
 
-                                        <%= link_to image_tag(f.profile.avatar_, :alt=>'profile photo'), profile_path(f.profile) %>
+                                        <%= link_to image_tag(f.profile.avatar_show, :alt=>'profile photo'), profile_path(f.profile) %>
 
                                     <% else %>
 
@@ -76,7 +76,7 @@
                                         <span class='profile_fb'>
 
                                             <% if f.profile.facebook_url.present? %>
-                                                 <%= f.profile.facebook_url.truncate(34)  %>
+                                                 <%= link_to f.profile.facebook_url.truncate(34), f.profile.facebook_url, :target=> '_blank', :rel => 'nofollow'  %>
                                             <% else %>
                                                 No Facebook added                                            
                                             <% end %>                                        
@@ -86,7 +86,7 @@
                                         <span class='profile_insta'>
 
                                             <% if f.profile.instagram_url.present? %>
-                                                <%= f.profile.instagram_url.truncate(34)  %>
+                                                <%= link_to f.profile.instagram_url.truncate(34), f.profile.instagram_url, :target=> '_blank', :rel => 'nofollow'  %>
                                             <% else %>
                                                 No Instagram added                                            
                                             <% end %>                                        

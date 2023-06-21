@@ -14,6 +14,6 @@ class Unsubscribe < ApplicationRecord
     
         end
         
-      end
+    end
     
 end
